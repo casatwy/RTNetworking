@@ -231,28 +231,28 @@
 - (void)beforePerformSuccessWithResponse:(AIFURLResponse *)response
 {
     self.errorType = RTAPIManagerErrorTypeSuccess;
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformSuccessWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:beforePerformSuccessWithResponse:)]) {
         [self.interceptor manager:self beforePerformSuccessWithResponse:response];
     }
 }
 
 - (void)afterPerformSuccessWithResponse:(AIFURLResponse *)response
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformSuccessWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterPerformSuccessWithResponse:)]) {
         [self.interceptor manager:self afterPerformSuccessWithResponse:response];
     }
 }
 
 - (void)beforePerformFailWithResponse:(AIFURLResponse *)response
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformFailWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:beforePerformFailWithResponse:)]) {
         [self.interceptor manager:self beforePerformFailWithResponse:response];
     }
 }
 
 - (void)afterPerformFailWithResponse:(AIFURLResponse *)response
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformFailWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterPerformFailWithResponse:)]) {
         [self.interceptor manager:self afterPerformFailWithResponse:response];
     }
 }
@@ -260,7 +260,7 @@
 //只有返回YES才会继续调用API
 - (BOOL)shouldCallAPIWithParams:(NSDictionary *)params
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(shouldCallAPIWithParams:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:shouldCallAPIWithParams:)]) {
         return [self.interceptor manager:self shouldCallAPIWithParams:params];
     } else {
         return YES;
@@ -269,7 +269,7 @@
 
 - (void)afterCallingAPIWithParams:(NSDictionary *)params
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterCallingAPIWithParams:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterCallingAPIWithParams:)]) {
         [self.interceptor manager:self afterCallingAPIWithParams:params];
     }
 }
