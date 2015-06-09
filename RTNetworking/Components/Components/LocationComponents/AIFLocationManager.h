@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, AJKHDLocationManagerLocationServiceStatus) {
 };
 
 
-@interface AIFLocationManager : RTAPIBaseManager <RTAPIManagerValidator, RTAPIManagerParamSourceDelegate, RTAPIManagerApiCallBackDelegate, CLLocationManagerDelegate>
+@interface AIFLocationManager : RTAPIBaseManager <RTAPIManager,RTAPIManagerValidator, RTAPIManagerParamSourceDelegate, RTAPIManagerApiCallBackDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, copy, readonly) NSString *selectedCityId;
 @property (nonatomic, copy, readonly) NSString *selectedCityName;

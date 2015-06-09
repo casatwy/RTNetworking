@@ -9,7 +9,7 @@
 #import "RTAPIBaseManager.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface AIFCityListManager : RTAPIBaseManager<RTAPIManagerApiCallBackDelegate, RTAPIManagerParamSourceDelegate, RTAPIManagerValidator>
+@interface AIFCityListManager : RTAPIBaseManager<RTAPIManager, RTAPIManagerApiCallBackDelegate, RTAPIManagerParamSourceDelegate, RTAPIManagerValidator>
 
 - (NSDictionary *)cityWithLocation:(CLLocation *)location;
 - (NSDictionary *)cityInfoWithCityId:(NSString *)cityId;
