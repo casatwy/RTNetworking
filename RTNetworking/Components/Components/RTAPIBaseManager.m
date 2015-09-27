@@ -194,7 +194,7 @@
     [self removeRequestIdWithRequestID:response.requestId];
     if ([self.validator manager:self isCorrectWithCallBackData:response.content]) {
         
-        if (kAIFShouldCache && !response.isCache) {
+        if ([self shouldCache] && !response.isCache) {
             [self.cache saveCacheWithData:response.responseData serviceIdentifier:self.child.serviceType methodName:self.child.methodName requestParams:response.requestParams];
         }
         
