@@ -30,7 +30,7 @@ static NSString *AIFKeychainServiceName = @"com.anjukeApps";
 static NSString *AIFUDIDName = @"anjukeAppsUDID";
 static NSString *AIFPasteboardType = @"anjukeAppsContent";
 
-static BOOL kAIFShouldCache = YES;
+static BOOL kAIFShouldCache = NO;
 static NSTimeInterval kAIFCacheOutdateTimeSeconds = 300; // 5分钟的cache过期时间
 static NSUInteger kAIFCacheCountLimit = 1000; // 最多1000条cache
 
