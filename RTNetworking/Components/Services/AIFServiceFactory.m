@@ -92,17 +92,18 @@ NSString * const kAIFServiceGoogleMapAPIDirections = @"kAIFServiceGoogleMapAPIDi
 
 @interface AIFServiceFactory ()
 
-@property (nonatomic, strong) NSMutableDictionary *serviceStorage;
+@property (nonatomic, strong) NSCache *serviceStorage;
 
 @end
 
 @implementation AIFServiceFactory
 
 #pragma mark - getters and setters
-- (NSMutableDictionary *)serviceStorage
+- (NSCache *)serviceStorage
 {
     if (_serviceStorage == nil) {
-        _serviceStorage = [[NSMutableDictionary alloc] init];
+        _serviceStorage = [[NSCache alloc] init];
+        _serviceStorage.countLimit = 5; // 我在这里随意定了一个，具体的值还是要取决于各自App的要求。
     }
     return _serviceStorage;
 }
@@ -121,10 +122,11 @@ NSString * const kAIFServiceGoogleMapAPIDirections = @"kAIFServiceGoogleMapAPIDi
 #pragma mark - public methods
 - (AIFService<AIFServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier
 {
-    if (self.serviceStorage[identifier] == nil) {
-        self.serviceStorage[identifier] = [self newServiceWithIdentifier:identifier];
+    if ([self.serviceStorage objectForKey:identifier] == nil) {
+        [self.serviceStorage setObject:[self newServiceWithIdentifier:identifier]
+                                forKey:identifier];
     }
-    return self.serviceStorage[identifier];
+    return [self.serviceStorage objectForKey:identifier];
 }
 
 #pragma mark - private methods
