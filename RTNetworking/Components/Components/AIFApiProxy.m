@@ -12,6 +12,7 @@
 #import "AIFRequestGenerator.h"
 #import "AIFLogger.h"
 #import "NSURLRequest+AIFNetworkingMethods.h"
+#import "NSDictionary+AXNetworkingMethods.h"
 
 static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
 static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
@@ -22,7 +23,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 @property (nonatomic, strong) NSNumber *recordedRequestId;
 
 //AFNetworking stuff
-@property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
+@property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
 
 @end
 
@@ -36,13 +37,13 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
     return _dispatchTable;
 }
 
-- (AFHTTPRequestOperationManager *)operationManager
+- (AFHTTPSessionManager *)sessionManager
 {
-    if (_operationManager == nil) {
-        _operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:nil];
-        _operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    if (_sessionManager == nil) {
+        _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:nil];
+        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
-    return _operationManager;
+    return _sessionManager;
 }
 
 #pragma mark - life cycle
@@ -94,8 +95,8 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 
 - (void)cancelRequestWithRequestID:(NSNumber *)requestID
 {
-    NSOperation *requestOperation = self.dispatchTable[requestID];
-    [requestOperation cancel];
+    NSURLSessionDataTask *task = self.dispatchTable[requestID];
+    [task cancel];
     [self.dispatchTable removeObjectForKey:requestID];
 }
 
@@ -114,55 +115,48 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
     NSNumber *requestId = [self generateRequestId];
     
     // 跑到这里的block的时候，就已经是主线程了。
-    AFHTTPRequestOperation *httpRequestOperation = [self.operationManager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSURLSessionDataTask *task = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         
-        AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        if (storedOperation == nil) {
+        NSURLSessionDataTask *storedTask = self.dispatchTable[requestId];
+        if (storedTask == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
-        } else {
+        }else{
             [self.dispatchTable removeObjectForKey:requestId];
         }
         
-        [AIFLogger logDebugInfoWithResponse:operation.response
-                              resposeString:operation.responseString
-                                    request:operation.request
-                                      error:NULL];
-        
-        AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:operation.responseString
-                                                                        requestId:requestId
-                                                                          request:operation.request
-                                                                     responseData:operation.responseData
-                                                                           status:AIFURLResponseStatusSuccess];
-        success?success(response):nil;
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        if (storedOperation == nil) {
-            // 如果这个operation是被cancel的，那就不用处理回调了。
-            return;
-        } else {
-            [self.dispatchTable removeObjectForKey:requestId];
+        if (!error) {
+            
+            // success
+            
+            [AIFLogger logDebugInfoWithResponse:(NSHTTPURLResponse*)response
+                                  resposeString:[self toResponseString:responseObject]
+                                        request:request
+                                          error:NULL];
+            
+            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:[self toResponseString:responseObject]
+                                                                            requestId:requestId
+                                                                              request:request
+                                                                         responseData:responseObject
+                                                                               status:AIFURLResponseStatusSuccess];
+            success?success(response):nil;
+        }else{
+            [AIFLogger logDebugInfoWithResponse:(NSHTTPURLResponse*)response
+                                  resposeString:[self toResponseString:responseObject]
+                                        request:request
+                                          error:error];
+ 
+            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:[self toResponseString:responseObject]
+                                                                            requestId:requestId
+                                                                              request:request
+                                                                         responseData:responseObject
+                                                                                error:error];
+             fail?fail(response):nil;
         }
-        
-        
-        [AIFLogger logDebugInfoWithResponse:operation.response
-                              resposeString:operation.responseString
-                                    request:operation.request
-                                      error:error];
-        
-        AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:operation.responseString
-                                                                        requestId:requestId
-                                                                          request:operation.request
-                                                                     responseData:operation.responseData
-                                                                            error:error];
-        fail?fail(response):nil;
-        
     }];
     
-    self.dispatchTable[requestId] = httpRequestOperation;
-    [[self.operationManager operationQueue] addOperation:httpRequestOperation];
+    self.dispatchTable[requestId] = task;
+    [task resume];
     return requestId;
 }
 
@@ -180,4 +174,18 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
     return _recordedRequestId;
 }
 
+- (NSString *)toResponseString:(id)response{
+    
+    NSError *jsonError;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:response
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&jsonError];
+    
+    if (jsonError) {
+        return [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+    }else{
+        return [json AIF_jsonString];
+    }
+    
+}
 @end
