@@ -124,17 +124,18 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         }else{
             [self.dispatchTable removeObjectForKey:requestId];
         }
+        NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
         if (!error) {
             
             // success
             
             [AIFLogger logDebugInfoWithResponse:(NSHTTPURLResponse*)response
-                                  resposeString:[self toResponseString:responseObject]
+                                  resposeString:responseString
                                         request:request
                                           error:NULL];
             
-            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:[self toResponseString:responseObject]
+            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:responseString
                                                                             requestId:requestId
                                                                               request:request
                                                                          responseData:responseObject
@@ -142,11 +143,11 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
             success?success(response):nil;
         }else{
             [AIFLogger logDebugInfoWithResponse:(NSHTTPURLResponse*)response
-                                  resposeString:[self toResponseString:responseObject]
+                                  resposeString:responseString
                                         request:request
                                           error:error];
  
-            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:[self toResponseString:responseObject]
+            AIFURLResponse *response = [[AIFURLResponse alloc] initWithResponseString:responseString
                                                                             requestId:requestId
                                                                               request:request
                                                                          responseData:responseObject
@@ -172,20 +173,5 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         }
     }
     return _recordedRequestId;
-}
-
-- (NSString *)toResponseString:(id)response{
-    
-    NSError *jsonError;
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:response
-                                                         options:NSJSONReadingMutableContainers
-                                                           error:&jsonError];
-    
-    if (jsonError) {
-        return [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    }else{
-        return [json AIF_jsonString];
-    }
-    
 }
 @end
