@@ -43,11 +43,11 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 
 
 /*************************************************************************************************/
-/*                               RTAPIManagerApiCallBackDelegate                                 */
+/*                               CTAPIManagerApiCallBackDelegate                                 */
 /*************************************************************************************************/
 
 //api回调
-@protocol RTAPIManagerCallBackDelegate <NSObject>
+@protocol CTAPIManagerCallBackDelegate <NSObject>
  @required
 - (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager;
 - (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager;
@@ -58,7 +58,7 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 
 
 /*************************************************************************************************/
-/*                               RTAPIManagerCallbackDataReformer                                */
+/*                               CTAPIManagerCallbackDataReformer                                */
 /*************************************************************************************************/
 //负责重新组装API数据的对象
 /*
@@ -116,7 +116,7 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
     [self.view configWithData:data];
  
  */
-@protocol RTAPIManagerDataReformer <NSObject>
+@protocol CTAPIManagerDataReformer <NSObject>
  @required
 /*
  比如同样的一个获取电话号码的逻辑，二手房，新房，租房调用的API不同，所以它们的manager和data都会不同。
@@ -149,7 +149,7 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 
 
 /*************************************************************************************************/
-/*                                     RTAPIManagerValidator                                     */
+/*                                     CTAPIManagerValidator                                     */
 /*************************************************************************************************/
 //验证器，用于验证API的返回或者调用API的参数是否正确
 /*
@@ -159,12 +159,12 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
  
         1.有的时候可能多个api返回的数据内容的格式是一样的，那么他们就可以共用一个validator。
         2.有的时候api有修改，并导致了返回数据的改变。在以前要针对这个改变的数据来做验证，是需要在每一个接收api回调的地方都修改一下的。但是现在就可以只要在一个地方修改判断逻辑就可以了。
-        3.有一种情况是manager调用api时使用的参数不一定是明文传递的，有可能是从某个变量或者跨越了好多层的对象中来获得参数，那么在调用api的最后一关会有一个参数验证，当参数不对时不访问api，同时自身的errorType将会变为RTAPIManagerErrorTypeParamsError。这个机制可以优化我们的app。
+        3.有一种情况是manager调用api时使用的参数不一定是明文传递的，有可能是从某个变量或者跨越了好多层的对象中来获得参数，那么在调用api的最后一关会有一个参数验证，当参数不对时不访问api，同时自身的errorType将会变为CTAPIManagerErrorTypeParamsError。这个机制可以优化我们的app。
         
         william补充（2013-12-6）：
         4.特殊场景：租房发房，用户会被要求填很多参数，这些参数都有一定的规则，比如邮箱地址或是手机号码等等，我们可以在validator里判断邮箱或者电话是否符合规则，比如描述是否超过十个字。从而manager在调用API之前可以验证这些参数，通过manager的回调函数告知上层controller。避免无效的API请求。加快响应速度，也可以多个manager共用.
  */
-@protocol RTAPIManagerValidator <NSObject>
+@protocol CTAPIManagerValidator <NSObject>
  @required
 /*
     所有的callback数据都应该在这个函数里面进行检查，事实上，到了回调delegate的函数里面是不需要再额外验证返回数据是否为空的。
@@ -193,10 +193,10 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 
 
 /*************************************************************************************************/
-/*                                RTAPIManagerParamSourceDelegate                                */
+/*                                CTAPIManagerParamSourceDelegate                                */
 /*************************************************************************************************/
 //让manager能够获取调用API所需要的数据
-@protocol RTAPIManagerParamSource <NSObject>
+@protocol CTAPIManagerParamSource <NSObject>
  @required
 - (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager;
 @end
@@ -206,20 +206,20 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
  你不应该在回调数据验证函数里面设置这些值，事实上，在任何派生的子类里面你都不应该自己设置manager的这个状态，baseManager已经帮你搞定了。
  强行修改manager的这个状态有可能会造成程序流程的改变，容易造成混乱。
  */
-typedef NS_ENUM (NSUInteger, RTAPIManagerErrorType){
-    RTAPIManagerErrorTypeDefault,       //没有产生过API请求，这个是manager的默认状态。
-    RTAPIManagerErrorTypeSuccess,       //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
-    RTAPIManagerErrorTypeNoContent,     //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
-    RTAPIManagerErrorTypeParamsError,   //参数错误，此时manager不会调用API，因为参数验证是在调用API之前做的。
-    RTAPIManagerErrorTypeTimeout,       //请求超时。RTApiProxy设置的是20秒超时，具体超时时间的设置请自己去看RTApiProxy的相关代码。
-    RTAPIManagerErrorTypeNoNetWork      //网络不通。在调用API之前会判断一下当前网络是否通畅，这个也是在调用API之前验证的，和上面超时的状态是有区别的。
+typedef NS_ENUM (NSUInteger, CTAPIManagerErrorType){
+    CTAPIManagerErrorTypeDefault,       //没有产生过API请求，这个是manager的默认状态。
+    CTAPIManagerErrorTypeSuccess,       //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
+    CTAPIManagerErrorTypeNoContent,     //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
+    CTAPIManagerErrorTypeParamsError,   //参数错误，此时manager不会调用API，因为参数验证是在调用API之前做的。
+    CTAPIManagerErrorTypeTimeout,       //请求超时。CTAPIProxy设置的是20秒超时，具体超时时间的设置请自己去看CTAPIProxy的相关代码。
+    CTAPIManagerErrorTypeNoNetWork      //网络不通。在调用API之前会判断一下当前网络是否通畅，这个也是在调用API之前验证的，和上面超时的状态是有区别的。
 };
 
-typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
-    RTAPIManagerRequestTypeGet,
-    RTAPIManagerRequestTypePost,
-    RTAPIManagerRequestTypePut,
-    RTAPIManagerRequestTypeDelete
+typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
+    CTAPIManagerRequestTypeGet,
+    CTAPIManagerRequestTypePost,
+    CTAPIManagerRequestTypePut,
+    CTAPIManagerRequestTypeDelete
 };
 
 
@@ -228,17 +228,17 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 
 
 /*************************************************************************************************/
-/*                                         RTAPIManager                                          */
+/*                                         CTAPIManager                                          */
 /*************************************************************************************************/
 /*
  CTAPIBaseManager的派生类必须符合这些protocal
  */
-@protocol RTAPIManager <NSObject>
+@protocol CTAPIManager <NSObject>
 
 @required
 - (NSString *)methodName;
 - (NSString *)serviceType;
-- (RTAPIManagerRequestType)requestType;
+- (CTAPIManagerRequestType)requestType;
 - (BOOL)shouldCache;
 
 // used for pagable API Managers mainly
@@ -256,12 +256,12 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 
 
 /*************************************************************************************************/
-/*                                    RTAPIManagerInterceptor                                    */
+/*                                    CTAPIManagerInterceptor                                    */
 /*************************************************************************************************/
 /*
  CTAPIBaseManager的派生类必须符合这些protocal
  */
-@protocol RTAPIManagerInterceptor <NSObject>
+@protocol CTAPIManagerInterceptor <NSObject>
 
 @optional
 - (BOOL)manager:(CTAPIBaseManager *)manager beforePerformSuccessWithResponse:(CTURLResponse *)response;
@@ -283,24 +283,24 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 /*************************************************************************************************/
 @interface CTAPIBaseManager : NSObject
 
-@property (nonatomic, weak) id<RTAPIManagerCallBackDelegate> delegate;
-@property (nonatomic, weak) id<RTAPIManagerParamSource> paramSource;
-@property (nonatomic, weak) id<RTAPIManagerValidator> validator;
-@property (nonatomic, weak) NSObject<RTAPIManager> *child; //里面会调用到NSObject的方法，所以这里不用id
-@property (nonatomic, weak) id<RTAPIManagerInterceptor> interceptor;
+@property (nonatomic, weak) id<CTAPIManagerCallBackDelegate> delegate;
+@property (nonatomic, weak) id<CTAPIManagerParamSource> paramSource;
+@property (nonatomic, weak) id<CTAPIManagerValidator> validator;
+@property (nonatomic, weak) NSObject<CTAPIManager> *child; //里面会调用到NSObject的方法，所以这里不用id
+@property (nonatomic, weak) id<CTAPIManagerInterceptor> interceptor;
 
 /*
  baseManager是不会去设置errorMessage的，派生的子类manager可能需要给controller提供错误信息。所以为了统一外部调用的入口，设置了这个变量。
  派生的子类需要通过extension来在保证errorMessage在对外只读的情况下使派生的manager子类对errorMessage具有写权限。
  */
 @property (nonatomic, copy, readonly) NSString *errorMessage;
-@property (nonatomic, readonly) RTAPIManagerErrorType errorType;
+@property (nonatomic, readonly) CTAPIManagerErrorType errorType;
 @property (nonatomic, strong) CTURLResponse *response;
 
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
-- (id)fetchDataWithReformer:(id<RTAPIManagerDataReformer>)reformer;
+- (id)fetchDataWithReformer:(id<CTAPIManagerDataReformer>)reformer;
 
 //尽量使用loadData这个方法,这个方法会通过param source来获得参数，这使得参数的生成逻辑位于controller中的固定位置
 - (NSInteger)loadData;
@@ -321,7 +321,7 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 /*
  用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
  子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
- CTAPIBaseManager会先调用这个函数，然后才会调用到 id<RTAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
+ CTAPIBaseManager会先调用这个函数，然后才会调用到 id<CTAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
  所以这里返回的参数字典还是会被后面的验证函数去验证的。
  
  假设同一个翻页Manager，ManagerA的paramSource提供page_size=15参数，ManagerB的paramSource提供page_size=2参数
@@ -339,5 +339,5 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 - (BOOL)shouldCache;
 
 - (void)successedOnCallingAPI:(CTURLResponse *)response;
-- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType;
+- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(CTAPIManagerErrorType)errorType;
 @end

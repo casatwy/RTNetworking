@@ -1,6 +1,6 @@
 //
 //  KeychainWrapper.h
-//  RTApiProxy
+//  CTAPIProxy
 //
 //  Created by liu lh on 13-6-24.
 //

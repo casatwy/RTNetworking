@@ -10,7 +10,7 @@
 #import "TestAPIManager.h"
 #import <UIView+LayoutMethods.h>
 
-@interface FireSingleAPI () <RTAPIManagerParamSource, RTAPIManagerCallBackDelegate>
+@interface FireSingleAPI () <CTAPIManagerParamSource, CTAPIManagerCallBackDelegate>
 
 @property (nonatomic, strong) TestAPIManager *testAPIManager;
 @property (nonatomic, strong) UILabel *resultLable;
@@ -46,7 +46,7 @@
     [self.resultLable centerYEqualToView:self.view];
 }
 
-#pragma mark - RTAPIManagerParamSource
+#pragma mark - CTAPIManagerParamSource
 - (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager
 {
     NSDictionary *params = @{};
@@ -61,7 +61,7 @@
     return params;
 }
 
-#pragma mark - RTAPIManagerCallBackDelegate
+#pragma mark - CTAPIManagerCallBackDelegate
 - (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager
 {
     if (manager == self.testAPIManager) {

@@ -11,6 +11,6 @@
 extern NSString * const kTestAPIManagerParamsKeyLatitude;
 extern NSString * const kTestAPIManagerParamsKeyLongitude;
 
-@interface TestAPIManager : CTAPIBaseManager <RTAPIManager>
+@interface TestAPIManager : CTAPIBaseManager <CTAPIManager>
 
 @end

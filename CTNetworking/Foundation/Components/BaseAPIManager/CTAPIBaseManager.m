@@ -22,7 +22,7 @@
         [strongSelf successedOnCallingAPI:response];                                            \
     } fail:^(CTURLResponse *response) {                                                        \
         __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-        [strongSelf failedOnCallingAPI:response withErrorType:RTAPIManagerErrorTypeDefault];    \
+        [strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
     }];                                                                                         \
     [self.requestIdList addObject:@(REQUEST_ID)];                                               \
 }
@@ -41,7 +41,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 @property (nonatomic, assign) BOOL isNativeDataEmpty;
 
 @property (nonatomic, copy, readwrite) NSString *errorMessage;
-@property (nonatomic, readwrite) RTAPIManagerErrorType errorType;
+@property (nonatomic, readwrite) CTAPIManagerErrorType errorType;
 @property (nonatomic, strong) NSMutableArray *requestIdList;
 @property (nonatomic, strong) CTCache *cache;
 
@@ -61,10 +61,10 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         _fetchedRawData = nil;
         
         _errorMessage = nil;
-        _errorType = RTAPIManagerErrorTypeDefault;
+        _errorType = CTAPIManagerErrorTypeDefault;
         
-        if ([self conformsToProtocol:@protocol(RTAPIManager)]) {
-            self.child = (id <RTAPIManager>)self;
+        if ([self conformsToProtocol:@protocol(CTAPIManager)]) {
+            self.child = (id <CTAPIManager>)self;
         } else {
             NSException *exception = [[NSException alloc] init];
             @throw exception;
@@ -92,7 +92,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     [[CTApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
 }
 
-- (id)fetchDataWithReformer:(id<RTAPIManagerDataReformer>)reformer
+- (id)fetchDataWithReformer:(id<CTAPIManagerDataReformer>)reformer
 {
     id resultData = nil;
     if ([reformer respondsToSelector:@selector(manager:reformData:)]) {
@@ -132,16 +132,16 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
                 self.isLoading = YES;
                     switch (self.child.requestType)
                     {
-                        case RTAPIManagerRequestTypeGet:
+                        case CTAPIManagerRequestTypeGet:
                             AXCallAPI(GET, requestId);
                             break;
-                        case RTAPIManagerRequestTypePost:
+                        case CTAPIManagerRequestTypePost:
                             AXCallAPI(POST, requestId);
                             break;
-                        case RTAPIManagerRequestTypePut:
+                        case CTAPIManagerRequestTypePut:
                             AXCallAPI(PUT, requestId);
                             break;
-                        case RTAPIManagerRequestTypeDelete:
+                        case CTAPIManagerRequestTypeDelete:
                             AXCallAPI(DELETE, requestId);
                         break;
                         default:
@@ -154,11 +154,11 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
                 return requestId;
             
             } else {
-                [self failedOnCallingAPI:nil withErrorType:RTAPIManagerErrorTypeNoNetWork];
+                [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeNoNetWork];
                 return requestId;
             }
         } else {
-            [self failedOnCallingAPI:nil withErrorType:RTAPIManagerErrorTypeParamsError];
+            [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeParamsError];
             return requestId;
         }
     }
@@ -204,11 +204,11 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         }
         [self afterPerformSuccessWithResponse:response];
     } else {
-        [self failedOnCallingAPI:response withErrorType:RTAPIManagerErrorTypeNoContent];
+        [self failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeNoContent];
     }
 }
 
-- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType
+- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(CTAPIManagerErrorType)errorType
 {
     self.isLoading = NO;
     self.response = response;
@@ -263,7 +263,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 {
     BOOL result = YES;
     
-    self.errorType = RTAPIManagerErrorTypeSuccess;
+    self.errorType = CTAPIManagerErrorTypeSuccess;
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformSuccessWithResponse:)]) {
         result = [self.interceptor manager:self beforePerformSuccessWithResponse:response];
     }
@@ -316,7 +316,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     [self.cache clean];
     self.fetchedRawData = nil;
     self.errorMessage = nil;
-    self.errorType = RTAPIManagerErrorTypeDefault;
+    self.errorType = CTAPIManagerErrorTypeDefault;
 }
 
 //如果需要在调用API之前额外添加一些参数，比如pageNumber和pageSize之类的就在这里添加
@@ -420,7 +420,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 {
     BOOL isReachability = [CTAppContext sharedInstance].isReachable;
     if (!isReachability) {
-        self.errorType = RTAPIManagerErrorTypeNoNetWork;
+        self.errorType = CTAPIManagerErrorTypeNoNetWork;
     }
     return isReachability;
 }

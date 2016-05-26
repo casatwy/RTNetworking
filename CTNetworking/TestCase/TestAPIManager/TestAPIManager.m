@@ -11,7 +11,7 @@
 NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
 NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
 
-@interface TestAPIManager () <RTAPIManagerValidator>
+@interface TestAPIManager () <CTAPIManagerValidator>
 
 @end
 
@@ -27,7 +27,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
     return self;
 }
 
-#pragma mark - RTAPIManager
+#pragma mark - CTAPIManager
 - (NSString *)methodName
 {
     return @"geocode/regeo";
@@ -38,9 +38,9 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
     return kCTServiceGDMapV3;
 }
 
-- (RTAPIManagerRequestType)requestType
+- (CTAPIManagerRequestType)requestType
 {
-    return RTAPIManagerRequestTypeGet;
+    return CTAPIManagerRequestTypeGet;
 }
 
 - (BOOL)shouldCache
@@ -57,7 +57,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
     return resultParams;
 }
 
-#pragma mark - RTAPIManagerValidator
+#pragma mark - CTAPIManagerValidator
 - (BOOL)manager:(CTAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data
 {
     return YES;
