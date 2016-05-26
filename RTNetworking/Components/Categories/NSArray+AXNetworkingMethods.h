@@ -10,7 +10,7 @@
 
 @interface NSArray (AXNetworkingMethods)
 
-- (NSString *)AX_paramsString;
-- (NSString *)AX_jsonString;
+- (NSString *)ax_paramsString;
+- (NSString *)ax_jsonString;
 
 @end

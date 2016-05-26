@@ -7,7 +7,7 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#import "AIFApiProxy.h"
+#import "AIFAPIProxy.h"
 #import "AIFServiceFactory.h"
 #import "AIFRequestGenerator.h"
 #import "AIFLogger.h"
@@ -17,7 +17,7 @@
 static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
 static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
 
-@interface AIFApiProxy ()
+@interface AIFAPIProxy ()
 
 @property (nonatomic, strong) NSMutableDictionary *dispatchTable;
 @property (nonatomic, strong) NSNumber *recordedRequestId;
@@ -27,7 +27,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 
 @end
 
-@implementation AIFApiProxy
+@implementation AIFAPIProxy
 #pragma mark - getters and setters
 - (NSMutableDictionary *)dispatchTable
 {
@@ -50,9 +50,9 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 + (instancetype)sharedInstance
 {
     static dispatch_once_t onceToken;
-    static AIFApiProxy *sharedInstance = nil;
+    static AIFAPIProxy *sharedInstance = nil;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFApiProxy alloc] init];
+        sharedInstance = [[AIFAPIProxy alloc] init];
     });
     return sharedInstance;
 }

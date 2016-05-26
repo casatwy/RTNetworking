@@ -9,9 +9,9 @@
 #ifndef RTNetworking_AXNetworking_h
 #define RTNetworking_AXNetworking_h
 
-#import "AIFApiProxy.h"
+#import "AIFAPIProxy.h"
 #import "AIFServiceFactory.h"
-#import "AIFAppContext.h"
+#import "AIFAPPContext.h"
 #import "RTAPIBaseManager.h"
 #import "AIFNetworkingConfiguration.h"
 

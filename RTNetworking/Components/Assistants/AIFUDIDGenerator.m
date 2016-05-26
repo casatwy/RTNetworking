@@ -133,4 +133,5 @@
     NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:[pb dataForPasteboardType:AIFPasteboardType]];
     return [dict objectForKey:identifier];
 }
+
 @end

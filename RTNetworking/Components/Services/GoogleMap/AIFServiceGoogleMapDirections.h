@@ -8,6 +8,6 @@
 
 #import "AIFService.h"
 
-@interface AIFServiceGoogleMapDirections : AIFService <AIFServiceProtocal>
+@interface AIFServiceGoogleMapDirections : AIFService <AIFServiceProtocol>
 
 @end

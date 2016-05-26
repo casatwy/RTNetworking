@@ -96,14 +96,14 @@
 #pragma mark - public methods
 - (void)cancelAllRequests
 {
-    [[AIFApiProxy sharedInstance] cancelRequestWithRequestIDList:self.requestIdList];
+    [[AIFAPIProxy sharedInstance] cancelRequestWithRequestIDList:self.requestIdList];
     [self.requestIdList removeAllObjects];
 }
 
 - (void)cancelRequestWithRequestId:(NSInteger)requestID
 {
     [self removeRequestIdWithRequestID:requestID];
-    [[AIFApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
+    [[AIFAPIProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
 }
 
 - (id)fetchDataWithReformer:(id<RTAPIManagerCallbackDataReformer>)reformer

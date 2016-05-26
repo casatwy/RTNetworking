@@ -72,7 +72,7 @@
 {
     AIFService *service = [[AIFServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *signature = [AIFSignatureGenerator signPostWithApiParams:requestParams privateKey:service.privateKey publicKey:service.publicKey];
-    NSString *urlString = [NSString stringWithFormat:@"%@%@/%@?api_key=%@&sig=%@&%@", service.apiBaseUrl, service.apiVersion, methodName, service.publicKey, signature, [[AIFCommonParamsGenerator commonParamsDictionary] AIF_urlParamsStringSignature:NO]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@/%@?api_key=%@&sig=%@&%@", service.apiBaseUrl, service.apiVersion, methodName, service.publicKey, signature, [[AIFCommonParamsGenerator commonParamsDictionary] aif_urlParamsStringSignature:NO]];
     
     NSURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
     request.requestParams = requestParams;
@@ -105,7 +105,7 @@
     AIFService *service = [[AIFServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSDictionary *commonParams = [AIFCommonParamsGenerator commonParamsDictionary];
     NSString *signature = [AIFSignatureGenerator signRestfulPOSTWithApiParams:requestParams commonParams:commonParams methodName:methodName apiVersion:service.apiVersion privateKey:service.privateKey];
-    NSString *urlString = [NSString stringWithFormat:@"%@%@/%@?&%@", service.apiBaseUrl, service.apiVersion, methodName, [commonParams AIF_urlParamsStringSignature:NO]];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@/%@?&%@", service.apiBaseUrl, service.apiVersion, methodName, [commonParams aif_urlParamsStringSignature:NO]];
     
     NSDictionary *restfulHeader = [self commRESTHeadersWithService:service signature:signature];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:kAIFNetworkingTimeoutSeconds];
@@ -122,7 +122,7 @@
 - (NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(NSDictionary *)requestParams serviceIdentifier:(NSString *)serviceIdentifier
 {
     AIFService *service = [[AIFServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    NSString *paramsString = [requestParams AIF_urlParamsStringSignature:NO];
+    NSString *paramsString = [requestParams aif_urlParamsStringSignature:NO];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@", service.apiBaseUrl, service.apiVersion, paramsString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:kAIFNetworkingTimeoutSeconds];
     [request setValue:@"zh-CN,zh;q=0.8,en;q=0.6" forHTTPHeaderField:@"Accept-Language"];

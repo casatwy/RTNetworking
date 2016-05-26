@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // 所有AIFService的派生类都要符合这个protocal
-@protocol AIFServiceProtocal <NSObject>
+@protocol AIFServiceProtocol <NSObject>
 
 @property (nonatomic, readonly) BOOL isOnline;
 
@@ -34,6 +34,6 @@
 @property (nonatomic, strong, readonly) NSString *apiBaseUrl;
 @property (nonatomic, strong, readonly) NSString *apiVersion;
 
-@property (nonatomic, weak) id<AIFServiceProtocal> child;
+@property (nonatomic, weak) id<AIFServiceProtocol> child;
 
 @end

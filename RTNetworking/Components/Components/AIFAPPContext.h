@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AIFNetworkingConfiguration.h"
 
-@interface AIFAppContext : NSObject
+@interface AIFAPPContext : NSObject
 
 //凡是未声明成readonly的都是需要在初始化的时候由外面给的
 

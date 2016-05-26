@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 anjuke. All rights reserved.
 //
 
-#import "AIFAppContext.h"
+#import "AIFAPPContext.h"
 #import "NSObject+AXNetworkingMethods.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "AFNetworkReachabilityManager.h"
@@ -15,7 +15,7 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 
-@interface AIFAppContext ()
+@interface AIFAPPContext ()
 
 @property (nonatomic, strong) UIDevice *device;
 @property (nonatomic, copy, readwrite) NSString *m;
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation AIFAppContext
+@implementation AIFAPPContext
 
 #pragma mark - getters and setters
 - (UIDevice *)device
@@ -52,7 +52,7 @@
 - (NSString *)m
 {
     if (_m == nil) {
-        _m = [[self.device.model stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] AIF_defaultValue:@""];
+        _m = [[self.device.model stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] aif_defaultValue:@""];
     }
     return _m;
 }
@@ -60,7 +60,7 @@
 - (NSString *)o
 {
     if (_o == nil) {
-        _o = [[self.device.systemName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] AIF_defaultValue:@""];
+        _o = [[self.device.systemName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] aif_defaultValue:@""];
     }
     return _o;
 }
@@ -80,7 +80,7 @@
 - (NSString *)cv
 {
     if (_cv == nil) {
-        _cv = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] AIF_defaultValue:@""];
+        _cv = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] aif_defaultValue:@""];
     }
     return _cv;
 }
@@ -93,7 +93,7 @@
 - (NSString *)macid
 {
     if (_macid == nil) {
-        _macid = [[self.device AIF_macaddressMD5] AIF_defaultValue:@""];
+        _macid = [[self.device aif_macaddressMD5] aif_defaultValue:@""];
     }
     return _macid;
 }
@@ -101,7 +101,7 @@
 - (NSString *)uuid
 {
     if (_uuid == nil) {
-        _uuid = [[self.device AIF_uuid] AIF_defaultValue:@""];
+        _uuid = [[self.device aif_uuid] aif_defaultValue:@""];
     }
     return _uuid;
 }
@@ -117,7 +117,7 @@
 - (NSString *)ostype2
 {
     if (_ostype2 == nil) {
-        _ostype2 = [self.device.AIF_ostype AIF_defaultValue:@""];
+        _ostype2 = [self.device.aif_ostype aif_defaultValue:@""];
     }
     return _ostype2;
 }
@@ -125,7 +125,7 @@
 - (NSString *)uuid2
 {
     if (_uuid2 == nil) {
-        _uuid2 = [self.device.AIF_uuid AIF_defaultValue:@""];
+        _uuid2 = [self.device.aif_uuid aif_defaultValue:@""];
     }
     return _uuid2;
 }
@@ -133,7 +133,7 @@
 - (NSString *)udid2
 {
     if (_udid2 == nil) {
-        _udid2 = [self.device.AIF_uuid AIF_defaultValue:@""];
+        _udid2 = [self.device.aif_uuid aif_defaultValue:@""];
     }
     return _udid2;
 }
@@ -304,7 +304,7 @@
 - (NSString *)pmodel
 {
     if (_pmodel == nil) {
-        _pmodel = [[UIDevice currentDevice] AIF_machineType];
+        _pmodel = [[UIDevice currentDevice] aif_machineType];
     }
     return _pmodel;
 }
@@ -321,10 +321,10 @@
 #pragma mark - public methods
 + (instancetype)sharedInstance
 {
-    static AIFAppContext *sharedInstance;
+    static AIFAPPContext *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFAppContext alloc] init];
+        sharedInstance = [[AIFAPPContext alloc] init];
         [[AFNetworkReachabilityManager sharedManager] startMonitoring];
         [AIFLocationManager sharedInstance];
     });
