@@ -11,7 +11,7 @@
 #import "UIDevice+IdentifierAddition.h"
 #import "AFNetworkReachabilityManager.h"
 #import "AIFLogger.h"
-#import "BSLocationManager.h"
+#import "CTLocationManager.h"
 
 @interface AIFAppContext ()
 
@@ -336,23 +336,23 @@
 
 - (CGFloat)latitude
 {
-    return [BSLocationManager sharedInstance].currentLocation.coordinate.latitude;
+    return [CTLocationManager sharedInstance].currentLocation.coordinate.latitude;
 }
 
 - (CGFloat)longitude
 {
-    return [BSLocationManager sharedInstance].currentLocation.coordinate.longitude;
+    return [CTLocationManager sharedInstance].currentLocation.coordinate.longitude;
 }
 
 - (void)appStarted
 {
     self.sessionId = [[NSUUID UUID].UUIDString copy];
-    [[BSLocationManager sharedInstance] startLocation];
+    [[CTLocationManager sharedInstance] startLocation];
 }
 
 - (void)appEnded
 {
-    [[BSLocationManager sharedInstance] stopLocation];
+    [[CTLocationManager sharedInstance] stopLocation];
 }
 
 - (BOOL)isLoggedIn

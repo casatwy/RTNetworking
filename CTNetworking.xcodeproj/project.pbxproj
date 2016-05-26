@@ -28,7 +28,7 @@
 		ABC6780E1CF7109400B520A6 /* AIFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C51CF7109300B520A6 /* AIFCache.m */; };
 		ABC6780F1CF7109400B520A6 /* AIFCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C71CF7109300B520A6 /* AIFCachedObject.m */; };
 		ABC678101CF7109400B520A6 /* iPhoneTypeDefine.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */; };
-		ABC678111CF7109400B520A6 /* BSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677CB1CF7109300B520A6 /* BSLocationManager.m */; };
+		ABC678111CF7109400B520A6 /* CTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677CB1CF7109300B520A6 /* CTLocationManager.m */; };
 		ABC678121CF7109400B520A6 /* AIFLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677CE1CF7109300B520A6 /* AIFLogger.m */; };
 		ABC678131CF7109400B520A6 /* AIFLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677D01CF7109300B520A6 /* AIFLoggerConfiguration.m */; };
 		ABC678141CF7109400B520A6 /* AIFURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677D31CF7109300B520A6 /* AIFURLResponse.m */; };
@@ -86,8 +86,8 @@
 		ABC677C61CF7109300B520A6 /* AIFCachedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFCachedObject.h; sourceTree = "<group>"; };
 		ABC677C71CF7109300B520A6 /* AIFCachedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFCachedObject.m; sourceTree = "<group>"; };
 		ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPhoneTypeDefine.plist; sourceTree = "<group>"; };
-		ABC677CA1CF7109300B520A6 /* BSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLocationManager.h; sourceTree = "<group>"; };
-		ABC677CB1CF7109300B520A6 /* BSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLocationManager.m; sourceTree = "<group>"; };
+		ABC677CA1CF7109300B520A6 /* CTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLocationManager.h; sourceTree = "<group>"; };
+		ABC677CB1CF7109300B520A6 /* CTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLocationManager.m; sourceTree = "<group>"; };
 		ABC677CD1CF7109300B520A6 /* AIFLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFLogger.h; sourceTree = "<group>"; };
 		ABC677CE1CF7109300B520A6 /* AIFLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFLogger.m; sourceTree = "<group>"; };
 		ABC677CF1CF7109300B520A6 /* AIFLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFLoggerConfiguration.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFServiceFactory.m; sourceTree = "<group>"; };
 		ABC677ED1CF7109300B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
 		ABC677EE1CF7109300B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
-		ABC677F91CF7109400B520A6 /* YJNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNetworking.h; sourceTree = "<group>"; };
+		ABC677F91CF7109400B520A6 /* CTNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworking.h; sourceTree = "<group>"; };
 		ABC677FC1CF7109400B520A6 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		ABC677FD1CF7109400B520A6 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
 		ABC678021CF7109400B520A6 /* FireSingleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireSingleAPI.h; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		ABC677A81CF7109300B520A6 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				ABC677F91CF7109400B520A6 /* YJNetworking.h */,
+				ABC677F91CF7109400B520A6 /* CTNetworking.h */,
 				ABC677A91CF7109300B520A6 /* AIFNetworkingConfiguration.h */,
 				ABC677AA1CF7109300B520A6 /* Categories */,
 				ABC677B91CF7109300B520A6 /* Components */,
@@ -279,8 +279,8 @@
 		ABC677C91CF7109300B520A6 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				ABC677CA1CF7109300B520A6 /* BSLocationManager.h */,
-				ABC677CB1CF7109300B520A6 /* BSLocationManager.m */,
+				ABC677CA1CF7109300B520A6 /* CTLocationManager.h */,
+				ABC677CB1CF7109300B520A6 /* CTLocationManager.m */,
 			);
 			path = LocationManager;
 			sourceTree = "<group>";
@@ -555,7 +555,7 @@
 				ABC6780C1CF7109400B520A6 /* AIFAppContext.m in Sources */,
 				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
 				ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */,
-				ABC678111CF7109400B520A6 /* BSLocationManager.m in Sources */,
+				ABC678111CF7109400B520A6 /* CTLocationManager.m in Sources */,
 				ABC678161CF7109400B520A6 /* AIFRequestGenerator.m in Sources */,
 				ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */,
 				ABC678051CF7109400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */,

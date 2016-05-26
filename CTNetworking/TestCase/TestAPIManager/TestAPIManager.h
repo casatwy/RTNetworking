@@ -6,7 +6,7 @@
 //  Copyright © 2015年 casa. All rights reserved.
 //
 
-#import "YJNetworking.h"
+#import "CTNetworking.h"
 
 extern NSString * const kTestAPIManagerParamsKeyLatitude;
 extern NSString * const kTestAPIManagerParamsKeyLongitude;

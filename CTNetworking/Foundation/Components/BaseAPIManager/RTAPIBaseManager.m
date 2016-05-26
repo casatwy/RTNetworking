@@ -7,7 +7,7 @@
 //
 
 #import "RTAPIBaseManager.h"
-#import "YJNetworking.h"
+#import "CTNetworking.h"
 #import "AIFCache.h"
 #import "AIFLogger.h"
 #import "AIFServiceFactory.h"
