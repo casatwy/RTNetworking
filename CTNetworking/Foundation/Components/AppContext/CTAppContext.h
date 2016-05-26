@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CTNetworkingConfiguration.h"
-#import "RTAPIBaseManager.h"
+#import "CTAPIBaseManager.h"
 
 @interface CTAppContext : NSObject
 
@@ -48,7 +48,7 @@
 // 推送相关
 @property (nonatomic, copy) NSData *deviceTokenData;
 @property (nonatomic, copy) NSString *deviceToken;
-@property (nonatomic, strong) RTAPIBaseManager *updateTokenAPIManager;
+@property (nonatomic, strong) CTAPIBaseManager *updateTokenAPIManager;
 
 // 地理位置
 @property (nonatomic, assign, readonly) CGFloat latitude;

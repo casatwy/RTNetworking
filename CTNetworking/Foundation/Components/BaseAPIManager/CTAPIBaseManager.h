@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "CTURLResponse.h"
 
-@class RTAPIBaseManager;
+@class CTAPIBaseManager;
 
 // 在调用成功之后的params字典里面，用这个key可以取出requestID
-static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestID";
+static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestID";
 
 
 
@@ -49,8 +49,8 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
 //api回调
 @protocol RTAPIManagerCallBackDelegate <NSObject>
  @required
-- (void)managerCallAPIDidSuccess:(RTAPIBaseManager *)manager;
-- (void)managerCallAPIDidFailed:(RTAPIBaseManager *)manager;
+- (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager;
+- (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager;
 @end
 
 
@@ -123,7 +123,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  即便如此，同一类业务逻辑（都是获取电话号码）还是应该写到一个reformer里面去的。这样后人定位业务逻辑相关代码的时候就非常方便了。
  
  代码样例：
-    - (id)manager:(RTAPIBaseManager *)manager reformData:(NSDictionary *)data
+    - (id)manager:(CTAPIBaseManager *)manager reformData:(NSDictionary *)data
     {
         if ([manager isKindOfClass:[xinfangManager class]]) {
             return [self xinfangPhoneNumberWithData:data];      //这是调用了派生后reformer子类自己实现的函数，别忘了reformer自己也是一个对象呀。
@@ -141,7 +141,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
         }
     }
  */
-- (id)manager:(RTAPIBaseManager *)manager reformData:(NSDictionary *)data;
+- (id)manager:(CTAPIBaseManager *)manager reformData:(NSDictionary *)data;
 @end
 
 
@@ -171,7 +171,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
     因为判断逻辑都在这里做掉了。
     而且本来判断返回数据是否正确的逻辑就应该交给manager去做，不要放到回调到controller的delegate方法里面去做。
  */
-- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary *)data;
+- (BOOL)manager:(CTAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary *)data;
 
 /*
  
@@ -185,7 +185,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  不过我还是建议认真写完这个参数验证，这样能够省去将来代码维护者很多的时间。
  
  */
-- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data;
+- (BOOL)manager:(CTAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data;
 @end
 
 
@@ -198,7 +198,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
 //让manager能够获取调用API所需要的数据
 @protocol RTAPIManagerParamSource <NSObject>
  @required
-- (NSDictionary *)paramsForApi:(RTAPIBaseManager *)manager;
+- (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager;
 @end
 
 /*
@@ -231,7 +231,7 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 /*                                         RTAPIManager                                          */
 /*************************************************************************************************/
 /*
- RTAPIBaseManager的派生类必须符合这些protocal
+ CTAPIBaseManager的派生类必须符合这些protocal
  */
 @protocol RTAPIManager <NSObject>
 
@@ -259,19 +259,19 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 /*                                    RTAPIManagerInterceptor                                    */
 /*************************************************************************************************/
 /*
- RTAPIBaseManager的派生类必须符合这些protocal
+ CTAPIBaseManager的派生类必须符合这些protocal
  */
 @protocol RTAPIManagerInterceptor <NSObject>
 
 @optional
-- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformSuccessWithResponse:(CTURLResponse *)response;
-- (void)manager:(RTAPIBaseManager *)manager afterPerformSuccessWithResponse:(CTURLResponse *)response;
+- (BOOL)manager:(CTAPIBaseManager *)manager beforePerformSuccessWithResponse:(CTURLResponse *)response;
+- (void)manager:(CTAPIBaseManager *)manager afterPerformSuccessWithResponse:(CTURLResponse *)response;
 
-- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformFailWithResponse:(CTURLResponse *)response;
-- (void)manager:(RTAPIBaseManager *)manager afterPerformFailWithResponse:(CTURLResponse *)response;
+- (BOOL)manager:(CTAPIBaseManager *)manager beforePerformFailWithResponse:(CTURLResponse *)response;
+- (void)manager:(CTAPIBaseManager *)manager afterPerformFailWithResponse:(CTURLResponse *)response;
 
-- (BOOL)manager:(RTAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary *)params;
-- (void)manager:(RTAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary *)params;
+- (BOOL)manager:(CTAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary *)params;
+- (void)manager:(CTAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary *)params;
 
 @end
 
@@ -279,9 +279,9 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 
 
 /*************************************************************************************************/
-/*                                       RTAPIBaseManager                                        */
+/*                                       CTAPIBaseManager                                        */
 /*************************************************************************************************/
-@interface RTAPIBaseManager : NSObject
+@interface CTAPIBaseManager : NSObject
 
 @property (nonatomic, weak) id<RTAPIManagerCallBackDelegate> delegate;
 @property (nonatomic, weak) id<RTAPIManagerParamSource> paramSource;
@@ -321,7 +321,7 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 /*
  用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
  子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
- RTAPIBaseManager会先调用这个函数，然后才会调用到 id<RTAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
+ CTAPIBaseManager会先调用这个函数，然后才会调用到 id<RTAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
  所以这里返回的参数字典还是会被后面的验证函数去验证的。
  
  假设同一个翻页Manager，ManagerA的paramSource提供page_size=15参数，ManagerB的paramSource提供page_size=2参数

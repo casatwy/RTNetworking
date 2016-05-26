@@ -47,7 +47,7 @@
 }
 
 #pragma mark - RTAPIManagerParamSource
-- (NSDictionary *)paramsForApi:(RTAPIBaseManager *)manager
+- (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager
 {
     NSDictionary *params = @{};
     
@@ -62,7 +62,7 @@
 }
 
 #pragma mark - RTAPIManagerCallBackDelegate
-- (void)managerCallAPIDidSuccess:(RTAPIBaseManager *)manager
+- (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager
 {
     if (manager == self.testAPIManager) {
         self.resultLable.text = @"success";
@@ -71,7 +71,7 @@
     }
 }
 
-- (void)managerCallAPIDidFailed:(RTAPIBaseManager *)manager
+- (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager
 {
     if (manager == self.testAPIManager) {
         self.resultLable.text = @"fail";

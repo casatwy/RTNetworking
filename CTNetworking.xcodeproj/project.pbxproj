@@ -24,7 +24,7 @@
 		ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B81CF7109300B520A6 /* UIDevice+IdentifierAddition.m */; };
 		ABC6780B1CF7109400B520A6 /* CTApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677BC1CF7109300B520A6 /* CTApiProxy.m */; };
 		ABC6780C1CF7109400B520A6 /* CTAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677BF1CF7109300B520A6 /* CTAppContext.m */; };
-		ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */; };
+		ABC6780D1CF7109400B520A6 /* CTAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C21CF7109300B520A6 /* CTAPIBaseManager.m */; };
 		ABC6780E1CF7109400B520A6 /* CTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C51CF7109300B520A6 /* CTCache.m */; };
 		ABC6780F1CF7109400B520A6 /* CTCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C71CF7109300B520A6 /* CTCachedObject.m */; };
 		ABC678101CF7109400B520A6 /* iPhoneTypeDefine.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */; };
@@ -79,8 +79,8 @@
 		ABC677BC1CF7109300B520A6 /* CTApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTApiProxy.m; sourceTree = "<group>"; };
 		ABC677BE1CF7109300B520A6 /* CTAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAppContext.h; sourceTree = "<group>"; };
 		ABC677BF1CF7109300B520A6 /* CTAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAppContext.m; sourceTree = "<group>"; };
-		ABC677C11CF7109300B520A6 /* RTAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAPIBaseManager.h; sourceTree = "<group>"; };
-		ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAPIBaseManager.m; sourceTree = "<group>"; };
+		ABC677C11CF7109300B520A6 /* CTAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIBaseManager.h; sourceTree = "<group>"; };
+		ABC677C21CF7109300B520A6 /* CTAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIBaseManager.m; sourceTree = "<group>"; };
 		ABC677C41CF7109300B520A6 /* CTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCache.h; sourceTree = "<group>"; };
 		ABC677C51CF7109300B520A6 /* CTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCache.m; sourceTree = "<group>"; };
 		ABC677C61CF7109300B520A6 /* CTCachedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCachedObject.h; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 		ABC677C01CF7109300B520A6 /* BaseAPIManager */ = {
 			isa = PBXGroup;
 			children = (
-				ABC677C11CF7109300B520A6 /* RTAPIBaseManager.h */,
-				ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */,
+				ABC677C11CF7109300B520A6 /* CTAPIBaseManager.h */,
+				ABC677C21CF7109300B520A6 /* CTAPIBaseManager.m */,
 			);
 			path = BaseAPIManager;
 			sourceTree = "<group>";
@@ -554,7 +554,7 @@
 				ABC678171CF7109400B520A6 /* CTSignatureGenerator.m in Sources */,
 				ABC6780C1CF7109400B520A6 /* CTAppContext.m in Sources */,
 				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
-				ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */,
+				ABC6780D1CF7109400B520A6 /* CTAPIBaseManager.m in Sources */,
 				ABC678111CF7109400B520A6 /* CTLocationManager.m in Sources */,
 				ABC678161CF7109400B520A6 /* CTRequestGenerator.m in Sources */,
 				ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */,

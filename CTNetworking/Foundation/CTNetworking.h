@@ -12,7 +12,7 @@
 #import "CTApiProxy.h"
 #import "CTServiceFactory.h"
 #import "CTAppContext.h"
-#import "RTAPIBaseManager.h"
+#import "CTAPIBaseManager.h"
 #import "CTNetworkingConfiguration.h"
 
 #endif

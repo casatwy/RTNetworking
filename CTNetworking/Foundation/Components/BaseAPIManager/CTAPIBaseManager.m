@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 casatwy inc. All rights reserved.
 //
 
-#import "RTAPIBaseManager.h"
+#import "CTAPIBaseManager.h"
 #import "CTNetworking.h"
 #import "CTCache.h"
 #import "CTLogger.h"
@@ -34,7 +34,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyRequestToContinue = @"kBSUse
 NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUserTokenNotificationUserInfoKeyManagerToContinue";
 
 
-@interface RTAPIBaseManager ()
+@interface CTAPIBaseManager ()
 
 @property (nonatomic, strong, readwrite) id fetchedRawData;
 @property (nonatomic, assign, readwrite) BOOL isLoading;
@@ -47,7 +47,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 @end
 
-@implementation RTAPIBaseManager
+@implementation CTAPIBaseManager
 
 #pragma mark - life cycle
 - (instancetype)init
@@ -149,7 +149,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
                     }
             
                 NSMutableDictionary *params = [apiParams mutableCopy];
-                params[kRTAPIBaseManagerRequestID] = @(requestId);
+                params[kCTAPIBaseManagerRequestID] = @(requestId);
                 [self afterCallingAPIWithParams:params];
                 return requestId;
             
