@@ -3,7 +3,7 @@
 //  AIFLogTrackCenter
 //
 //  Created by Softwind.Tang on 14-5-15.
-//  Copyright (c) 2014年 Anjuke Inc. All rights reserved.
+//  Copyright (c) 2014年 casatwy Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

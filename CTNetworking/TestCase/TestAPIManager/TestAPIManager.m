@@ -8,7 +8,8 @@
 
 #import "TestAPIManager.h"
 
-NSString * const kYJTestAPIManagerParamsKeyMobileOrUnionId = @"mobileOrUnionId";
+NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
+NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
 
 @interface TestAPIManager () <RTAPIManagerValidator>
 
@@ -29,16 +30,12 @@ NSString * const kYJTestAPIManagerParamsKeyMobileOrUnionId = @"mobileOrUnionId";
 #pragma mark - RTAPIManager
 - (NSString *)methodName
 {
-    NSString *mobileOrUnionId = @"";
-    if (self.paramSource && [self.paramSource respondsToSelector:@selector(paramsForApi:)]) {
-        mobileOrUnionId = [self.paramSource paramsForApi:self][kYJTestAPIManagerParamsKeyMobileOrUnionId];
-    }
-    return [NSString stringWithFormat:@"users/%@/actions/exist", mobileOrUnionId];
+    return @"geocode/regeo";
 }
 
 - (NSString *)serviceType
 {
-    return kAIFServiceYJ_1_0;
+    return kAIFServiceGDMapV3;
 }
 
 - (RTAPIManagerRequestType)requestType
@@ -48,17 +45,30 @@ NSString * const kYJTestAPIManagerParamsKeyMobileOrUnionId = @"mobileOrUnionId";
 
 - (BOOL)shouldCache
 {
-    return NO;
+    return YES;
+}
+
+- (NSDictionary *)reformParams:(NSDictionary *)params
+{
+    NSMutableDictionary *resultParams = [[NSMutableDictionary alloc] init];
+    resultParams[@"key"] = [[AIFServiceFactory sharedInstance] serviceWithIdentifier:kAIFServiceGDMapV3].publicKey;
+    resultParams[@"location"] = [NSString stringWithFormat:@"%@,%@", params[kTestAPIManagerParamsKeyLongitude], params[kTestAPIManagerParamsKeyLatitude]];
+    resultParams[@"output"] = @"json";
+    return resultParams;
 }
 
 #pragma mark - RTAPIManagerValidator
-- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary *)data
+- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data
 {
     return YES;
 }
 
-- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data
+- (BOOL)manager:(RTAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary *)data
 {
+    if ([data[@"status"] isEqualToString:@"0"]) {
+        return NO;
+    }
+    
     return YES;
 }
 

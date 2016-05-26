@@ -1,9 +1,9 @@
 //
 //  AJKBaseManager.m
-//  Anjuke2
+//  casatwy2
 //
 //  Created by casa on 13-12-2.
-//  Copyright (c) 2013年 anjuke inc. All rights reserved.
+//  Copyright (c) 2013年 casatwy inc. All rights reserved.
 //
 
 #import "RTAPIBaseManager.h"

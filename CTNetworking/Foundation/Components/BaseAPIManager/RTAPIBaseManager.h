@@ -1,9 +1,9 @@
 //
 //  AJKBaseManager.h
-//  Anjuke2
+//  casatwy2
 //
 //  Created by casa on 13-12-2.
-//  Copyright (c) 2013年 anjuke inc. All rights reserved.
+//  Copyright (c) 2013年 casatwy inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -28,7 +28,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  
                 - (RTServiceType)serviceType
                 {
-                    return RTAnjukeServiceID;
+                    return RTcasatwyServiceID;
                 }
  
         外界在使用manager的时候，如果需要调api，只要调用loadData即可。manager会去找paramSource来获得调用api的参数。调用成功或失败，则会调用delegate的回调函数。

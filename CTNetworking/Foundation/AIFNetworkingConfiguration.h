@@ -3,7 +3,7 @@
 //  RTNetworking
 //
 //  Created by casa on 14-5-13.
-//  Copyright (c) 2014年 anjuke. All rights reserved.
+//  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
 #ifndef AIFNetworking_AIFNetworkingConfiguration_h
@@ -31,11 +31,6 @@ static NSTimeInterval kAIFCacheOutdateTimeSeconds = 300; // 5分钟的cache过�
 static NSUInteger kAIFCacheCountLimit = 1000; // 最多1000条cache
 
 // services
-extern NSString * const kAIFServiceYJ_1_0;
-extern NSString * const kAIFServiceWeixin;
-extern NSString * const kAIFServiceBeautifulShareLog;
 extern NSString * const kAIFServiceGDMapV3;
-extern NSString * const kAIFServiceYJBN;
-extern NSString * const kAIFServiceInstgram;
 
 #endif

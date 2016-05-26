@@ -3,7 +3,7 @@
 //  RTNetworking
 //
 //  Created by casa on 14-5-17.
-//  Copyright (c) 2014年 anjuke. All rights reserved.
+//  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

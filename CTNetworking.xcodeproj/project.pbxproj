@@ -38,12 +38,7 @@
 		ABC678181CF7109400B520A6 /* AIFUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E01CF7109300B520A6 /* AIFUDIDGenerator.m */; };
 		ABC678191CF7109400B520A6 /* AIFService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E31CF7109300B520A6 /* AIFService.m */; };
 		ABC6781A1CF7109400B520A6 /* AIFServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */; };
-		ABC6781B1CF7109400B520A6 /* YJBNService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E81CF7109300B520A6 /* YJBNService.m */; };
-		ABC6781C1CF7109400B520A6 /* BSLogService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677EB1CF7109300B520A6 /* BSLogService.m */; };
 		ABC6781D1CF7109400B520A6 /* GDMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677EE1CF7109300B520A6 /* GDMapService.m */; };
-		ABC6781E1CF7109400B520A6 /* INSService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F11CF7109300B520A6 /* INSService.m */; };
-		ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F41CF7109300B520A6 /* BSWXService.m */; };
-		ABC678201CF7109400B520A6 /* YJService1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F81CF7109400B520A6 /* YJService1.m */; };
 		ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FD1CF7109400B520A6 /* TestAPIManager.m */; };
 		ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678031CF7109400B520A6 /* FireSingleAPI.m */; };
 		ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678261CF7138900B520A6 /* TestCaseFactory.m */; };
@@ -111,18 +106,8 @@
 		ABC677E31CF7109300B520A6 /* AIFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFService.m; sourceTree = "<group>"; };
 		ABC677E41CF7109300B520A6 /* AIFServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFServiceFactory.h; sourceTree = "<group>"; };
 		ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFServiceFactory.m; sourceTree = "<group>"; };
-		ABC677E71CF7109300B520A6 /* YJBNService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBNService.h; sourceTree = "<group>"; };
-		ABC677E81CF7109300B520A6 /* YJBNService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBNService.m; sourceTree = "<group>"; };
-		ABC677EA1CF7109300B520A6 /* BSLogService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLogService.h; sourceTree = "<group>"; };
-		ABC677EB1CF7109300B520A6 /* BSLogService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLogService.m; sourceTree = "<group>"; };
 		ABC677ED1CF7109300B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
 		ABC677EE1CF7109300B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
-		ABC677F01CF7109300B520A6 /* INSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSService.h; sourceTree = "<group>"; };
-		ABC677F11CF7109300B520A6 /* INSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSService.m; sourceTree = "<group>"; };
-		ABC677F31CF7109300B520A6 /* BSWXService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWXService.h; sourceTree = "<group>"; };
-		ABC677F41CF7109300B520A6 /* BSWXService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWXService.m; sourceTree = "<group>"; };
-		ABC677F71CF7109400B520A6 /* YJService1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJService1.h; sourceTree = "<group>"; };
-		ABC677F81CF7109400B520A6 /* YJService1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJService1.m; sourceTree = "<group>"; };
 		ABC677F91CF7109400B520A6 /* YJNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNetworking.h; sourceTree = "<group>"; };
 		ABC677FC1CF7109400B520A6 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		ABC677FD1CF7109400B520A6 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
@@ -207,12 +192,12 @@
 		ABC677A81CF7109300B520A6 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				ABC677F91CF7109400B520A6 /* YJNetworking.h */,
 				ABC677A91CF7109300B520A6 /* AIFNetworkingConfiguration.h */,
 				ABC677AA1CF7109300B520A6 /* Categories */,
 				ABC677B91CF7109300B520A6 /* Components */,
 				ABC677D41CF7109300B520A6 /* Generators */,
 				ABC677E11CF7109300B520A6 /* Services */,
-				ABC677F91CF7109400B520A6 /* YJNetworking.h */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -374,32 +359,9 @@
 				ABC677E31CF7109300B520A6 /* AIFService.m */,
 				ABC677E41CF7109300B520A6 /* AIFServiceFactory.h */,
 				ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */,
-				ABC677E61CF7109300B520A6 /* BNService */,
-				ABC677E91CF7109300B520A6 /* BSLogService */,
 				ABC677EC1CF7109300B520A6 /* GDMapService */,
-				ABC677EF1CF7109300B520A6 /* INSService */,
-				ABC677F21CF7109300B520A6 /* WXService */,
-				ABC677F51CF7109300B520A6 /* YJService */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		ABC677E61CF7109300B520A6 /* BNService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677E71CF7109300B520A6 /* YJBNService.h */,
-				ABC677E81CF7109300B520A6 /* YJBNService.m */,
-			);
-			path = BNService;
-			sourceTree = "<group>";
-		};
-		ABC677E91CF7109300B520A6 /* BSLogService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677EA1CF7109300B520A6 /* BSLogService.h */,
-				ABC677EB1CF7109300B520A6 /* BSLogService.m */,
-			);
-			path = BSLogService;
 			sourceTree = "<group>";
 		};
 		ABC677EC1CF7109300B520A6 /* GDMapService */ = {
@@ -409,41 +371,6 @@
 				ABC677EE1CF7109300B520A6 /* GDMapService.m */,
 			);
 			path = GDMapService;
-			sourceTree = "<group>";
-		};
-		ABC677EF1CF7109300B520A6 /* INSService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677F01CF7109300B520A6 /* INSService.h */,
-				ABC677F11CF7109300B520A6 /* INSService.m */,
-			);
-			path = INSService;
-			sourceTree = "<group>";
-		};
-		ABC677F21CF7109300B520A6 /* WXService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677F31CF7109300B520A6 /* BSWXService.h */,
-				ABC677F41CF7109300B520A6 /* BSWXService.m */,
-			);
-			path = WXService;
-			sourceTree = "<group>";
-		};
-		ABC677F51CF7109300B520A6 /* YJService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677F61CF7109400B520A6 /* YJService1.0 */,
-			);
-			path = YJService;
-			sourceTree = "<group>";
-		};
-		ABC677F61CF7109400B520A6 /* YJService1.0 */ = {
-			isa = PBXGroup;
-			children = (
-				ABC677F71CF7109400B520A6 /* YJService1.h */,
-				ABC677F81CF7109400B520A6 /* YJService1.m */,
-			);
-			path = YJService1.0;
 			sourceTree = "<group>";
 		};
 		ABC677FA1CF7109400B520A6 /* Demo */ = {
@@ -619,7 +546,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */,
-				ABC678201CF7109400B520A6 /* YJService1.m in Sources */,
 				ABC678071CF7109400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */,
 				ABC678091CF7109400B520A6 /* NSURLRequest+AIFNetworkingMethods.m in Sources */,
 				ABC678081CF7109400B520A6 /* NSString+AXNetworkingMethods.m in Sources */,
@@ -631,19 +557,15 @@
 				ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */,
 				ABC678111CF7109400B520A6 /* BSLocationManager.m in Sources */,
 				ABC678161CF7109400B520A6 /* AIFRequestGenerator.m in Sources */,
-				ABC6781E1CF7109400B520A6 /* INSService.m in Sources */,
 				ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */,
 				ABC678051CF7109400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */,
-				ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */,
 				ABC6780F1CF7109400B520A6 /* AIFCachedObject.m in Sources */,
-				ABC6781C1CF7109400B520A6 /* BSLogService.m in Sources */,
 				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
 				ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */,
 				ABC678131CF7109400B520A6 /* AIFLoggerConfiguration.m in Sources */,
 				ABC678191CF7109400B520A6 /* AIFService.m in Sources */,
 				ABC678061CF7109400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				ABC6781D1CF7109400B520A6 /* GDMapService.m in Sources */,
-				ABC6781B1CF7109400B520A6 /* YJBNService.m in Sources */,
 				ABC678121CF7109400B520A6 /* AIFLogger.m in Sources */,
 				ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */,
 				ABC677131CF707C100B520A6 /* main.m in Sources */,

@@ -3,29 +3,18 @@
 //  RTNetworking
 //
 //  Created by casa on 14-5-12.
-//  Copyright (c) 2014年 anjuke. All rights reserved.
+//  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
 #import "AIFServiceFactory.h"
 #import "AIFService.h"
 
-#import "BSWXService.h"
-#import "BSLogService.h"
 #import "GDMapService.h"
-#import "YJBNService.h"
-#import "INSService.h"
-
-#import "YJService1.h"
 
 /*************************************************************************/
 
 // service name list
-NSString * const kAIFServiceYJ_1_0 = @"kAIFServiceYJ_1_0";
-NSString * const kAIFServiceWeixin = @"kAIFServiceWeixin";
-NSString * const kAIFServiceBeautifulShareLog = @"kAIFServiceBeautifulShareLog";
 NSString * const kAIFServiceGDMapV3 = @"kAIFServiceGDMapV3";
-NSString * const kAIFServiceYJBN = @"kAIFServiceYJBN";
-NSString * const kAIFServiceInstgram = @"kAIFServiceInstgram";
 
 
 @interface AIFServiceFactory ()
@@ -68,28 +57,8 @@ NSString * const kAIFServiceInstgram = @"kAIFServiceInstgram";
 #pragma mark - private methods
 - (AIFService<AIFServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier
 {
-    if ([identifier isEqualToString:kAIFServiceYJ_1_0]) {
-        return [[YJService1 alloc] init];
-    }
-    
-    if ([identifier isEqualToString:kAIFServiceWeixin]) {
-        return [[BSWXService alloc] init];
-    }
-    
-    if ([identifier isEqualToString:kAIFServiceBeautifulShareLog]) {
-        return [[BSLogService alloc] init];
-    }
-    
     if ([identifier isEqualToString:kAIFServiceGDMapV3]) {
         return [[GDMapService alloc] init];
-    }
-    
-    if ([identifier isEqualToString:kAIFServiceYJBN]) {
-        return [[YJBNService alloc] init];
-    }
-    
-    if ([identifier isEqualToString:kAIFServiceInstgram]) {
-        return [[INSService alloc] init];
     }
     
     return nil;

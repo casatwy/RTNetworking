@@ -8,7 +8,8 @@
 
 #import "YJNetworking.h"
 
-extern NSString * const kYJTestAPIManagerParamsKeyMobileOrUnionId;
+extern NSString * const kTestAPIManagerParamsKeyLatitude;
+extern NSString * const kTestAPIManagerParamsKeyLongitude;
 
 @interface TestAPIManager : RTAPIBaseManager <RTAPIManager>
 

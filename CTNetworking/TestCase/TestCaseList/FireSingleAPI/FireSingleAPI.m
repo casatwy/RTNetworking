@@ -52,7 +52,10 @@
     NSDictionary *params = @{};
     
     if (manager == self.testAPIManager) {
-        params = @{kYJTestAPIManagerParamsKeyMobileOrUnionId:@"13636495946"};
+        params = @{
+                   kTestAPIManagerParamsKeyLatitude:@(31.228000),
+                   kTestAPIManagerParamsKeyLongitude:@(121.454290)
+                   };
     }
     
     return params;
@@ -63,6 +66,7 @@
 {
     if (manager == self.testAPIManager) {
         self.resultLable.text = @"success";
+        NSLog(@"%@", [manager fetchDataWithReformer:nil]);
         [self layoutResultLable];
     }
 }
@@ -71,6 +75,7 @@
 {
     if (manager == self.testAPIManager) {
         self.resultLable.text = @"fail";
+        NSLog(@"%@", [manager fetchDataWithReformer:nil]);
         [self layoutResultLable];
     }
 }
