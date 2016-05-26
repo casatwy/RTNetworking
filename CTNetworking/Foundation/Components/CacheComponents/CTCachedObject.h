@@ -1,5 +1,5 @@
 //
-//  AIFCachedObject.h
+//  CTCachedObject.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-26.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIFCachedObject : NSObject
+@interface CTCachedObject : NSObject
 
 @property (nonatomic, copy, readonly) NSData *content;
 @property (nonatomic, copy, readonly) NSDate *lastUpdateTime;

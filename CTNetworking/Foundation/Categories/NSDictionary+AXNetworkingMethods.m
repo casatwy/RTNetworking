@@ -12,21 +12,21 @@
 @implementation NSDictionary (AXNetworkingMethods)
 
 /** 字符串前面是没有问号的，如果用于POST，那就不用加问号，如果用于GET，就要加个问号 */
-- (NSString *)AIF_urlParamsStringSignature:(BOOL)isForSignature
+- (NSString *)CT_urlParamsStringSignature:(BOOL)isForSignature
 {
-    NSArray *sortedArray = [self AIF_transformedUrlParamsArraySignature:isForSignature];
+    NSArray *sortedArray = [self CT_transformedUrlParamsArraySignature:isForSignature];
     return [sortedArray AX_paramsString];
 }
 
 /** 字典变json */
-- (NSString *)AIF_jsonString
+- (NSString *)CT_jsonString
 {
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:NULL];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 /** 转义参数 */
-- (NSArray *)AIF_transformedUrlParamsArraySignature:(BOOL)isForSignature
+- (NSArray *)CT_transformedUrlParamsArraySignature:(BOOL)isForSignature
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AIFNetworkingConfiguration.h"
+#import "CTNetworkingConfiguration.h"
 #import "RTAPIBaseManager.h"
 
-@interface AIFAppContext : NSObject
+@interface CTAppContext : NSObject
 
 //凡是未声明成readonly的都是需要在初始化的时候由外面给的
 

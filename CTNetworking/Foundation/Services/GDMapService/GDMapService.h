@@ -6,8 +6,8 @@
 //  Copyright © 2016年 casa. All rights reserved.
 //
 
-#import "AIFService.h"
+#import "CTService.h"
 
-@interface GDMapService : AIFService <AIFServiceProtocal>
+@interface GDMapService : CTService <CTServiceProtocal>
 
 @end

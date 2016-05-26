@@ -6,17 +6,17 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFService.h"
+#import "CTService.h"
 #import "NSObject+AXNetworkingMethods.h"
 
-@implementation AIFService
+@implementation CTService
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        if ([self conformsToProtocol:@protocol(AIFServiceProtocal)]) {
-            self.child = (id<AIFServiceProtocal>)self;
+        if ([self conformsToProtocol:@protocol(CTServiceProtocal)]) {
+            self.child = (id<CTServiceProtocal>)self;
         }
     }
     return self;

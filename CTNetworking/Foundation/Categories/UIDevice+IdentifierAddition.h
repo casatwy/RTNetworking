@@ -16,13 +16,13 @@
  * @description apple identifier support iOS6 and iOS5 below
  */
 
-- (NSString *) AIF_uuid;
-- (NSString *) AIF_udid;
-- (NSString *) AIF_macaddress;
-- (NSString *) AIF_macaddressMD5;
-- (NSString *) AIF_machineType;
-- (NSString *) AIF_ostype;//显示“ios6，ios5”，只显示大版本号
-- (NSString *) AIF_createUUID;
+- (NSString *) CT_uuid;
+- (NSString *) CT_udid;
+- (NSString *) CT_macaddress;
+- (NSString *) CT_macaddressMD5;
+- (NSString *) CT_machineType;
+- (NSString *) CT_ostype;//显示“ios6，ios5”，只显示大版本号
+- (NSString *) CT_createUUID;
 
 //兼容旧版本
 - (NSString *) uuid;

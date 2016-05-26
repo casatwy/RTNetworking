@@ -8,19 +8,19 @@
 
 #import "RTAPIBaseManager.h"
 #import "CTNetworking.h"
-#import "AIFCache.h"
-#import "AIFLogger.h"
-#import "AIFServiceFactory.h"
-#import "AIFAppContext.h"
-#import "AIFApiProxy.h"
+#import "CTCache.h"
+#import "CTLogger.h"
+#import "CTServiceFactory.h"
+#import "CTAppContext.h"
+#import "CTApiProxy.h"
 
 #define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                   \
 {                                                                                               \
     __weak typeof(self) weakSelf = self;                                                        \
-    REQUEST_ID = [[AIFApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(AIFURLResponse *response) { \
+    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) { \
         __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
         [strongSelf successedOnCallingAPI:response];                                            \
-    } fail:^(AIFURLResponse *response) {                                                        \
+    } fail:^(CTURLResponse *response) {                                                        \
         __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
         [strongSelf failedOnCallingAPI:response withErrorType:RTAPIManagerErrorTypeDefault];    \
     }];                                                                                         \
@@ -43,7 +43,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 @property (nonatomic, copy, readwrite) NSString *errorMessage;
 @property (nonatomic, readwrite) RTAPIManagerErrorType errorType;
 @property (nonatomic, strong) NSMutableArray *requestIdList;
-@property (nonatomic, strong) AIFCache *cache;
+@property (nonatomic, strong) CTCache *cache;
 
 @end
 
@@ -82,14 +82,14 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 #pragma mark - public methods
 - (void)cancelAllRequests
 {
-    [[AIFApiProxy sharedInstance] cancelRequestWithRequestIDList:self.requestIdList];
+    [[CTApiProxy sharedInstance] cancelRequestWithRequestIDList:self.requestIdList];
     [self.requestIdList removeAllObjects];
 }
 
 - (void)cancelRequestWithRequestId:(NSInteger)requestID
 {
     [self removeRequestIdWithRequestID:requestID];
-    [[AIFApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
+    [[CTApiProxy sharedInstance] cancelRequestWithRequestID:@(requestID)];
 }
 
 - (id)fetchDataWithReformer:(id<RTAPIManagerDataReformer>)reformer
@@ -166,7 +166,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 }
 
 #pragma mark - api callbacks
-- (void)successedOnCallingAPI:(AIFURLResponse *)response
+- (void)successedOnCallingAPI:(CTURLResponse *)response
 {
     self.isLoading = NO;
     self.response = response;
@@ -208,7 +208,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     }
 }
 
-- (void)failedOnCallingAPI:(AIFURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType
+- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType
 {
     self.isLoading = NO;
     self.response = response;
@@ -259,7 +259,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         所有重载的方法，都要调用一下super,这样才能保证外部interceptor能够被调到
         这就是decorate pattern
  */
-- (BOOL)beforePerformSuccessWithResponse:(AIFURLResponse *)response
+- (BOOL)beforePerformSuccessWithResponse:(CTURLResponse *)response
 {
     BOOL result = YES;
     
@@ -270,14 +270,14 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     return result;
 }
 
-- (void)afterPerformSuccessWithResponse:(AIFURLResponse *)response
+- (void)afterPerformSuccessWithResponse:(CTURLResponse *)response
 {
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformSuccessWithResponse:)]) {
         [self.interceptor manager:self afterPerformSuccessWithResponse:response];
     }
 }
 
-- (BOOL)beforePerformFailWithResponse:(AIFURLResponse *)response
+- (BOOL)beforePerformFailWithResponse:(CTURLResponse *)response
 {
     BOOL result = YES;
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformFailWithResponse:)]) {
@@ -286,7 +286,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     return result;
 }
 
-- (void)afterPerformFailWithResponse:(AIFURLResponse *)response
+- (void)afterPerformFailWithResponse:(CTURLResponse *)response
 {
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformFailWithResponse:)]) {
         [self.interceptor manager:self afterPerformFailWithResponse:response];
@@ -343,7 +343,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (BOOL)shouldCache
 {
-    return kAIFShouldCache;
+    return kCTShouldCache;
 }
 
 #pragma mark - private methods
@@ -373,9 +373,9 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         __strong typeof (weakSelf) strongSelf = weakSelf;
-        AIFURLResponse *response = [[AIFURLResponse alloc] initWithData:result];
+        CTURLResponse *response = [[CTURLResponse alloc] initWithData:result];
         response.requestParams = params;
-        [AIFLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[[AIFServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier]];
+        [CTLogger logDebugInfoWithCachedResponse:response methodName:methodName serviceIdentifier:[[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier]];
         [strongSelf successedOnCallingAPI:response];
     });
     return YES;
@@ -391,7 +391,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
             __strong typeof(weakSelf) strongSelf = weakSelf;
-            AIFURLResponse *response = [[AIFURLResponse alloc] initWithData:[NSJSONSerialization dataWithJSONObject:result options:0 error:NULL]];
+            CTURLResponse *response = [[CTURLResponse alloc] initWithData:[NSJSONSerialization dataWithJSONObject:result options:0 error:NULL]];
             [strongSelf successedOnCallingAPI:response];
         });
     } else {
@@ -400,10 +400,10 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 }
 
 #pragma mark - getters and setters
-- (AIFCache *)cache
+- (CTCache *)cache
 {
     if (_cache == nil) {
-        _cache = [AIFCache sharedInstance];
+        _cache = [CTCache sharedInstance];
     }
     return _cache;
 }
@@ -418,7 +418,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (BOOL)isReachable
 {
-    BOOL isReachability = [AIFAppContext sharedInstance].isReachable;
+    BOOL isReachability = [CTAppContext sharedInstance].isReachable;
     if (!isReachability) {
         self.errorType = RTAPIManagerErrorTypeNoNetWork;
     }

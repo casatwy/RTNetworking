@@ -1,5 +1,5 @@
 //
-//  AIFCache.h
+//  CTCache.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-26.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFCachedObject.h"
+#import "CTCachedObject.h"
 
-@interface AIFCache : NSObject
+@interface CTCache : NSObject
 
 + (instancetype)sharedInstance;
 

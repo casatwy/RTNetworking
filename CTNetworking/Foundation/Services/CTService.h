@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFNetworkingConfiguration.h"
+#import "CTNetworkingConfiguration.h"
 
-// 所有AIFService的派生类都要符合这个protocal
-@protocol AIFServiceProtocal <NSObject>
+// 所有CTService的派生类都要符合这个protocal
+@protocol CTServiceProtocal <NSObject>
 
 @property (nonatomic, readonly) BOOL isOnline;
 
@@ -28,13 +28,13 @@
 
 @end
 
-@interface AIFService : NSObject
+@interface CTService : NSObject
 
 @property (nonatomic, strong, readonly) NSString *publicKey;
 @property (nonatomic, strong, readonly) NSString *privateKey;
 @property (nonatomic, strong, readonly) NSString *apiBaseUrl;
 @property (nonatomic, strong, readonly) NSString *apiVersion;
 
-@property (nonatomic, weak) id<AIFServiceProtocal> child;
+@property (nonatomic, weak) id<CTServiceProtocal> child;
 
 @end

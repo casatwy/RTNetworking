@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFURLResponse.h"
+#import "CTURLResponse.h"
 
 @class RTAPIBaseManager;
 
@@ -264,11 +264,11 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 @protocol RTAPIManagerInterceptor <NSObject>
 
 @optional
-- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformSuccessWithResponse:(AIFURLResponse *)response;
-- (void)manager:(RTAPIBaseManager *)manager afterPerformSuccessWithResponse:(AIFURLResponse *)response;
+- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformSuccessWithResponse:(CTURLResponse *)response;
+- (void)manager:(RTAPIBaseManager *)manager afterPerformSuccessWithResponse:(CTURLResponse *)response;
 
-- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformFailWithResponse:(AIFURLResponse *)response;
-- (void)manager:(RTAPIBaseManager *)manager afterPerformFailWithResponse:(AIFURLResponse *)response;
+- (BOOL)manager:(RTAPIBaseManager *)manager beforePerformFailWithResponse:(CTURLResponse *)response;
+- (void)manager:(RTAPIBaseManager *)manager afterPerformFailWithResponse:(CTURLResponse *)response;
 
 - (BOOL)manager:(RTAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary *)params;
 - (void)manager:(RTAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary *)params;
@@ -295,7 +295,7 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
  */
 @property (nonatomic, copy, readonly) NSString *errorMessage;
 @property (nonatomic, readonly) RTAPIManagerErrorType errorType;
-@property (nonatomic, strong) AIFURLResponse *response;
+@property (nonatomic, strong) CTURLResponse *response;
 
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
@@ -309,11 +309,11 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 - (void)cancelRequestWithRequestId:(NSInteger)requestID;
 
 // 拦截器方法，继承之后需要调用一下super
-- (BOOL)beforePerformSuccessWithResponse:(AIFURLResponse *)response;
-- (void)afterPerformSuccessWithResponse:(AIFURLResponse *)response;
+- (BOOL)beforePerformSuccessWithResponse:(CTURLResponse *)response;
+- (void)afterPerformSuccessWithResponse:(CTURLResponse *)response;
 
-- (BOOL)beforePerformFailWithResponse:(AIFURLResponse *)response;
-- (void)afterPerformFailWithResponse:(AIFURLResponse *)response;
+- (BOOL)beforePerformFailWithResponse:(CTURLResponse *)response;
+- (void)afterPerformFailWithResponse:(CTURLResponse *)response;
 
 - (BOOL)shouldCallAPIWithParams:(NSDictionary *)params;
 - (void)afterCallingAPIWithParams:(NSDictionary *)params;
@@ -338,6 +338,6 @@ typedef NS_ENUM (NSUInteger, RTAPIManagerRequestType){
 - (void)cleanData;
 - (BOOL)shouldCache;
 
-- (void)successedOnCallingAPI:(AIFURLResponse *)response;
-- (void)failedOnCallingAPI:(AIFURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType;
+- (void)successedOnCallingAPI:(CTURLResponse *)response;
+- (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(RTAPIManagerErrorType)errorType;
 @end

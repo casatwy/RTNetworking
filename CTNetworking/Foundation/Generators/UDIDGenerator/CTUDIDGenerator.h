@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface AIFUDIDGenerator : NSObject
+@interface CTUDIDGenerator : NSObject
 
 + (id)sharedInstance;
 

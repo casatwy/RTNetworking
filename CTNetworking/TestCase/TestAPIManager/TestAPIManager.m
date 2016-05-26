@@ -35,7 +35,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
 
 - (NSString *)serviceType
 {
-    return kAIFServiceGDMapV3;
+    return kCTServiceGDMapV3;
 }
 
 - (RTAPIManagerRequestType)requestType
@@ -51,7 +51,7 @@ NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyL
 - (NSDictionary *)reformParams:(NSDictionary *)params
 {
     NSMutableDictionary *resultParams = [[NSMutableDictionary alloc] init];
-    resultParams[@"key"] = [[AIFServiceFactory sharedInstance] serviceWithIdentifier:kAIFServiceGDMapV3].publicKey;
+    resultParams[@"key"] = [[CTServiceFactory sharedInstance] serviceWithIdentifier:kCTServiceGDMapV3].publicKey;
     resultParams[@"location"] = [NSString stringWithFormat:@"%@,%@", params[kTestAPIManagerParamsKeyLongitude], params[kTestAPIManagerParamsKeyLatitude]];
     resultParams[@"output"] = @"json";
     return resultParams;

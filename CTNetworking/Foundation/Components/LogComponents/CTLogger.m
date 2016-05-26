@@ -6,24 +6,24 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFLogger.h"
+#import "CTLogger.h"
 #import "NSObject+AXNetworkingMethods.h"
 #import "NSMutableString+AXNetworkingMethods.h"
-#import "AIFCommonParamsGenerator.h"
-#import "AIFAppContext.h"
+#import "CTCommonParamsGenerator.h"
+#import "CTAppContext.h"
 #import "NSArray+AXNetworkingMethods.h"
-#import "AIFApiProxy.h"
-#import "AIFServiceFactory.h"
+#import "CTApiProxy.h"
+#import "CTServiceFactory.h"
 
-@interface AIFLogger ()
+@interface CTLogger ()
 
-@property (nonatomic, strong, readwrite) AIFLoggerConfiguration *configParams;
+@property (nonatomic, strong, readwrite) CTLoggerConfiguration *configParams;
 
 @end
 
-@implementation AIFLogger
+@implementation CTLogger
 
-+ (void)logDebugInfoWithRequest:(NSURLRequest *)request apiName:(NSString *)apiName service:(AIFService *)service requestParams:(id)requestParams httpMethod:(NSString *)httpMethod
++ (void)logDebugInfoWithRequest:(NSURLRequest *)request apiName:(NSString *)apiName service:(CTService *)service requestParams:(id)requestParams httpMethod:(NSString *)httpMethod
 {
 #ifdef DEBUG
     BOOL isOnline = NO;
@@ -37,13 +37,13 @@
     
     NSMutableString *logString = [NSMutableString stringWithString:@"\n\n**************************************************************\n*                       Request Start                        *\n**************************************************************\n\n"];
     
-    [logString appendFormat:@"API Name:\t\t%@\n", [apiName AIF_defaultValue:@"N/A"]];
-    [logString appendFormat:@"Method:\t\t\t%@\n", [httpMethod AIF_defaultValue:@"N/A"]];
-    [logString appendFormat:@"Version:\t\t%@\n", [service.apiVersion AIF_defaultValue:@"N/A"]];
+    [logString appendFormat:@"API Name:\t\t%@\n", [apiName CT_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Method:\t\t\t%@\n", [httpMethod CT_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Version:\t\t%@\n", [service.apiVersion CT_defaultValue:@"N/A"]];
     [logString appendFormat:@"Service:\t\t%@\n", [service class]];
     [logString appendFormat:@"Status:\t\t\t%@\n", isOnline ? @"online" : @"offline"];
-    [logString appendFormat:@"Public Key:\t\t%@\n", [service.publicKey AIF_defaultValue:@"N/A"]];
-    [logString appendFormat:@"Private Key:\t%@\n", [service.privateKey AIF_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Public Key:\t\t%@\n", [service.publicKey CT_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Private Key:\t%@\n", [service.privateKey CT_defaultValue:@"N/A"]];
     [logString appendFormat:@"Params:\n%@", requestParams];
     
     [logString appendURLRequest:request];
@@ -80,16 +80,16 @@
 #endif
 }
 
-+ (void)logDebugInfoWithCachedResponse:(AIFURLResponse *)response methodName:(NSString *)methodName serviceIdentifier:(AIFService *)service
++ (void)logDebugInfoWithCachedResponse:(CTURLResponse *)response methodName:(NSString *)methodName serviceIdentifier:(CTService *)service
 {
 #ifdef DEBUG
     NSMutableString *logString = [NSMutableString stringWithString:@"\n\n==============================================================\n=                      Cached Response                       =\n==============================================================\n\n"];
     
-    [logString appendFormat:@"API Name:\t\t%@\n", [methodName AIF_defaultValue:@"N/A"]];
-    [logString appendFormat:@"Version:\t\t%@\n", [service.apiVersion AIF_defaultValue:@"N/A"]];
+    [logString appendFormat:@"API Name:\t\t%@\n", [methodName CT_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Version:\t\t%@\n", [service.apiVersion CT_defaultValue:@"N/A"]];
     [logString appendFormat:@"Service:\t\t%@\n", [service class]];
-    [logString appendFormat:@"Public Key:\t\t%@\n", [service.publicKey AIF_defaultValue:@"N/A"]];
-    [logString appendFormat:@"Private Key:\t%@\n", [service.privateKey AIF_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Public Key:\t\t%@\n", [service.publicKey CT_defaultValue:@"N/A"]];
+    [logString appendFormat:@"Private Key:\t%@\n", [service.privateKey CT_defaultValue:@"N/A"]];
     [logString appendFormat:@"Method Name:\t%@\n", methodName];
     [logString appendFormat:@"Params:\n%@\n\n", response.requestParams];
     [logString appendFormat:@"Content:\n\t%@\n\n", response.contentString];
@@ -102,7 +102,7 @@
 + (instancetype)sharedInstance
 {
     static dispatch_once_t onceToken;
-    static AIFLogger *sharedInstance;
+    static CTLogger *sharedInstance;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
     });
@@ -113,7 +113,7 @@
 {
     self = [super init];
     if (self) {
-        self.configParams = [[AIFLoggerConfiguration alloc] init];
+        self.configParams = [[CTLoggerConfiguration alloc] init];
     }
     return self;
 }
@@ -123,9 +123,9 @@
     NSMutableDictionary *actionDict = [[NSMutableDictionary alloc] init];
     actionDict[@"act"] = actionCode;
     [actionDict addEntriesFromDictionary:params];
-    [actionDict addEntriesFromDictionary:[AIFCommonParamsGenerator commonParamsDictionaryForLog]];
+    [actionDict addEntriesFromDictionary:[CTCommonParamsGenerator commonParamsDictionaryForLog]];
     NSDictionary *logJsonDict = @{self.configParams.sendActionKey:[@[actionDict] AX_jsonString]};
-    [[AIFApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
+    [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
 }
 
 @end

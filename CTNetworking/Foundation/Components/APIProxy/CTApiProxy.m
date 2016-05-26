@@ -7,16 +7,16 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#import "AIFApiProxy.h"
-#import "AIFServiceFactory.h"
-#import "AIFRequestGenerator.h"
-#import "AIFLogger.h"
-#import "NSURLRequest+AIFNetworkingMethods.h"
+#import "CTApiProxy.h"
+#import "CTServiceFactory.h"
+#import "CTRequestGenerator.h"
+#import "CTLogger.h"
+#import "NSURLRequest+CTNetworkingMethods.h"
 
 static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
 static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
 
-@interface AIFApiProxy ()
+@interface CTApiProxy ()
 
 @property (nonatomic, strong) NSMutableDictionary *dispatchTable;
 @property (nonatomic, strong) NSNumber *recordedRequestId;
@@ -26,7 +26,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 
 @end
 
-@implementation AIFApiProxy
+@implementation CTApiProxy
 #pragma mark - getters and setters
 - (NSMutableDictionary *)dispatchTable
 {
@@ -51,9 +51,9 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 + (instancetype)sharedInstance
 {
     static dispatch_once_t onceToken;
-    static AIFApiProxy *sharedInstance = nil;
+    static CTApiProxy *sharedInstance = nil;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFApiProxy alloc] init];
+        sharedInstance = [[CTApiProxy alloc] init];
     });
     return sharedInstance;
 }
@@ -61,28 +61,28 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
 #pragma mark - public methods
 - (NSInteger)callGETWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[AIFRequestGenerator sharedInstance] generateGETRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateGETRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
 - (NSInteger)callPOSTWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[AIFRequestGenerator sharedInstance] generatePOSTRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePOSTRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
 - (NSInteger)callPUTWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[AIFRequestGenerator sharedInstance] generatePutRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generatePutRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
 
 - (NSInteger)callDELETEWithParams:(NSDictionary *)params serviceIdentifier:(NSString *)servieIdentifier methodName:(NSString *)methodName success:(AXCallback)success fail:(AXCallback)fail
 {
-    NSURLRequest *request = [[AIFRequestGenerator sharedInstance] generateDeleteRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
+    NSURLRequest *request = [[CTRequestGenerator sharedInstance] generateDeleteRequestWithServiceIdentifier:servieIdentifier requestParams:params methodName:methodName];
     NSNumber *requestId = [self callApiWithRequest:request success:success fail:fail];
     return [requestId integerValue];
 }
@@ -117,20 +117,20 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
         
         if (error) {
-            [AIFLogger logDebugInfoWithResponse:httpResponse
+            [CTLogger logDebugInfoWithResponse:httpResponse
                                   resposeString:responseString
                                         request:request
                                           error:error];
-            AIFURLResponse *aifResponse = [[AIFURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
-            fail?fail(aifResponse):nil;
+            CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
+            fail?fail(CTResponse):nil;
         } else {
             // 检查http response是否成立。
-            [AIFLogger logDebugInfoWithResponse:httpResponse
+            [CTLogger logDebugInfoWithResponse:httpResponse
                                   resposeString:responseString
                                         request:request
                                           error:NULL];
-            AIFURLResponse *aifResponse = [[AIFURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:AIFURLResponseStatusSuccess];
-            success?success(aifResponse):nil;
+            CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:CTURLResponseStatusSuccess];
+            success?success(CTResponse):nil;
         }
     }];
     

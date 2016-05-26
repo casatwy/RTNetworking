@@ -1,20 +1,20 @@
 //
-//  AIFLogConfig.m
-//  AIFLogTrackCenter
+//  CTLogConfig.m
+//  CTLogTrackCenter
 //
 //  Created by Softwind.Tang on 14-5-15.
 //  Copyright (c) 2014年 casatwy Inc. All rights reserved.
 //
 
-#import "AIFLoggerConfiguration.h"
-#import "AIFServiceFactory.h"
+#import "CTLoggerConfiguration.h"
+#import "CTServiceFactory.h"
 
-@implementation AIFLoggerConfiguration
+@implementation CTLoggerConfiguration
 
-- (void)configWithAppType:(AIFAppType)appType
+- (void)configWithAppType:(CTAppType)appType
 {
     switch (appType) {
-        case AIFAppTypePlayPlus:
+        case CTAppTypePlayPlus:
             self.appKey = @"xxxxxx";
             self.serviceType = @"xxxxx";
             self.sendLogMethod = @"xxxx";

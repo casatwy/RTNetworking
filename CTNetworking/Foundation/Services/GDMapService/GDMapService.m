@@ -7,14 +7,14 @@
 //
 
 #import "GDMapService.h"
-#import "AIFAppContext.h"
+#import "CTAppContext.h"
 
 @implementation GDMapService
 
-#pragma mark - AIFServiceProtocal
+#pragma mark - CTServiceProtocal
 - (BOOL)isOnline
 {
-    return [AIFAppContext sharedInstance].isOnline;
+    return [CTAppContext sharedInstance].isOnline;
 }
 
 - (NSString *)offlineApiBaseUrl

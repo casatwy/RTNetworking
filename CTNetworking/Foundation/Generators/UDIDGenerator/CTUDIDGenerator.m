@@ -6,31 +6,31 @@
 //
 //
 
-#import "AIFUDIDGenerator.h"
-#import "AIFNetworkingConfiguration.h"
+#import "CTUDIDGenerator.h"
+#import "CTNetworkingConfiguration.h"
 
-@implementation AIFUDIDGenerator
+@implementation CTUDIDGenerator
 
 + (id)sharedInstance
 {
     static dispatch_once_t pred;
-    static AIFUDIDGenerator *sharedInstance = nil;
+    static CTUDIDGenerator *sharedInstance = nil;
     dispatch_once(&pred, ^{
-        sharedInstance = [[AIFUDIDGenerator alloc] init];
+        sharedInstance = [[CTUDIDGenerator alloc] init];
     });
     return sharedInstance;
 }
 
 - (NSString *)UDID
 {
-    NSData *udidData = [self searchKeychainCopyMatching:AIFUDIDName];
+    NSData *udidData = [self searchKeychainCopyMatching:CTUDIDName];
     NSString *udid = nil;
     if (udidData != nil) {
         NSString *temp = [[NSString alloc] initWithData:udidData encoding:NSUTF8StringEncoding];
         udid = [NSString stringWithFormat:@"%@", temp];
     }
     if (udid.length == 0) {
-        udid = [self readPasteBoradforIdentifier:AIFUDIDName];
+        udid = [self readPasteBoradforIdentifier:CTUDIDName];
     }
     return udid;
 }
@@ -38,14 +38,14 @@
 - (void)saveUDID:(NSString *)udid
 {
     BOOL saveOk = NO;
-    NSData *udidData = [self searchKeychainCopyMatching:AIFUDIDName];
+    NSData *udidData = [self searchKeychainCopyMatching:CTUDIDName];
     if (udidData == nil) {
-        saveOk = [self createKeychainValue:udid forIdentifier:AIFUDIDName];
+        saveOk = [self createKeychainValue:udid forIdentifier:CTUDIDName];
     }else{
-        saveOk = [self updateKeychainValue:udid forIdentifier:AIFUDIDName];
+        saveOk = [self updateKeychainValue:udid forIdentifier:CTUDIDName];
     }
     if (!saveOk) {
-        [self createPasteBoradValue:udid forIdentifier:AIFUDIDName];
+        [self createPasteBoradValue:udid forIdentifier:CTUDIDName];
     }
 }
 
@@ -58,7 +58,7 @@
     NSData *encodedIdentifier = [identifier dataUsingEncoding:NSUTF8StringEncoding];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrGeneric];
     [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrAccount];
-    [searchDictionary setObject:AIFKeychainServiceName forKey:(__bridge id)kSecAttrService];
+    [searchDictionary setObject:CTKeychainServiceName forKey:(__bridge id)kSecAttrService];
     
     return searchDictionary;
 }
@@ -120,17 +120,17 @@
 
 - (void)createPasteBoradValue:(NSString *)value forIdentifier:(NSString *)identifier
 {
-    UIPasteboard *pb = [UIPasteboard pasteboardWithName:AIFKeychainServiceName create:YES];
+    UIPasteboard *pb = [UIPasteboard pasteboardWithName:CTKeychainServiceName create:YES];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:value forKey:identifier];
     NSData *dictData = [NSKeyedArchiver archivedDataWithRootObject:dict];
-    [pb setData:dictData forPasteboardType:AIFPasteboardType];
+    [pb setData:dictData forPasteboardType:CTPasteboardType];
 }
 
 - (NSString *)readPasteBoradforIdentifier:(NSString *)identifier
 {
     
-    UIPasteboard *pb = [UIPasteboard pasteboardWithName:AIFKeychainServiceName create:YES];
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:[pb dataForPasteboardType:AIFPasteboardType]];
+    UIPasteboard *pb = [UIPasteboard pasteboardWithName:CTKeychainServiceName create:YES];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:[pb dataForPasteboardType:CTPasteboardType]];
     return [dict objectForKey:identifier];
 }
 @end

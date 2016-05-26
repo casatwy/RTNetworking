@@ -1,5 +1,5 @@
 //
-//  NSURLRequest+AIFNetworkingMethods.h
+//  NSURLRequest+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-26.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURLRequest (AIFNetworkingMethods)
+@interface NSURLRequest (CTNetworkingMethods)
 
 @property (nonatomic, copy) NSDictionary *requestParams;
 

@@ -1,22 +1,22 @@
 //
-//  AIFCachedObject.m
+//  CTCachedObject.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-26.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFCachedObject.h"
-#import "AIFNetworkingConfiguration.h"
+#import "CTCachedObject.h"
+#import "CTNetworkingConfiguration.h"
 
-@interface AIFCachedObject ()
+@interface CTCachedObject ()
 
 @property (nonatomic, copy, readwrite) NSData *content;
 @property (nonatomic, copy, readwrite) NSDate *lastUpdateTime;
 
 @end
 
-@implementation AIFCachedObject
+@implementation CTCachedObject
 
 #pragma mark - getters and setters
 - (BOOL)isEmpty
@@ -27,7 +27,7 @@
 - (BOOL)isOutdated
 {
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:self.lastUpdateTime];
-    return timeInterval > kAIFCacheOutdateTimeSeconds;
+    return timeInterval > kCTCacheOutdateTimeSeconds;
 }
 
 - (void)setContent:(NSData *)content

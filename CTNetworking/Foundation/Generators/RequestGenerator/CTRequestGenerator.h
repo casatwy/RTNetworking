@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIFRequestGenerator : NSObject
+@interface CTRequestGenerator : NSObject
 
 + (instancetype)sharedInstance;
 

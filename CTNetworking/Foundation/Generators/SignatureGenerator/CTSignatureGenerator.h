@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIFSignatureGenerator : NSObject
+@interface CTSignatureGenerator : NSObject
 
 + (NSString *)signGetWithSigParams:(NSDictionary *)allParams methodName:(NSString *)methodName apiVersion:(NSString *)apiVersion privateKey:(NSString *)privateKey publicKey:(NSString *)publicKey;
 + (NSString *)signRestfulGetWithAllParams:(NSDictionary *)allParams methodName:(NSString *)methodName apiVersion:(NSString *)apiVersion privateKey:(NSString *)privateKey;

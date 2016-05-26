@@ -1,29 +1,29 @@
 //
-//  AIFCache.m
+//  CTCache.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-26.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFCache.h"
+#import "CTCache.h"
 #import "NSDictionary+AXNetworkingMethods.h"
-#import "AIFNetworkingConfiguration.h"
+#import "CTNetworkingConfiguration.h"
 
-@interface AIFCache ()
+@interface CTCache ()
 
 @property (nonatomic, strong) NSCache *cache;
 
 @end
 
-@implementation AIFCache
+@implementation CTCache
 
 #pragma mark - getters and setters
 - (NSCache *)cache
 {
     if (_cache == nil) {
         _cache = [[NSCache alloc] init];
-        _cache.countLimit = kAIFCacheCountLimit;
+        _cache.countLimit = kCTCacheCountLimit;
     }
     return _cache;
 }
@@ -32,9 +32,9 @@
 + (instancetype)sharedInstance
 {
     static dispatch_once_t onceToken;
-    static AIFCache *sharedInstance;
+    static CTCache *sharedInstance;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFCache alloc] init];
+        sharedInstance = [[CTCache alloc] init];
     });
     return sharedInstance;
 }
@@ -63,7 +63,7 @@
 
 - (NSData *)fetchCachedDataWithKey:(NSString *)key
 {
-    AIFCachedObject *cachedObject = [self.cache objectForKey:key];
+    CTCachedObject *cachedObject = [self.cache objectForKey:key];
     if (cachedObject.isOutdated || cachedObject.isEmpty) {
         return nil;
     } else {
@@ -73,9 +73,9 @@
 
 - (void)saveCacheWithData:(NSData *)cachedData key:(NSString *)key
 {
-    AIFCachedObject *cachedObject = [self.cache objectForKey:key];
+    CTCachedObject *cachedObject = [self.cache objectForKey:key];
     if (cachedObject == nil) {
-        cachedObject = [[AIFCachedObject alloc] init];
+        cachedObject = [[CTCachedObject alloc] init];
     }
     [cachedObject updateContent:cachedData];
     [self.cache setObject:cachedObject forKey:key];
@@ -93,7 +93,7 @@
 
 - (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams
 {
-    return [NSString stringWithFormat:@"%@%@%@", serviceIdentifier, methodName, [requestParams AIF_urlParamsStringSignature:NO]];
+    return [NSString stringWithFormat:@"%@%@%@", serviceIdentifier, methodName, [requestParams CT_urlParamsStringSignature:NO]];
 }
 
 #pragma mark - private method

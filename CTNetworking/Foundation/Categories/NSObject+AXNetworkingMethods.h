@@ -10,7 +10,7 @@
 
 @interface NSObject (AXNetworkingMethods)
 
-- (id)AIF_defaultValue:(id)defaultData;
-- (BOOL)AIF_isEmptyObject;
+- (id)CT_defaultValue:(id)defaultData;
+- (BOOL)CT_isEmptyObject;
 
 @end

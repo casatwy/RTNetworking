@@ -7,7 +7,7 @@
 //
 
 #import "UIDevice+IdentifierAddition.h"
-#import "AIFUDIDGenerator.h"
+#import "CTUDIDGenerator.h"
 #import "NSString+AXNetworkingMethods.h"
 
 #include <sys/socket.h> // Per msqr
@@ -81,7 +81,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (NSString *)AIF_createUUID
+- (NSString *)CT_createUUID
 {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     CFStringRef string = CFUUIDCreateString(NULL, uuid);
@@ -89,29 +89,29 @@
     return (__bridge_transfer NSString *)string;
 }
 
-- (NSString *)AIF_uuid
+- (NSString *)CT_uuid
 {
     NSString *key = @"RTUUID";
     NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (uuid.length == 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:[self AIF_createUUID] forKey:key];
+        [[NSUserDefaults standardUserDefaults] setObject:[self CT_createUUID] forKey:key];
         return [[[NSUserDefaults standardUserDefaults] objectForKey:key] copy];
     } else {
         return uuid;
     }
 }
 
-- (NSString *) AIF_udid
+- (NSString *) CT_udid
 {
-    NSString *udid = [[AIFUDIDGenerator sharedInstance] UDID];
+    NSString *udid = [[CTUDIDGenerator sharedInstance] UDID];
     if (udid.length==0) {
-        udid = [self AIF_uuid];
-        [[AIFUDIDGenerator sharedInstance] saveUDID:udid];
+        udid = [self CT_uuid];
+        [[CTUDIDGenerator sharedInstance] saveUDID:udid];
     }
     return udid;
 }
 
-- (NSString *)AIF_macaddress
+- (NSString *)CT_macaddress
 {
     NSString *key = @"macAddress";
     NSString *macAddress = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -126,11 +126,11 @@
     return macAddress;       
 }
 
-- (NSString *) AIF_macaddressMD5{
+- (NSString *) CT_macaddressMD5{
     NSString *key = @"MACAddressMD5";
     NSString *macid = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (macid.length == 0) {
-        NSString *macaddress = [[UIDevice currentDevice] AIF_macaddress];
+        NSString *macaddress = [[UIDevice currentDevice] CT_macaddress];
         macid = [macaddress AX_md5];
         if (!macid){
             macid = @"macaddress_empty";
@@ -142,7 +142,7 @@
     return macid;
 }
 
-- (NSString *)AIF_machineType
+- (NSString *)CT_machineType
 {
     struct utsname systemInfo;
     uname(&systemInfo);
@@ -184,7 +184,7 @@
     return machineType;
 }
 
-- (NSString *) AIF_ostype{
+- (NSString *) CT_ostype{
     UIDevice *device = [UIDevice currentDevice];
     NSString *os = [device systemVersion];
     NSArray *array = [os componentsSeparatedByString:@"."];
@@ -198,31 +198,31 @@
 #pragma mark - 兼容旧版本
 - (NSString *) uuid
 {
-    return self.AIF_uuid;
+    return self.CT_uuid;
 }
 - (NSString *) udid
 {
-    return self.AIF_udid;
+    return self.CT_udid;
 }
 - (NSString *) macaddress
 {
-    return self.AIF_macaddress;
+    return self.CT_macaddress;
 }
 - (NSString *) macaddressMD5
 {
-    return self.AIF_macaddressMD5;
+    return self.CT_macaddressMD5;
 }
 - (NSString *) machineType
 {
-    return self.AIF_machineType;
+    return self.CT_machineType;
 }
 - (NSString *) ostype//显示“ios6，ios5”，只显示大版本号
 {
-    return self.AIF_ostype;
+    return self.CT_ostype;
 }
 - (NSString *) createUUID
 {
-    return [self.AIF_createUUID copy];
+    return [self.CT_createUUID copy];
 }
 
 @end

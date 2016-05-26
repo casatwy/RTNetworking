@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIFCommonParamsGenerator : NSObject
+@interface CTCommonParamsGenerator : NSObject
 
 + (NSDictionary *)commonParamsDictionary;
 + (NSDictionary *)commonParamsDictionaryForLog;

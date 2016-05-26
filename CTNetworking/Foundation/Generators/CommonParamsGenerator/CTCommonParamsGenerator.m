@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFCommonParamsGenerator.h"
-#import "AIFAppContext.h"
+#import "CTCommonParamsGenerator.h"
+#import "CTAppContext.h"
 #import "NSDictionary+AXNetworkingMethods.h"
 
-@implementation AIFCommonParamsGenerator
+@implementation CTCommonParamsGenerator
 
 + (NSDictionary *)commonParamsDictionary
 {

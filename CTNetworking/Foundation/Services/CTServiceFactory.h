@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFService.h"
+#import "CTService.h"
 
-@interface AIFServiceFactory : NSObject
+@interface CTServiceFactory : NSObject
 
 + (instancetype)sharedInstance;
-- (AIFService<AIFServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier;
+- (CTService<CTServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier;
 
 @end

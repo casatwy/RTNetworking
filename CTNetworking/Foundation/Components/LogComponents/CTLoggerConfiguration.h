@@ -1,15 +1,15 @@
 //
-//  AIFLogConfig.h
-//  AIFLogTrackCenter
+//  CTLogConfig.h
+//  CTLogTrackCenter
 //
 //  Created by Softwind.Tang on 14-5-15.
 //  Copyright (c) 2014年 casatwy Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFAppContext.h"
+#import "CTAppContext.h"
 
-@interface AIFLoggerConfiguration : NSObject
+@interface CTLoggerConfiguration : NSObject
 
 /** 渠道ID */
 @property (nonatomic, strong) NSString *channelID;
@@ -35,6 +35,6 @@
 /** 发送Action记录时使用的key */
 @property (nonatomic, strong) NSString *sendActionKey;
 
-- (void)configWithAppType:(AIFAppType)appType;
+- (void)configWithAppType:(CTAppType)appType;
 
 @end

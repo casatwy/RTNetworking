@@ -6,24 +6,24 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFServiceFactory.h"
-#import "AIFService.h"
+#import "CTServiceFactory.h"
+#import "CTService.h"
 
 #import "GDMapService.h"
 
 /*************************************************************************/
 
 // service name list
-NSString * const kAIFServiceGDMapV3 = @"kAIFServiceGDMapV3";
+NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 
 
-@interface AIFServiceFactory ()
+@interface CTServiceFactory ()
 
 @property (nonatomic, strong) NSMutableDictionary *serviceStorage;
 
 @end
 
-@implementation AIFServiceFactory
+@implementation CTServiceFactory
 
 #pragma mark - getters and setters
 - (NSMutableDictionary *)serviceStorage
@@ -38,15 +38,15 @@ NSString * const kAIFServiceGDMapV3 = @"kAIFServiceGDMapV3";
 + (instancetype)sharedInstance
 {
     static dispatch_once_t onceToken;
-    static AIFServiceFactory *sharedInstance;
+    static CTServiceFactory *sharedInstance;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFServiceFactory alloc] init];
+        sharedInstance = [[CTServiceFactory alloc] init];
     });
     return sharedInstance;
 }
 
 #pragma mark - public methods
-- (AIFService<AIFServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier
+- (CTService<CTServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier
 {
     if (self.serviceStorage[identifier] == nil) {
         self.serviceStorage[identifier] = [self newServiceWithIdentifier:identifier];
@@ -55,9 +55,9 @@ NSString * const kAIFServiceGDMapV3 = @"kAIFServiceGDMapV3";
 }
 
 #pragma mark - private methods
-- (AIFService<AIFServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier
+- (CTService<CTServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier
 {
-    if ([identifier isEqualToString:kAIFServiceGDMapV3]) {
+    if ([identifier isEqualToString:kCTServiceGDMapV3]) {
         return [[GDMapService alloc] init];
     }
     

@@ -10,8 +10,8 @@
 
 @interface NSDictionary (AXNetworkingMethods)
 
-- (NSString *)AIF_urlParamsStringSignature:(BOOL)isForSignature;
-- (NSString *)AIF_jsonString;
-- (NSArray *)AIF_transformedUrlParamsArraySignature:(BOOL)isForSignature;
+- (NSString *)CT_urlParamsStringSignature:(BOOL)isForSignature;
+- (NSString *)CT_jsonString;
+- (NSArray *)CT_transformedUrlParamsArraySignature:(BOOL)isForSignature;
 
 @end

@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "AIFAppContext.h"
+#import "CTAppContext.h"
 #import "NSObject+AXNetworkingMethods.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "AFNetworkReachabilityManager.h"
-#import "AIFLogger.h"
+#import "CTLogger.h"
 #import "CTLocationManager.h"
 
-@interface AIFAppContext ()
+@interface CTAppContext ()
 
 // 用户的token管理
 @property (nonatomic, copy, readwrite) NSString *accessToken;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation AIFAppContext
+@implementation CTAppContext
 
 @synthesize userInfo = _userInfo;
 @synthesize userID = _userID;
@@ -33,10 +33,10 @@
 #pragma mark - public methods
 + (instancetype)sharedInstance
 {
-    static AIFAppContext *sharedInstance;
+    static CTAppContext *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[AIFAppContext alloc] init];
+        sharedInstance = [[CTAppContext alloc] init];
         [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     });
     return sharedInstance;
@@ -369,7 +369,7 @@
         NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:filepath];
         isOnline = [settings[@"isOnline"] boolValue];
     } else {
-        isOnline = kAIFServiceIsOnline;
+        isOnline = kCTServiceIsOnline;
     }
     return isOnline;
 }

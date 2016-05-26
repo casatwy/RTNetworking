@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFURLResponse.h"
+#import "CTURLResponse.h"
 
-typedef void(^AXCallback)(AIFURLResponse *response);
+typedef void(^AXCallback)(CTURLResponse *response);
 
-@interface AIFApiProxy : NSObject
+@interface CTApiProxy : NSObject
 
 + (instancetype)sharedInstance;
 
