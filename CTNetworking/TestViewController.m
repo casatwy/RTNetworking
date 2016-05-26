@@ -6,14 +6,14 @@
 //  Copyright © 2015年 casa. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TestViewController.h"
 #import <UIView+LayoutMethods.h>
 #import "TestCaseFactory.h"
 
 NSString * const kBSDataSourceItemKeyTestCaseType = @"kBSDataSourceItemKeyTestCaseType";
 NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestCaseTitle";
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TestViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
@@ -22,7 +22,7 @@ NSString * const kBSDataSourceItemKeyTestCaseTitle = @"kBSDataSourceItemKeyTestC
 
 @end
 
-@implementation ViewController
+@implementation TestViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {

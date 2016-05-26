@@ -10,7 +10,7 @@
 		118172816A888E8150338AE0 /* libPods-CTNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */; };
 		ABC677131CF707C100B520A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677121CF707C100B520A6 /* main.m */; };
 		ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677151CF707C100B520A6 /* AppDelegate.m */; };
-		ABC677191CF707C100B520A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677181CF707C100B520A6 /* ViewController.m */; };
+		ABC677191CF707C100B520A6 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677181CF707C100B520A6 /* TestViewController.m */; };
 		ABC6771C1CF707C100B520A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771A1CF707C100B520A6 /* Main.storyboard */; };
 		ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771D1CF707C100B520A6 /* Assets.xcassets */; };
 		ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771F1CF707C100B520A6 /* LaunchScreen.storyboard */; };
@@ -45,8 +45,8 @@
 		ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F41CF7109300B520A6 /* BSWXService.m */; };
 		ABC678201CF7109400B520A6 /* YJService1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F81CF7109400B520A6 /* YJService1.m */; };
 		ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FD1CF7109400B520A6 /* TestAPIManager.m */; };
-		ABC678221CF7109400B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */; };
 		ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678031CF7109400B520A6 /* FireSingleAPI.m */; };
+		ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678261CF7138900B520A6 /* TestCaseFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,14 +57,14 @@
 		ABC677121CF707C100B520A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ABC677141CF707C100B520A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ABC677151CF707C100B520A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ABC677171CF707C100B520A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ABC677181CF707C100B520A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ABC677171CF707C100B520A6 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = ../TestViewController.h; sourceTree = "<group>"; };
+		ABC677181CF707C100B520A6 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = ../TestViewController.m; sourceTree = "<group>"; };
 		ABC6771B1CF707C100B520A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABC6771D1CF707C100B520A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABC677201CF707C100B520A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABC677221CF707C100B520A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CTNetworkingConfiguration.plist; sourceTree = "<group>"; };
-		ABC677A71CF7102B00B520A6 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		ABC677A71CF7102B00B520A6 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonHeader.h; path = ../CommonHeader.h; sourceTree = "<group>"; };
 		ABC677A91CF7109300B520A6 /* AIFNetworkingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFNetworkingConfiguration.h; sourceTree = "<group>"; };
 		ABC677AB1CF7109300B520A6 /* NSArray+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AXNetworkingMethods.h"; sourceTree = "<group>"; };
 		ABC677AC1CF7109300B520A6 /* NSArray+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AXNetworkingMethods.m"; sourceTree = "<group>"; };
@@ -126,10 +126,10 @@
 		ABC677F91CF7109400B520A6 /* YJNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNetworking.h; sourceTree = "<group>"; };
 		ABC677FC1CF7109400B520A6 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		ABC677FD1CF7109400B520A6 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
-		ABC677FE1CF7109400B520A6 /* TestCaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseFactory.h; sourceTree = "<group>"; };
-		ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseFactory.m; sourceTree = "<group>"; };
 		ABC678021CF7109400B520A6 /* FireSingleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireSingleAPI.h; sourceTree = "<group>"; };
 		ABC678031CF7109400B520A6 /* FireSingleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireSingleAPI.m; sourceTree = "<group>"; };
+		ABC678251CF7138900B520A6 /* TestCaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseFactory.h; sourceTree = "<group>"; };
+		ABC678261CF7138900B520A6 /* TestCaseFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,10 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC677A81CF7109300B520A6 /* Foundation */,
-				ABC677FA1CF7109400B520A6 /* TestCase */,
-				ABC677A71CF7102B00B520A6 /* CommonHeader.h */,
-				ABC677171CF707C100B520A6 /* ViewController.h */,
-				ABC677181CF707C100B520A6 /* ViewController.m */,
+				ABC677FA1CF7109400B520A6 /* Demo */,
 				ABC677111CF707C100B520A6 /* Supporting Files */,
 			);
 			path = CTNetworking;
@@ -449,14 +446,17 @@
 			path = YJService1.0;
 			sourceTree = "<group>";
 		};
-		ABC677FA1CF7109400B520A6 /* TestCase */ = {
+		ABC677FA1CF7109400B520A6 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				ABC677A71CF7102B00B520A6 /* CommonHeader.h */,
+				ABC677171CF707C100B520A6 /* TestViewController.h */,
+				ABC677181CF707C100B520A6 /* TestViewController.m */,
 				ABC677FB1CF7109400B520A6 /* TestAPIManager */,
-				ABC677FE1CF7109400B520A6 /* TestCaseFactory.h */,
-				ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */,
+				ABC678241CF7138900B520A6 /* TestFactory */,
 				ABC678001CF7109400B520A6 /* TestCaseList */,
 			);
+			name = Demo;
 			path = TestCase;
 			sourceTree = "<group>";
 		};
@@ -484,6 +484,15 @@
 				ABC678031CF7109400B520A6 /* FireSingleAPI.m */,
 			);
 			path = FireSingleAPI;
+			sourceTree = "<group>";
+		};
+		ABC678241CF7138900B520A6 /* TestFactory */ = {
+			isa = PBXGroup;
+			children = (
+				ABC678251CF7138900B520A6 /* TestCaseFactory.h */,
+				ABC678261CF7138900B520A6 /* TestCaseFactory.m */,
+			);
+			path = TestFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,7 +625,6 @@
 				ABC678081CF7109400B520A6 /* NSString+AXNetworkingMethods.m in Sources */,
 				ABC6780E1CF7109400B520A6 /* AIFCache.m in Sources */,
 				ABC678041CF7109400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */,
-				ABC678221CF7109400B520A6 /* TestCaseFactory.m in Sources */,
 				ABC678171CF7109400B520A6 /* AIFSignatureGenerator.m in Sources */,
 				ABC6780C1CF7109400B520A6 /* AIFAppContext.m in Sources */,
 				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
@@ -629,7 +637,7 @@
 				ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */,
 				ABC6780F1CF7109400B520A6 /* AIFCachedObject.m in Sources */,
 				ABC6781C1CF7109400B520A6 /* BSLogService.m in Sources */,
-				ABC677191CF707C100B520A6 /* ViewController.m in Sources */,
+				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
 				ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */,
 				ABC678131CF7109400B520A6 /* AIFLoggerConfiguration.m in Sources */,
 				ABC678191CF7109400B520A6 /* AIFService.m in Sources */,
@@ -637,6 +645,7 @@
 				ABC6781D1CF7109400B520A6 /* GDMapService.m in Sources */,
 				ABC6781B1CF7109400B520A6 /* YJBNService.m in Sources */,
 				ABC678121CF7109400B520A6 /* AIFLogger.m in Sources */,
+				ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */,
 				ABC677131CF707C100B520A6 /* main.m in Sources */,
 				ABC678151CF7109400B520A6 /* AIFCommonParamsGenerator.m in Sources */,
 				ABC678181CF7109400B520A6 /* AIFUDIDGenerator.m in Sources */,
