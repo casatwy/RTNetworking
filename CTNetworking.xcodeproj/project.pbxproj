@@ -14,7 +14,6 @@
 		ABC6771C1CF707C100B520A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771A1CF707C100B520A6 /* Main.storyboard */; };
 		ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771D1CF707C100B520A6 /* Assets.xcassets */; };
 		ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771F1CF707C100B520A6 /* LaunchScreen.storyboard */; };
-		ABC677291CF7100100B520A6 /* CTNetworkingConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */; };
 		ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FD1CF7109400B520A6 /* TestAPIManager.m */; };
 		ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678031CF7109400B520A6 /* FireSingleAPI.m */; };
 		ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678261CF7138900B520A6 /* TestCaseFactory.m */; };
@@ -26,14 +25,12 @@
 		ABC678751CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678351CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m */; };
 		ABC678761CF7251400B520A6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678371CF7251400B520A6 /* UIDevice+IdentifierAddition.m */; };
 		ABC678771CF7251400B520A6 /* CTApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6783B1CF7251400B520A6 /* CTApiProxy.m */; };
-		ABC678781CF7251400B520A6 /* CTAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6783E1CF7251400B520A6 /* CTAppContext.m */; };
 		ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678411CF7251400B520A6 /* CTAPIBaseManager.m */; };
 		ABC6787A1CF7251400B520A6 /* CTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678441CF7251400B520A6 /* CTCache.m */; };
 		ABC6787B1CF7251400B520A6 /* CTCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678461CF7251400B520A6 /* CTCachedObject.m */; };
 		ABC6787C1CF7251400B520A6 /* iPhoneTypeDefine.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC678471CF7251400B520A6 /* iPhoneTypeDefine.plist */; };
 		ABC6787D1CF7251400B520A6 /* CTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6784A1CF7251400B520A6 /* CTLocationManager.m */; };
 		ABC6787E1CF7251400B520A6 /* CTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6784D1CF7251400B520A6 /* CTLogger.m */; };
-		ABC6787F1CF7251400B520A6 /* CTLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6784F1CF7251400B520A6 /* CTLoggerConfiguration.m */; };
 		ABC678801CF7251400B520A6 /* CTURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678521CF7251400B520A6 /* CTURLResponse.m */; };
 		ABC678811CF7251400B520A6 /* CTCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678581CF7251400B520A6 /* CTCommonParamsGenerator.m */; };
 		ABC678821CF7251400B520A6 /* CTRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6785B1CF7251400B520A6 /* CTRequestGenerator.m */; };
@@ -41,7 +38,10 @@
 		ABC678841CF7251400B520A6 /* CTUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678611CF7251400B520A6 /* CTUDIDGenerator.m */; };
 		ABC678851CF7251400B520A6 /* CTService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678661CF7251400B520A6 /* CTService.m */; };
 		ABC678861CF7251400B520A6 /* CTServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678681CF7251400B520A6 /* CTServiceFactory.m */; };
-		ABC678871CF7251400B520A6 /* GDMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6786B1CF7251400B520A6 /* GDMapService.m */; };
+		ABC678951CF7271000B520A6 /* CTAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6788B1CF7271000B520A6 /* CTAppContext.m */; };
+		ABC678961CF7271000B520A6 /* CTLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC6788E1CF7271000B520A6 /* CTLoggerConfiguration.m */; };
+		ABC678971CF7271000B520A6 /* CTNetworkingConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC678901CF7271000B520A6 /* CTNetworkingConfiguration.plist */; };
+		ABC678981CF7271000B520A6 /* GDMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678941CF7271000B520A6 /* GDMapService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,6 @@
 		ABC6771D1CF707C100B520A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABC677201CF707C100B520A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABC677221CF707C100B520A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CTNetworkingConfiguration.plist; sourceTree = "<group>"; };
 		ABC677A71CF7102B00B520A6 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonHeader.h; path = ../CommonHeader.h; sourceTree = "<group>"; };
 		ABC677FC1CF7109400B520A6 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		ABC677FD1CF7109400B520A6 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
@@ -82,8 +81,6 @@
 		ABC678371CF7251400B520A6 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		ABC6783A1CF7251400B520A6 /* CTApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTApiProxy.h; sourceTree = "<group>"; };
 		ABC6783B1CF7251400B520A6 /* CTApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTApiProxy.m; sourceTree = "<group>"; };
-		ABC6783D1CF7251400B520A6 /* CTAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAppContext.h; sourceTree = "<group>"; };
-		ABC6783E1CF7251400B520A6 /* CTAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAppContext.m; sourceTree = "<group>"; };
 		ABC678401CF7251400B520A6 /* CTAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIBaseManager.h; sourceTree = "<group>"; };
 		ABC678411CF7251400B520A6 /* CTAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIBaseManager.m; sourceTree = "<group>"; };
 		ABC678431CF7251400B520A6 /* CTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCache.h; sourceTree = "<group>"; };
@@ -95,12 +92,9 @@
 		ABC6784A1CF7251400B520A6 /* CTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLocationManager.m; sourceTree = "<group>"; };
 		ABC6784C1CF7251400B520A6 /* CTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLogger.h; sourceTree = "<group>"; };
 		ABC6784D1CF7251400B520A6 /* CTLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLogger.m; sourceTree = "<group>"; };
-		ABC6784E1CF7251400B520A6 /* CTLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLoggerConfiguration.h; sourceTree = "<group>"; };
-		ABC6784F1CF7251400B520A6 /* CTLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLoggerConfiguration.m; sourceTree = "<group>"; };
 		ABC678511CF7251400B520A6 /* CTURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTURLResponse.h; sourceTree = "<group>"; };
 		ABC678521CF7251400B520A6 /* CTURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTURLResponse.m; sourceTree = "<group>"; };
 		ABC678531CF7251400B520A6 /* CTNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworking.h; sourceTree = "<group>"; };
-		ABC678541CF7251400B520A6 /* CTNetworkingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingConfiguration.h; sourceTree = "<group>"; };
 		ABC678571CF7251400B520A6 /* CTCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCommonParamsGenerator.h; sourceTree = "<group>"; };
 		ABC678581CF7251400B520A6 /* CTCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCommonParamsGenerator.m; sourceTree = "<group>"; };
 		ABC6785A1CF7251400B520A6 /* CTRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestGenerator.h; sourceTree = "<group>"; };
@@ -113,8 +107,14 @@
 		ABC678661CF7251400B520A6 /* CTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTService.m; sourceTree = "<group>"; };
 		ABC678671CF7251400B520A6 /* CTServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTServiceFactory.h; sourceTree = "<group>"; };
 		ABC678681CF7251400B520A6 /* CTServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTServiceFactory.m; sourceTree = "<group>"; };
-		ABC6786A1CF7251400B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
-		ABC6786B1CF7251400B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
+		ABC6788A1CF7271000B520A6 /* CTAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAppContext.h; sourceTree = "<group>"; };
+		ABC6788B1CF7271000B520A6 /* CTAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAppContext.m; sourceTree = "<group>"; };
+		ABC6788D1CF7271000B520A6 /* CTLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTLoggerConfiguration.h; sourceTree = "<group>"; };
+		ABC6788E1CF7271000B520A6 /* CTLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTLoggerConfiguration.m; sourceTree = "<group>"; };
+		ABC6788F1CF7271000B520A6 /* CTNetworkingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTNetworkingConfiguration.h; sourceTree = "<group>"; };
+		ABC678901CF7271000B520A6 /* CTNetworkingConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CTNetworkingConfiguration.plist; sourceTree = "<group>"; };
+		ABC678931CF7271000B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
+		ABC678941CF7271000B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC678281CF7251400B520A6 /* CTNetworking */,
+				ABC678881CF7271000B520A6 /* CTNetworkingCustoms */,
 				ABC677FA1CF7109400B520A6 /* Demo */,
 				ABC677111CF707C100B520A6 /* Supporting Files */,
 			);
@@ -177,7 +178,6 @@
 		ABC677111CF707C100B520A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */,
 				ABC677141CF707C100B520A6 /* AppDelegate.h */,
 				ABC677151CF707C100B520A6 /* AppDelegate.m */,
 				ABC6771A1CF707C100B520A6 /* Main.storyboard */,
@@ -241,10 +241,9 @@
 		ABC678281CF7251400B520A6 /* CTNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				ABC678531CF7251400B520A6 /* CTNetworking.h */,
 				ABC678291CF7251400B520A6 /* Categories */,
 				ABC678381CF7251400B520A6 /* Components */,
-				ABC678531CF7251400B520A6 /* CTNetworking.h */,
-				ABC678541CF7251400B520A6 /* CTNetworkingConfiguration.h */,
 				ABC678551CF7251400B520A6 /* Generators */,
 				ABC678621CF7251400B520A6 /* Services */,
 			);
@@ -276,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				ABC678391CF7251400B520A6 /* APIProxy */,
-				ABC6783C1CF7251400B520A6 /* AppContext */,
 				ABC6783F1CF7251400B520A6 /* BaseAPIManager */,
 				ABC678421CF7251400B520A6 /* CacheComponents */,
 				ABC678471CF7251400B520A6 /* iPhoneTypeDefine.plist */,
@@ -294,15 +292,6 @@
 				ABC6783B1CF7251400B520A6 /* CTApiProxy.m */,
 			);
 			path = APIProxy;
-			sourceTree = "<group>";
-		};
-		ABC6783C1CF7251400B520A6 /* AppContext */ = {
-			isa = PBXGroup;
-			children = (
-				ABC6783D1CF7251400B520A6 /* CTAppContext.h */,
-				ABC6783E1CF7251400B520A6 /* CTAppContext.m */,
-			);
-			path = AppContext;
 			sourceTree = "<group>";
 		};
 		ABC6783F1CF7251400B520A6 /* BaseAPIManager */ = {
@@ -339,8 +328,6 @@
 			children = (
 				ABC6784C1CF7251400B520A6 /* CTLogger.h */,
 				ABC6784D1CF7251400B520A6 /* CTLogger.m */,
-				ABC6784E1CF7251400B520A6 /* CTLoggerConfiguration.h */,
-				ABC6784F1CF7251400B520A6 /* CTLoggerConfiguration.m */,
 			);
 			path = LogComponents;
 			sourceTree = "<group>";
@@ -404,70 +391,59 @@
 		ABC678621CF7251400B520A6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				ABC678631CF7251400B520A6 /* BNService */,
-				ABC678641CF7251400B520A6 /* BSLogService */,
 				ABC678651CF7251400B520A6 /* CTService.h */,
 				ABC678661CF7251400B520A6 /* CTService.m */,
 				ABC678671CF7251400B520A6 /* CTServiceFactory.h */,
 				ABC678681CF7251400B520A6 /* CTServiceFactory.m */,
-				ABC678691CF7251400B520A6 /* GDMapService */,
-				ABC6786C1CF7251400B520A6 /* INSService */,
-				ABC6786D1CF7251400B520A6 /* WXService */,
-				ABC6786E1CF7251400B520A6 /* YJService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		ABC678631CF7251400B520A6 /* BNService */ = {
+		ABC678881CF7271000B520A6 /* CTNetworkingCustoms */ = {
 			isa = PBXGroup;
 			children = (
+				ABC678891CF7271000B520A6 /* AppContext */,
+				ABC6788C1CF7271000B520A6 /* Configurations */,
+				ABC678911CF7271000B520A6 /* CustomServices */,
 			);
-			path = BNService;
+			path = CTNetworkingCustoms;
 			sourceTree = "<group>";
 		};
-		ABC678641CF7251400B520A6 /* BSLogService */ = {
+		ABC678891CF7271000B520A6 /* AppContext */ = {
 			isa = PBXGroup;
 			children = (
+				ABC6788A1CF7271000B520A6 /* CTAppContext.h */,
+				ABC6788B1CF7271000B520A6 /* CTAppContext.m */,
 			);
-			path = BSLogService;
+			path = AppContext;
 			sourceTree = "<group>";
 		};
-		ABC678691CF7251400B520A6 /* GDMapService */ = {
+		ABC6788C1CF7271000B520A6 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				ABC6786A1CF7251400B520A6 /* GDMapService.h */,
-				ABC6786B1CF7251400B520A6 /* GDMapService.m */,
+				ABC6788D1CF7271000B520A6 /* CTLoggerConfiguration.h */,
+				ABC6788E1CF7271000B520A6 /* CTLoggerConfiguration.m */,
+				ABC6788F1CF7271000B520A6 /* CTNetworkingConfiguration.h */,
+				ABC678901CF7271000B520A6 /* CTNetworkingConfiguration.plist */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		ABC678911CF7271000B520A6 /* CustomServices */ = {
+			isa = PBXGroup;
+			children = (
+				ABC678921CF7271000B520A6 /* GDMapService */,
+			);
+			path = CustomServices;
+			sourceTree = "<group>";
+		};
+		ABC678921CF7271000B520A6 /* GDMapService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC678931CF7271000B520A6 /* GDMapService.h */,
+				ABC678941CF7271000B520A6 /* GDMapService.m */,
 			);
 			path = GDMapService;
-			sourceTree = "<group>";
-		};
-		ABC6786C1CF7251400B520A6 /* INSService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = INSService;
-			sourceTree = "<group>";
-		};
-		ABC6786D1CF7251400B520A6 /* WXService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WXService;
-			sourceTree = "<group>";
-		};
-		ABC6786E1CF7251400B520A6 /* YJService */ = {
-			isa = PBXGroup;
-			children = (
-				ABC6786F1CF7251400B520A6 /* YJService1.0 */,
-			);
-			path = YJService;
-			sourceTree = "<group>";
-		};
-		ABC6786F1CF7251400B520A6 /* YJService1.0 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = YJService1.0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,11 +506,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABC677291CF7100100B520A6 /* CTNetworkingConfiguration.plist in Resources */,
 				ABC6787C1CF7251400B520A6 /* iPhoneTypeDefine.plist in Resources */,
 				ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */,
 				ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */,
 				ABC6771C1CF707C100B520A6 /* Main.storyboard in Resources */,
+				ABC678971CF7271000B520A6 /* CTNetworkingConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,9 +572,9 @@
 				ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */,
 				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
 				ABC678701CF7251400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */,
-				ABC678781CF7251400B520A6 /* CTAppContext.m in Sources */,
 				ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */,
 				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
+				ABC678961CF7271000B520A6 /* CTLoggerConfiguration.m in Sources */,
 				ABC678741CF7251400B520A6 /* NSString+AXNetworkingMethods.m in Sources */,
 				ABC678721CF7251400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */,
 				ABC678851CF7251400B520A6 /* CTService.m in Sources */,
@@ -610,15 +586,15 @@
 				ABC678831CF7251400B520A6 /* CTSignatureGenerator.m in Sources */,
 				ABC678811CF7251400B520A6 /* CTCommonParamsGenerator.m in Sources */,
 				ABC6787A1CF7251400B520A6 /* CTCache.m in Sources */,
-				ABC6787F1CF7251400B520A6 /* CTLoggerConfiguration.m in Sources */,
 				ABC678821CF7251400B520A6 /* CTRequestGenerator.m in Sources */,
 				ABC6787E1CF7251400B520A6 /* CTLogger.m in Sources */,
 				ABC678731CF7251400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */,
 				ABC678801CF7251400B520A6 /* CTURLResponse.m in Sources */,
 				ABC678711CF7251400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */,
+				ABC678951CF7271000B520A6 /* CTAppContext.m in Sources */,
 				ABC678751CF7251400B520A6 /* NSURLRequest+CTNetworkingMethods.m in Sources */,
 				ABC6787D1CF7251400B520A6 /* CTLocationManager.m in Sources */,
-				ABC678871CF7251400B520A6 /* GDMapService.m in Sources */,
+				ABC678981CF7271000B520A6 /* GDMapService.m in Sources */,
 				ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */,
 				ABC678271CF7138900B520A6 /* TestCaseFactory.m in Sources */,
 				ABC677131CF707C100B520A6 /* main.m in Sources */,

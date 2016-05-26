@@ -26,14 +26,6 @@ You will need the latest developer tools in order to build `CTNetworking`. Old X
 2. Install the pod(s) by running `pod install`.
 3. Include CTNetworking wherever you need it with `#import <CTNetworking/CTNetworking.h>`.
 
-### Source files
-
-Alternatively you can directly add 
-
-1. Download the [latest code version](https://github.com/casatwy/CTNetworking/archive/master.zip) or add the repository as a git submodule to your git-tracked project.
-2. Open your project in Xcode, then drag and drop `CTNetworking.h` and `CTNetworking.m` onto your project (use the "Product Navigator view"). Make sure to select Copy items when asked if you extracted the code archive outside of your project.
-3. Include CTNetworking wherever you need it with `#import "CTNetworking.h"`.
-
 ## Usage
 
 CTNetworking can help you 
