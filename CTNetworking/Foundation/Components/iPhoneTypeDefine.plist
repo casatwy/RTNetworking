@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>i386</key>
+	<string>32-bit Simulator</string>
+	<key>x86_64</key>
+	<string>64-bit Simulator</string>
+	<key>iPod1,1</key>
+	<string>iPod Touch</string>
+	<key>iPod2,1</key>
+	<string>iPod Touch Second Generation</string>
+	<key>iPod3,1</key>
+	<string>iPod Touch Third Generation</string>
+	<key>iPod4,1</key>
+	<string>iPod Touch Fourth Generation</string>
+	<key>iPhone1,1</key>
+	<string>iPhone</string>
+	<key>iPhone1,2</key>
+	<string>iPhone 3G</string>
+	<key>iPhone2,1</key>
+	<string>iPhone 3GS</string>
+	<key>iPad1,1</key>
+	<string>iPad</string>
+	<key>iPad2,1</key>
+	<string>iPad 2</string>
+	<key>iPad3,1</key>
+	<string>3rd Generation iPad</string>
+	<key>iPhone3,1</key>
+	<string>iPhone 4 (GSM)</string>
+	<key>iPhone3,3</key>
+	<string>iPhone 4 (CDMA/Verizon/Sprint)</string>
+	<key>iPhone4,1</key>
+	<string>iPhone 4S</string>
+	<key>iPhone5,1</key>
+	<string>iPhone 5 (model A1428, AT&amp;T/Canada)</string>
+	<key>iPhone5,2</key>
+	<string>iPhone 5 (model A1429, everything else)</string>
+	<key>iPad3,4</key>
+	<string>4th Generation iPad</string>
+	<key>iPad2,5</key>
+	<string>iPad Mini</string>
+	<key>iPhone5,3</key>
+	<string>iPhone 5c (model A1456, A1532 | GSM)</string>
+	<key>iPhone5,4</key>
+	<string>iPhone 5c (model A1507, A1516, A1526 (China), A1529 | Global)</string>
+	<key>iPhone6,1</key>
+	<string>iPhone 5s (model A1433, A1533 | GSM)</string>
+	<key>iPhone6,2</key>
+	<string>iPhone 5s (model A1457, A1518, A1528 (China), A1530 | Global)</string>
+	<key>iPad4,1</key>
+	<string>5th Generation iPad (iPad Air) - Wifi</string>
+	<key>iPad4,2</key>
+	<string>5th Generation iPad (iPad Air) - Cellular</string>
+	<key>iPad4,4</key>
+	<string>2nd Generation iPad Mini - Wifi</string>
+	<key>iPad4,5</key>
+	<string>2nd Generation iPad Mini - Cellular</string>
+	<key>iPhone7,1</key>
+	<string>iPhone 6 Plus</string>
+	<key>iPhone7,2</key>
+	<string>iPhone 6</string>
+</dict>
+</plist>

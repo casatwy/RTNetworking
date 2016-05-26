@@ -1,0 +1,801 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		118172816A888E8150338AE0 /* libPods-CTNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */; };
+		ABC677131CF707C100B520A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677121CF707C100B520A6 /* main.m */; };
+		ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677151CF707C100B520A6 /* AppDelegate.m */; };
+		ABC677191CF707C100B520A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677181CF707C100B520A6 /* ViewController.m */; };
+		ABC6771C1CF707C100B520A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771A1CF707C100B520A6 /* Main.storyboard */; };
+		ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771D1CF707C100B520A6 /* Assets.xcassets */; };
+		ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC6771F1CF707C100B520A6 /* LaunchScreen.storyboard */; };
+		ABC677291CF7100100B520A6 /* CTNetworkingConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */; };
+		ABC678041CF7109400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677AC1CF7109300B520A6 /* NSArray+AXNetworkingMethods.m */; };
+		ABC678051CF7109400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677AE1CF7109300B520A6 /* NSDictionary+AXNetworkingMethods.m */; };
+		ABC678061CF7109400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B01CF7109300B520A6 /* NSMutableString+AXNetworkingMethods.m */; };
+		ABC678071CF7109400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B21CF7109300B520A6 /* NSObject+AXNetworkingMethods.m */; };
+		ABC678081CF7109400B520A6 /* NSString+AXNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B41CF7109300B520A6 /* NSString+AXNetworkingMethods.m */; };
+		ABC678091CF7109400B520A6 /* NSURLRequest+AIFNetworkingMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B61CF7109300B520A6 /* NSURLRequest+AIFNetworkingMethods.m */; };
+		ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677B81CF7109300B520A6 /* UIDevice+IdentifierAddition.m */; };
+		ABC6780B1CF7109400B520A6 /* AIFApiProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677BC1CF7109300B520A6 /* AIFApiProxy.m */; };
+		ABC6780C1CF7109400B520A6 /* AIFAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677BF1CF7109300B520A6 /* AIFAppContext.m */; };
+		ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */; };
+		ABC6780E1CF7109400B520A6 /* AIFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C51CF7109300B520A6 /* AIFCache.m */; };
+		ABC6780F1CF7109400B520A6 /* AIFCachedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677C71CF7109300B520A6 /* AIFCachedObject.m */; };
+		ABC678101CF7109400B520A6 /* iPhoneTypeDefine.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */; };
+		ABC678111CF7109400B520A6 /* BSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677CB1CF7109300B520A6 /* BSLocationManager.m */; };
+		ABC678121CF7109400B520A6 /* AIFLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677CE1CF7109300B520A6 /* AIFLogger.m */; };
+		ABC678131CF7109400B520A6 /* AIFLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677D01CF7109300B520A6 /* AIFLoggerConfiguration.m */; };
+		ABC678141CF7109400B520A6 /* AIFURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677D31CF7109300B520A6 /* AIFURLResponse.m */; };
+		ABC678151CF7109400B520A6 /* AIFCommonParamsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677D71CF7109300B520A6 /* AIFCommonParamsGenerator.m */; };
+		ABC678161CF7109400B520A6 /* AIFRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677DA1CF7109300B520A6 /* AIFRequestGenerator.m */; };
+		ABC678171CF7109400B520A6 /* AIFSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677DD1CF7109300B520A6 /* AIFSignatureGenerator.m */; };
+		ABC678181CF7109400B520A6 /* AIFUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E01CF7109300B520A6 /* AIFUDIDGenerator.m */; };
+		ABC678191CF7109400B520A6 /* AIFService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E31CF7109300B520A6 /* AIFService.m */; };
+		ABC6781A1CF7109400B520A6 /* AIFServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */; };
+		ABC6781B1CF7109400B520A6 /* YJBNService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677E81CF7109300B520A6 /* YJBNService.m */; };
+		ABC6781C1CF7109400B520A6 /* BSLogService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677EB1CF7109300B520A6 /* BSLogService.m */; };
+		ABC6781D1CF7109400B520A6 /* GDMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677EE1CF7109300B520A6 /* GDMapService.m */; };
+		ABC6781E1CF7109400B520A6 /* INSService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F11CF7109300B520A6 /* INSService.m */; };
+		ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F41CF7109300B520A6 /* BSWXService.m */; };
+		ABC678201CF7109400B520A6 /* YJService1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677F81CF7109400B520A6 /* YJService1.m */; };
+		ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FD1CF7109400B520A6 /* TestAPIManager.m */; };
+		ABC678221CF7109400B520A6 /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */; };
+		ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678031CF7109400B520A6 /* FireSingleAPI.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		47AEE7F0CEEB2B4E104FE886 /* Pods-CTNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking.debug.xcconfig"; sourceTree = "<group>"; };
+		4ADD3645D6296652217469EC /* Pods-CTNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking.release.xcconfig"; sourceTree = "<group>"; };
+		A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CTNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC6770E1CF707C100B520A6 /* CTNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABC677121CF707C100B520A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABC677141CF707C100B520A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABC677151CF707C100B520A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABC677171CF707C100B520A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ABC677181CF707C100B520A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ABC6771B1CF707C100B520A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ABC6771D1CF707C100B520A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ABC677201CF707C100B520A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABC677221CF707C100B520A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CTNetworkingConfiguration.plist; sourceTree = "<group>"; };
+		ABC677A71CF7102B00B520A6 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		ABC677A91CF7109300B520A6 /* AIFNetworkingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFNetworkingConfiguration.h; sourceTree = "<group>"; };
+		ABC677AB1CF7109300B520A6 /* NSArray+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AXNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677AC1CF7109300B520A6 /* NSArray+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AXNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677AD1CF7109300B520A6 /* NSDictionary+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AXNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677AE1CF7109300B520A6 /* NSDictionary+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AXNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677AF1CF7109300B520A6 /* NSMutableString+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AXNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677B01CF7109300B520A6 /* NSMutableString+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AXNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677B11CF7109300B520A6 /* NSObject+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AXNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677B21CF7109300B520A6 /* NSObject+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AXNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677B31CF7109300B520A6 /* NSString+AXNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AXNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677B41CF7109300B520A6 /* NSString+AXNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AXNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677B51CF7109300B520A6 /* NSURLRequest+AIFNetworkingMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+AIFNetworkingMethods.h"; sourceTree = "<group>"; };
+		ABC677B61CF7109300B520A6 /* NSURLRequest+AIFNetworkingMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+AIFNetworkingMethods.m"; sourceTree = "<group>"; };
+		ABC677B71CF7109300B520A6 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		ABC677B81CF7109300B520A6 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		ABC677BB1CF7109300B520A6 /* AIFApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFApiProxy.h; sourceTree = "<group>"; };
+		ABC677BC1CF7109300B520A6 /* AIFApiProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFApiProxy.m; sourceTree = "<group>"; };
+		ABC677BE1CF7109300B520A6 /* AIFAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFAppContext.h; sourceTree = "<group>"; };
+		ABC677BF1CF7109300B520A6 /* AIFAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFAppContext.m; sourceTree = "<group>"; };
+		ABC677C11CF7109300B520A6 /* RTAPIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAPIBaseManager.h; sourceTree = "<group>"; };
+		ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAPIBaseManager.m; sourceTree = "<group>"; };
+		ABC677C41CF7109300B520A6 /* AIFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFCache.h; sourceTree = "<group>"; };
+		ABC677C51CF7109300B520A6 /* AIFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFCache.m; sourceTree = "<group>"; };
+		ABC677C61CF7109300B520A6 /* AIFCachedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFCachedObject.h; sourceTree = "<group>"; };
+		ABC677C71CF7109300B520A6 /* AIFCachedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFCachedObject.m; sourceTree = "<group>"; };
+		ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPhoneTypeDefine.plist; sourceTree = "<group>"; };
+		ABC677CA1CF7109300B520A6 /* BSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLocationManager.h; sourceTree = "<group>"; };
+		ABC677CB1CF7109300B520A6 /* BSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLocationManager.m; sourceTree = "<group>"; };
+		ABC677CD1CF7109300B520A6 /* AIFLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFLogger.h; sourceTree = "<group>"; };
+		ABC677CE1CF7109300B520A6 /* AIFLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFLogger.m; sourceTree = "<group>"; };
+		ABC677CF1CF7109300B520A6 /* AIFLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFLoggerConfiguration.h; sourceTree = "<group>"; };
+		ABC677D01CF7109300B520A6 /* AIFLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFLoggerConfiguration.m; sourceTree = "<group>"; };
+		ABC677D21CF7109300B520A6 /* AIFURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFURLResponse.h; sourceTree = "<group>"; };
+		ABC677D31CF7109300B520A6 /* AIFURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFURLResponse.m; sourceTree = "<group>"; };
+		ABC677D61CF7109300B520A6 /* AIFCommonParamsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFCommonParamsGenerator.h; sourceTree = "<group>"; };
+		ABC677D71CF7109300B520A6 /* AIFCommonParamsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFCommonParamsGenerator.m; sourceTree = "<group>"; };
+		ABC677D91CF7109300B520A6 /* AIFRequestGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFRequestGenerator.h; sourceTree = "<group>"; };
+		ABC677DA1CF7109300B520A6 /* AIFRequestGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFRequestGenerator.m; sourceTree = "<group>"; };
+		ABC677DC1CF7109300B520A6 /* AIFSignatureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFSignatureGenerator.h; sourceTree = "<group>"; };
+		ABC677DD1CF7109300B520A6 /* AIFSignatureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFSignatureGenerator.m; sourceTree = "<group>"; };
+		ABC677DF1CF7109300B520A6 /* AIFUDIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFUDIDGenerator.h; sourceTree = "<group>"; };
+		ABC677E01CF7109300B520A6 /* AIFUDIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFUDIDGenerator.m; sourceTree = "<group>"; };
+		ABC677E21CF7109300B520A6 /* AIFService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFService.h; sourceTree = "<group>"; };
+		ABC677E31CF7109300B520A6 /* AIFService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFService.m; sourceTree = "<group>"; };
+		ABC677E41CF7109300B520A6 /* AIFServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIFServiceFactory.h; sourceTree = "<group>"; };
+		ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIFServiceFactory.m; sourceTree = "<group>"; };
+		ABC677E71CF7109300B520A6 /* YJBNService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBNService.h; sourceTree = "<group>"; };
+		ABC677E81CF7109300B520A6 /* YJBNService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBNService.m; sourceTree = "<group>"; };
+		ABC677EA1CF7109300B520A6 /* BSLogService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLogService.h; sourceTree = "<group>"; };
+		ABC677EB1CF7109300B520A6 /* BSLogService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLogService.m; sourceTree = "<group>"; };
+		ABC677ED1CF7109300B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
+		ABC677EE1CF7109300B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
+		ABC677F01CF7109300B520A6 /* INSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSService.h; sourceTree = "<group>"; };
+		ABC677F11CF7109300B520A6 /* INSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSService.m; sourceTree = "<group>"; };
+		ABC677F31CF7109300B520A6 /* BSWXService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWXService.h; sourceTree = "<group>"; };
+		ABC677F41CF7109300B520A6 /* BSWXService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWXService.m; sourceTree = "<group>"; };
+		ABC677F71CF7109400B520A6 /* YJService1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJService1.h; sourceTree = "<group>"; };
+		ABC677F81CF7109400B520A6 /* YJService1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJService1.m; sourceTree = "<group>"; };
+		ABC677F91CF7109400B520A6 /* YJNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNetworking.h; sourceTree = "<group>"; };
+		ABC677FC1CF7109400B520A6 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
+		ABC677FD1CF7109400B520A6 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
+		ABC677FE1CF7109400B520A6 /* TestCaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseFactory.h; sourceTree = "<group>"; };
+		ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseFactory.m; sourceTree = "<group>"; };
+		ABC678021CF7109400B520A6 /* FireSingleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireSingleAPI.h; sourceTree = "<group>"; };
+		ABC678031CF7109400B520A6 /* FireSingleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireSingleAPI.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABC6770B1CF707C100B520A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				118172816A888E8150338AE0 /* libPods-CTNetworking.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10E07CAF82B370B10DAEF89B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7E991CD00AE580099C56CF4 /* libPods-CTNetworking.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DC322692580AE494C000410 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47AEE7F0CEEB2B4E104FE886 /* Pods-CTNetworking.debug.xcconfig */,
+				4ADD3645D6296652217469EC /* Pods-CTNetworking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ABC677051CF707C100B520A6 = {
+			isa = PBXGroup;
+			children = (
+				ABC677101CF707C100B520A6 /* CTNetworking */,
+				ABC6770F1CF707C100B520A6 /* Products */,
+				6DC322692580AE494C000410 /* Pods */,
+				10E07CAF82B370B10DAEF89B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ABC6770F1CF707C100B520A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABC6770E1CF707C100B520A6 /* CTNetworking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABC677101CF707C100B520A6 /* CTNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677A81CF7109300B520A6 /* Foundation */,
+				ABC677FA1CF7109400B520A6 /* TestCase */,
+				ABC677A71CF7102B00B520A6 /* CommonHeader.h */,
+				ABC677171CF707C100B520A6 /* ViewController.h */,
+				ABC677181CF707C100B520A6 /* ViewController.m */,
+				ABC677111CF707C100B520A6 /* Supporting Files */,
+			);
+			path = CTNetworking;
+			sourceTree = "<group>";
+		};
+		ABC677111CF707C100B520A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677281CF7100100B520A6 /* CTNetworkingConfiguration.plist */,
+				ABC677141CF707C100B520A6 /* AppDelegate.h */,
+				ABC677151CF707C100B520A6 /* AppDelegate.m */,
+				ABC6771A1CF707C100B520A6 /* Main.storyboard */,
+				ABC6771D1CF707C100B520A6 /* Assets.xcassets */,
+				ABC6771F1CF707C100B520A6 /* LaunchScreen.storyboard */,
+				ABC677221CF707C100B520A6 /* Info.plist */,
+				ABC677121CF707C100B520A6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABC677A81CF7109300B520A6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677A91CF7109300B520A6 /* AIFNetworkingConfiguration.h */,
+				ABC677AA1CF7109300B520A6 /* Categories */,
+				ABC677B91CF7109300B520A6 /* Components */,
+				ABC677D41CF7109300B520A6 /* Generators */,
+				ABC677E11CF7109300B520A6 /* Services */,
+				ABC677F91CF7109400B520A6 /* YJNetworking.h */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		ABC677AA1CF7109300B520A6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677AB1CF7109300B520A6 /* NSArray+AXNetworkingMethods.h */,
+				ABC677AC1CF7109300B520A6 /* NSArray+AXNetworkingMethods.m */,
+				ABC677AD1CF7109300B520A6 /* NSDictionary+AXNetworkingMethods.h */,
+				ABC677AE1CF7109300B520A6 /* NSDictionary+AXNetworkingMethods.m */,
+				ABC677AF1CF7109300B520A6 /* NSMutableString+AXNetworkingMethods.h */,
+				ABC677B01CF7109300B520A6 /* NSMutableString+AXNetworkingMethods.m */,
+				ABC677B11CF7109300B520A6 /* NSObject+AXNetworkingMethods.h */,
+				ABC677B21CF7109300B520A6 /* NSObject+AXNetworkingMethods.m */,
+				ABC677B31CF7109300B520A6 /* NSString+AXNetworkingMethods.h */,
+				ABC677B41CF7109300B520A6 /* NSString+AXNetworkingMethods.m */,
+				ABC677B51CF7109300B520A6 /* NSURLRequest+AIFNetworkingMethods.h */,
+				ABC677B61CF7109300B520A6 /* NSURLRequest+AIFNetworkingMethods.m */,
+				ABC677B71CF7109300B520A6 /* UIDevice+IdentifierAddition.h */,
+				ABC677B81CF7109300B520A6 /* UIDevice+IdentifierAddition.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ABC677B91CF7109300B520A6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677BA1CF7109300B520A6 /* APIProxy */,
+				ABC677BD1CF7109300B520A6 /* AppContext */,
+				ABC677C01CF7109300B520A6 /* BaseAPIManager */,
+				ABC677C31CF7109300B520A6 /* CacheComponents */,
+				ABC677C81CF7109300B520A6 /* iPhoneTypeDefine.plist */,
+				ABC677C91CF7109300B520A6 /* LocationManager */,
+				ABC677CC1CF7109300B520A6 /* LogComponents */,
+				ABC677D11CF7109300B520A6 /* URLResponse */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ABC677BA1CF7109300B520A6 /* APIProxy */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677BB1CF7109300B520A6 /* AIFApiProxy.h */,
+				ABC677BC1CF7109300B520A6 /* AIFApiProxy.m */,
+			);
+			path = APIProxy;
+			sourceTree = "<group>";
+		};
+		ABC677BD1CF7109300B520A6 /* AppContext */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677BE1CF7109300B520A6 /* AIFAppContext.h */,
+				ABC677BF1CF7109300B520A6 /* AIFAppContext.m */,
+			);
+			path = AppContext;
+			sourceTree = "<group>";
+		};
+		ABC677C01CF7109300B520A6 /* BaseAPIManager */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677C11CF7109300B520A6 /* RTAPIBaseManager.h */,
+				ABC677C21CF7109300B520A6 /* RTAPIBaseManager.m */,
+			);
+			path = BaseAPIManager;
+			sourceTree = "<group>";
+		};
+		ABC677C31CF7109300B520A6 /* CacheComponents */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677C41CF7109300B520A6 /* AIFCache.h */,
+				ABC677C51CF7109300B520A6 /* AIFCache.m */,
+				ABC677C61CF7109300B520A6 /* AIFCachedObject.h */,
+				ABC677C71CF7109300B520A6 /* AIFCachedObject.m */,
+			);
+			path = CacheComponents;
+			sourceTree = "<group>";
+		};
+		ABC677C91CF7109300B520A6 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677CA1CF7109300B520A6 /* BSLocationManager.h */,
+				ABC677CB1CF7109300B520A6 /* BSLocationManager.m */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		ABC677CC1CF7109300B520A6 /* LogComponents */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677CD1CF7109300B520A6 /* AIFLogger.h */,
+				ABC677CE1CF7109300B520A6 /* AIFLogger.m */,
+				ABC677CF1CF7109300B520A6 /* AIFLoggerConfiguration.h */,
+				ABC677D01CF7109300B520A6 /* AIFLoggerConfiguration.m */,
+			);
+			path = LogComponents;
+			sourceTree = "<group>";
+		};
+		ABC677D11CF7109300B520A6 /* URLResponse */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677D21CF7109300B520A6 /* AIFURLResponse.h */,
+				ABC677D31CF7109300B520A6 /* AIFURLResponse.m */,
+			);
+			path = URLResponse;
+			sourceTree = "<group>";
+		};
+		ABC677D41CF7109300B520A6 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677D51CF7109300B520A6 /* CommonParamsGenerator */,
+				ABC677D81CF7109300B520A6 /* RequestGenerator */,
+				ABC677DB1CF7109300B520A6 /* SignatureGenerator */,
+				ABC677DE1CF7109300B520A6 /* UDIDGenerator */,
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
+		ABC677D51CF7109300B520A6 /* CommonParamsGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677D61CF7109300B520A6 /* AIFCommonParamsGenerator.h */,
+				ABC677D71CF7109300B520A6 /* AIFCommonParamsGenerator.m */,
+			);
+			path = CommonParamsGenerator;
+			sourceTree = "<group>";
+		};
+		ABC677D81CF7109300B520A6 /* RequestGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677D91CF7109300B520A6 /* AIFRequestGenerator.h */,
+				ABC677DA1CF7109300B520A6 /* AIFRequestGenerator.m */,
+			);
+			path = RequestGenerator;
+			sourceTree = "<group>";
+		};
+		ABC677DB1CF7109300B520A6 /* SignatureGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677DC1CF7109300B520A6 /* AIFSignatureGenerator.h */,
+				ABC677DD1CF7109300B520A6 /* AIFSignatureGenerator.m */,
+			);
+			path = SignatureGenerator;
+			sourceTree = "<group>";
+		};
+		ABC677DE1CF7109300B520A6 /* UDIDGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677DF1CF7109300B520A6 /* AIFUDIDGenerator.h */,
+				ABC677E01CF7109300B520A6 /* AIFUDIDGenerator.m */,
+			);
+			path = UDIDGenerator;
+			sourceTree = "<group>";
+		};
+		ABC677E11CF7109300B520A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677E21CF7109300B520A6 /* AIFService.h */,
+				ABC677E31CF7109300B520A6 /* AIFService.m */,
+				ABC677E41CF7109300B520A6 /* AIFServiceFactory.h */,
+				ABC677E51CF7109300B520A6 /* AIFServiceFactory.m */,
+				ABC677E61CF7109300B520A6 /* BNService */,
+				ABC677E91CF7109300B520A6 /* BSLogService */,
+				ABC677EC1CF7109300B520A6 /* GDMapService */,
+				ABC677EF1CF7109300B520A6 /* INSService */,
+				ABC677F21CF7109300B520A6 /* WXService */,
+				ABC677F51CF7109300B520A6 /* YJService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ABC677E61CF7109300B520A6 /* BNService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677E71CF7109300B520A6 /* YJBNService.h */,
+				ABC677E81CF7109300B520A6 /* YJBNService.m */,
+			);
+			path = BNService;
+			sourceTree = "<group>";
+		};
+		ABC677E91CF7109300B520A6 /* BSLogService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677EA1CF7109300B520A6 /* BSLogService.h */,
+				ABC677EB1CF7109300B520A6 /* BSLogService.m */,
+			);
+			path = BSLogService;
+			sourceTree = "<group>";
+		};
+		ABC677EC1CF7109300B520A6 /* GDMapService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677ED1CF7109300B520A6 /* GDMapService.h */,
+				ABC677EE1CF7109300B520A6 /* GDMapService.m */,
+			);
+			path = GDMapService;
+			sourceTree = "<group>";
+		};
+		ABC677EF1CF7109300B520A6 /* INSService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677F01CF7109300B520A6 /* INSService.h */,
+				ABC677F11CF7109300B520A6 /* INSService.m */,
+			);
+			path = INSService;
+			sourceTree = "<group>";
+		};
+		ABC677F21CF7109300B520A6 /* WXService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677F31CF7109300B520A6 /* BSWXService.h */,
+				ABC677F41CF7109300B520A6 /* BSWXService.m */,
+			);
+			path = WXService;
+			sourceTree = "<group>";
+		};
+		ABC677F51CF7109300B520A6 /* YJService */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677F61CF7109400B520A6 /* YJService1.0 */,
+			);
+			path = YJService;
+			sourceTree = "<group>";
+		};
+		ABC677F61CF7109400B520A6 /* YJService1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677F71CF7109400B520A6 /* YJService1.h */,
+				ABC677F81CF7109400B520A6 /* YJService1.m */,
+			);
+			path = YJService1.0;
+			sourceTree = "<group>";
+		};
+		ABC677FA1CF7109400B520A6 /* TestCase */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677FB1CF7109400B520A6 /* TestAPIManager */,
+				ABC677FE1CF7109400B520A6 /* TestCaseFactory.h */,
+				ABC677FF1CF7109400B520A6 /* TestCaseFactory.m */,
+				ABC678001CF7109400B520A6 /* TestCaseList */,
+			);
+			path = TestCase;
+			sourceTree = "<group>";
+		};
+		ABC677FB1CF7109400B520A6 /* TestAPIManager */ = {
+			isa = PBXGroup;
+			children = (
+				ABC677FC1CF7109400B520A6 /* TestAPIManager.h */,
+				ABC677FD1CF7109400B520A6 /* TestAPIManager.m */,
+			);
+			path = TestAPIManager;
+			sourceTree = "<group>";
+		};
+		ABC678001CF7109400B520A6 /* TestCaseList */ = {
+			isa = PBXGroup;
+			children = (
+				ABC678011CF7109400B520A6 /* FireSingleAPI */,
+			);
+			path = TestCaseList;
+			sourceTree = "<group>";
+		};
+		ABC678011CF7109400B520A6 /* FireSingleAPI */ = {
+			isa = PBXGroup;
+			children = (
+				ABC678021CF7109400B520A6 /* FireSingleAPI.h */,
+				ABC678031CF7109400B520A6 /* FireSingleAPI.m */,
+			);
+			path = FireSingleAPI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABC6770D1CF707C100B520A6 /* CTNetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABC677251CF707C100B520A6 /* Build configuration list for PBXNativeTarget "CTNetworking" */;
+			buildPhases = (
+				156A99D3C76E77B1A238B0E7 /* 📦 Check Pods Manifest.lock */,
+				ABC6770A1CF707C100B520A6 /* Sources */,
+				ABC6770B1CF707C100B520A6 /* Frameworks */,
+				ABC6770C1CF707C100B520A6 /* Resources */,
+				5638BFA3E4B5D4D72B99C701 /* 📦 Embed Pods Frameworks */,
+				4D80E65ECBC86488DD1BB49C /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CTNetworking;
+			productName = CTNetworking;
+			productReference = ABC6770E1CF707C100B520A6 /* CTNetworking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABC677061CF707C100B520A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Long Fan";
+				TargetAttributes = {
+					ABC6770D1CF707C100B520A6 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = ABC677091CF707C100B520A6 /* Build configuration list for PBXProject "CTNetworking" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ABC677051CF707C100B520A6;
+			productRefGroup = ABC6770F1CF707C100B520A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABC6770D1CF707C100B520A6 /* CTNetworking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABC6770C1CF707C100B520A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABC677291CF7100100B520A6 /* CTNetworkingConfiguration.plist in Resources */,
+				ABC678101CF7109400B520A6 /* iPhoneTypeDefine.plist in Resources */,
+				ABC677211CF707C100B520A6 /* LaunchScreen.storyboard in Resources */,
+				ABC6771E1CF707C100B520A6 /* Assets.xcassets in Resources */,
+				ABC6771C1CF707C100B520A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		156A99D3C76E77B1A238B0E7 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D80E65ECBC86488DD1BB49C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5638BFA3E4B5D4D72B99C701 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABC6770A1CF707C100B520A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABC678211CF7109400B520A6 /* TestAPIManager.m in Sources */,
+				ABC678201CF7109400B520A6 /* YJService1.m in Sources */,
+				ABC678071CF7109400B520A6 /* NSObject+AXNetworkingMethods.m in Sources */,
+				ABC678091CF7109400B520A6 /* NSURLRequest+AIFNetworkingMethods.m in Sources */,
+				ABC678081CF7109400B520A6 /* NSString+AXNetworkingMethods.m in Sources */,
+				ABC6780E1CF7109400B520A6 /* AIFCache.m in Sources */,
+				ABC678041CF7109400B520A6 /* NSArray+AXNetworkingMethods.m in Sources */,
+				ABC678221CF7109400B520A6 /* TestCaseFactory.m in Sources */,
+				ABC678171CF7109400B520A6 /* AIFSignatureGenerator.m in Sources */,
+				ABC6780C1CF7109400B520A6 /* AIFAppContext.m in Sources */,
+				ABC678231CF7109400B520A6 /* FireSingleAPI.m in Sources */,
+				ABC6780D1CF7109400B520A6 /* RTAPIBaseManager.m in Sources */,
+				ABC678111CF7109400B520A6 /* BSLocationManager.m in Sources */,
+				ABC678161CF7109400B520A6 /* AIFRequestGenerator.m in Sources */,
+				ABC6781E1CF7109400B520A6 /* INSService.m in Sources */,
+				ABC6780A1CF7109400B520A6 /* UIDevice+IdentifierAddition.m in Sources */,
+				ABC678051CF7109400B520A6 /* NSDictionary+AXNetworkingMethods.m in Sources */,
+				ABC6781F1CF7109400B520A6 /* BSWXService.m in Sources */,
+				ABC6780F1CF7109400B520A6 /* AIFCachedObject.m in Sources */,
+				ABC6781C1CF7109400B520A6 /* BSLogService.m in Sources */,
+				ABC677191CF707C100B520A6 /* ViewController.m in Sources */,
+				ABC677161CF707C100B520A6 /* AppDelegate.m in Sources */,
+				ABC678131CF7109400B520A6 /* AIFLoggerConfiguration.m in Sources */,
+				ABC678191CF7109400B520A6 /* AIFService.m in Sources */,
+				ABC678061CF7109400B520A6 /* NSMutableString+AXNetworkingMethods.m in Sources */,
+				ABC6781D1CF7109400B520A6 /* GDMapService.m in Sources */,
+				ABC6781B1CF7109400B520A6 /* YJBNService.m in Sources */,
+				ABC678121CF7109400B520A6 /* AIFLogger.m in Sources */,
+				ABC677131CF707C100B520A6 /* main.m in Sources */,
+				ABC678151CF7109400B520A6 /* AIFCommonParamsGenerator.m in Sources */,
+				ABC678181CF7109400B520A6 /* AIFUDIDGenerator.m in Sources */,
+				ABC678141CF7109400B520A6 /* AIFURLResponse.m in Sources */,
+				ABC6780B1CF7109400B520A6 /* AIFApiProxy.m in Sources */,
+				ABC6781A1CF7109400B520A6 /* AIFServiceFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABC6771A1CF707C100B520A6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABC6771B1CF707C100B520A6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ABC6771F1CF707C100B520A6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABC677201CF707C100B520A6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABC677231CF707C100B520A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ABC677241CF707C100B520A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ABC677261CF707C100B520A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47AEE7F0CEEB2B4E104FE886 /* Pods-CTNetworking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CTNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ABC677271CF707C100B520A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ADD3645D6296652217469EC /* Pods-CTNetworking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CTNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABC677091CF707C100B520A6 /* Build configuration list for PBXProject "CTNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABC677231CF707C100B520A6 /* Debug */,
+				ABC677241CF707C100B520A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABC677251CF707C100B520A6 /* Build configuration list for PBXNativeTarget "CTNetworking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABC677261CF707C100B520A6 /* Debug */,
+				ABC677271CF707C100B520A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABC677061CF707C100B520A6 /* Project object */;
+}
