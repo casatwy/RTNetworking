@@ -10,7 +10,7 @@
 
 @interface NSString (AXNetworkingMethods)
 
-- (NSString *)AX_md5;
+- (NSString *)ax_md5;
 
 
 @end

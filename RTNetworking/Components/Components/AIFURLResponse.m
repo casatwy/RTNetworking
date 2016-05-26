@@ -45,7 +45,7 @@
 {
     self = [super init];
     if (self) {
-        self.contentString = [responseString AIF_defaultValue:@""];
+        self.contentString = [responseString aif_defaultValue:@""];
         self.status = [self responseStatusWithError:error];
         self.requestId = [requestId integerValue];
         self.request = request;

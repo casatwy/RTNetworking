@@ -5,16 +5,16 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AIFPListManager.h"
+#import "AIFPlistManager.h"
 
-@interface AIFPListManager ()
+@interface AIFPlistManager ()
 
 @property (nonatomic, strong, readwrite) NSString *fileName;
 @property (nonatomic, readwrite) BOOL isBundle;
 
 @end
 
-@implementation AIFPListManager
+@implementation AIFPlistManager
 #pragma mark - life cycle
 - (id)initWithFileName:(NSString *)fileName isBundle:(BOOL)isBundle
 {

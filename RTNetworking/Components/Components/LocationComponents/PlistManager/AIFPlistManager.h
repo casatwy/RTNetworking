@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AIFPListManager : NSObject
+@interface AIFPlistManager : NSObject
 
 @property (nonatomic, strong, readonly) NSString *fileName;
 @property (nonatomic, copy) id listData; //plist中读出的数据

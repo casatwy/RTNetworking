@@ -7,14 +7,14 @@
 //
 
 #import "AIFCommonParamsGenerator.h"
-#import "AIFAppContext.h"
+#import "AIFAPPContext.h"
 #import "NSDictionary+AXNetworkingMethods.h"
 
 @implementation AIFCommonParamsGenerator
 
 + (NSDictionary *)commonParamsDictionary
 {
-    AIFAppContext *context = [AIFAppContext sharedInstance];
+    AIFAPPContext *context = [AIFAPPContext sharedInstance];
     return @{
              @"cid":context.cid,
              @"ostype2":context.ostype2,
@@ -36,7 +36,7 @@
 
 + (NSDictionary *)commonParamsDictionaryForLog
 {
-    AIFAppContext *context = [AIFAppContext sharedInstance];
+    AIFAPPContext *context = [AIFAPPContext sharedInstance];
     return @{
              @"guid":context.guid,
              @"dvid":context.dvid,

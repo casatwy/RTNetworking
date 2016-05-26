@@ -120,7 +120,7 @@ NSString * const kAIFServiceGoogleMapAPIDirections = @"kAIFServiceGoogleMapAPIDi
 }
 
 #pragma mark - public methods
-- (AIFService<AIFServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier
+- (AIFService<AIFServiceProtocol> *)serviceWithIdentifier:(NSString *)identifier
 {
     if ([self.serviceStorage objectForKey:identifier] == nil) {
         [self.serviceStorage setObject:[self newServiceWithIdentifier:identifier]
@@ -130,7 +130,7 @@ NSString * const kAIFServiceGoogleMapAPIDirections = @"kAIFServiceGoogleMapAPIDi
 }
 
 #pragma mark - private methods
-- (AIFService<AIFServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier
+- (AIFService<AIFServiceProtocol> *)newServiceWithIdentifier:(NSString *)identifier
 {
     // anjuke
     if ([identifier isEqualToString:kAIFServiceAnjuke]) {

@@ -11,7 +11,7 @@
 
 typedef void(^AXCallback)(AIFURLResponse *response);
 
-@interface AIFApiProxy : NSObject
+@interface AIFAPIProxy : NSObject
 
 + (instancetype)sharedInstance;
 

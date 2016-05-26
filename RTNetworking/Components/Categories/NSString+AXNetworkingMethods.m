@@ -12,7 +12,7 @@
 
 @implementation NSString (AXNetworkingMethods)
 
-- (NSString *)AX_md5
+- (NSString *)ax_md5
 {
 	NSData* inputData = [self dataUsingEncoding:NSUTF8StringEncoding];
 	unsigned char outputData[CC_MD5_DIGEST_LENGTH];

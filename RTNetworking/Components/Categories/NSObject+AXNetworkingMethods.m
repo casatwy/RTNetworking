@@ -10,20 +10,20 @@
 
 @implementation NSObject (AXNetworkingMethods)
 
-- (id)AIF_defaultValue:(id)defaultData
+- (id)aif_defaultValue:(id)defaultData
 {
     if (![defaultData isKindOfClass:[self class]]) {
         return defaultData;
     }
     
-    if ([self AIF_isEmptyObject]) {
+    if ([self aif_isEmptyObject]) {
         return defaultData;
     }
     
     return self;
 }
 
-- (BOOL)AIF_isEmptyObject
+- (BOOL)aif_isEmptyObject
 {
     if ([self isEqual:[NSNull null]]) {
         return YES;

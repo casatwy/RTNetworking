@@ -93,7 +93,7 @@
 
 - (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier methodName:(NSString *)methodName requestParams:(NSDictionary *)requestParams
 {
-    return [NSString stringWithFormat:@"%@%@%@", serviceIdentifier, methodName, [requestParams AIF_urlParamsStringSignature:NO]];
+    return [NSString stringWithFormat:@"%@%@%@", serviceIdentifier, methodName, [requestParams aif_urlParamsStringSignature:NO]];
 }
 
 @end

@@ -15,8 +15,8 @@
 {
     self = [super init];
     if (self) {
-        if ([self conformsToProtocol:@protocol(AIFServiceProtocal)]) {
-            self.child = (id<AIFServiceProtocal>)self;
+        if ([self conformsToProtocol:@protocol(AIFServiceProtocol)]) {
+            self.child = (id<AIFServiceProtocol>)self;
         }
     }
     return self;

@@ -7,7 +7,7 @@
 //
 
 #import "AIFCityListManager.h"
-#import "AIFPListManager.h"
+#import "AIFPlistManager.h"
 #import "AIFNetworking.h"
 
 @interface AIFCityListManager ()
@@ -15,7 +15,7 @@
 @property (nonatomic, copy, readwrite) NSString *methodName;
 
 @property (nonatomic, copy) id cityData;
-@property (nonatomic, strong) AIFPListManager *plistManager;
+@property (nonatomic, strong) AIFPlistManager *plistManager;
 
 @end
 
@@ -300,10 +300,10 @@
 }
 
 #pragma mark - getters and setters
-- (AIFPListManager *)plistManager
+- (AIFPlistManager *)plistManager
 {
     if (_plistManager == nil) {
-        _plistManager = [[AIFPListManager alloc] init];
+        _plistManager = [[AIFPlistManager alloc] init];
     }
     return _plistManager;
 }

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIFAppContext.h"
+#import "AIFAPPContext.h"
 
 @interface AIFLoggerConfiguration : NSObject
 

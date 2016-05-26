@@ -12,6 +12,6 @@
 @interface AIFServiceFactory : NSObject
 
 + (instancetype)sharedInstance;
-- (AIFService<AIFServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier;
+- (AIFService<AIFServiceProtocol> *)serviceWithIdentifier:(NSString *)identifier;
 
 @end
