@@ -1,7 +1,5 @@
 # CTNetworking
 
-[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-1.0.0-green.svg?style=flat)](https://cocoapods.org) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT)
-
 `CTNetworking` is an iOS discrete HTTP API calling framework based on AFNetworking.[Click for more detail(in Chinese)](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html)
 
 ## Requirements
@@ -17,15 +15,6 @@
 You will need the latest developer tools in order to build `CTNetworking`. Old Xcode versions might work, but compatibility will not be explicitly maintained.
 
 ## Adding CTNetworking to your project
-
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is the recommended way to add CTNetworking to your project.
-
-1. Add a pod entry for CTNetworking to your Podfile `pod 'CTNetworking'`
-2. Install the pod(s) by running `pod install`.
-3. Include CTNetworking wherever you need it with `#import <CTNetworking/CTNetworking.h>`.
-4. Add code in `CTNetworkingCustoms` folder to custom your own Networking layer.
 
 ## Demo
 
