@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Podfile.lock
 Pods/
 CTNetworking.xcworkspace/
@@ -5,3 +6,14 @@ CTNetworking.xcodeproj/xcuserdata/
 CTNetworking.xcodeproj/project.xcworkspace/xcuserdata/
 a.sh
 .DS_Store
+=======
+.DS_Store
+RTNetworking.xcodeproj/xcuserdata/
+RTNetworking.xcodeproj/project.xcworkspace/xcuserdata/
+RTNetworking.xcworkspace/xcuserdata/casa.xcuserdatad/UserInterfaceState.xcuserstate
+Pods/Pods.xcodeproj/xcuserdata/casa.xcuserdatad/xcschemes/xcschememanagement.plist
+RTNetworking.xcodeproj/xcuserdata/casa.xcuserdatad/xcschemes/xcschememanagement.plist
+RTNetworking.xcodeproj/project.xcworkspace/xcshareddata/
+RTNetworking.xcworkspace/xcuserdata/
+Pods
+>>>>>>> a041182c50afe13cdb9da3f5b016e03670ad35eb
