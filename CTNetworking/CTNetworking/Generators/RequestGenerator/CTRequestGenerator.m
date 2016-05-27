@@ -47,13 +47,12 @@
         urlString = [NSString stringWithFormat:@"%@/%@", service.apiBaseUrl, methodName];
     }
     
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"X-Req-Id"];
-    [self.httpRequestSerializer setValue:NSLocalizedString(@"en", @"cn") forHTTPHeaderField:@"Accept-Language"];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:urlString parameters:requestParams error:NULL];
     request.requestParams = requestParams;
     if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"Authorization"];
+        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
     }
     return request;
 }
@@ -63,14 +62,12 @@
     CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
     
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"X-Req-Id"];
-    [self.httpRequestSerializer setValue:NSLocalizedString(@"en", @"cn") forHTTPHeaderField:@"Accept-Language"];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
-    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"Authorization"];
+        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
     }
     request.requestParams = requestParams;
     return request;
@@ -81,14 +78,12 @@
     CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
     
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"X-Req-Id"];
-    [self.httpRequestSerializer setValue:NSLocalizedString(@"en", @"cn") forHTTPHeaderField:@"Accept-Language"];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"PUT" URLString:urlString parameters:requestParams error:NULL];
-    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"Authorization"];
+        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
     }
     request.requestParams = requestParams;
     return request;
@@ -99,14 +94,12 @@
     CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
     
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"X-Req-Id"];
-    [self.httpRequestSerializer setValue:NSLocalizedString(@"en", @"cn") forHTTPHeaderField:@"Accept-Language"];
+    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"DELETE" URLString:urlString parameters:requestParams error:NULL];
-    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"Authorization"];
+        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
     }
     request.requestParams = requestParams;
     return request;
