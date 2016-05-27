@@ -15,15 +15,15 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "YJNetworking"
-  s.version      = "1.2.3"
-  s.summary      = "this is YJ networking."
+  s.name         = "CTNetworking"
+  s.version      = "1.0.0"
+  s.summary      = "this is CTNetworking."
 
   s.description  = <<-DESC
-                    a networking library which used in YJ.
+                    a networking library which used.
                    DESC
 
-  s.homepage     = "https://gitlab.playplus.me/iOS_Networking/YJNetworking"
+  s.homepage     = "git@github.com:casatwy/RTNetworking"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -74,7 +74,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "ssh://git@gitlab.playplus.me:10022/iOS_Networking/YJNetworking.git", :tag => s.version.to_s }
+  s.source       = { :git => "git@github.com:casatwy/RTNetworking.git", :tag => s.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "BSNetworking/Foundation/**/*.{h,m}"
+  s.source_files  = "CTNetworking/CTNetworking/**/*.{h,m}"
 
   # s.public_header_files = "Classes/**/*.h"
 
