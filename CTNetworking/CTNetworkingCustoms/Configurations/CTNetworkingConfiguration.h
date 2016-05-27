@@ -10,7 +10,7 @@
 #define CTNetworking_CTNetworkingConfiguration_h
 
 typedef NS_ENUM(NSInteger, CTAppType) {
-    CTAppTypePlayPlus
+    CTAppTypexxx
 };
 
 typedef NS_ENUM(NSUInteger, CTURLResponseStatus)
@@ -20,9 +20,9 @@ typedef NS_ENUM(NSUInteger, CTURLResponseStatus)
     CTURLResponseStatusErrorNoNetwork // 默认除了超时以外的错误都是无网络错误。
 };
 
-static NSString *CTKeychainServiceName = @"com.yj";
-static NSString *CTUDIDName = @"YJUDID";
-static NSString *CTPasteboardType = @"YJAppsContent";
+static NSString *CTKeychainServiceName = @"xxxxx";
+static NSString *CTUDIDName = @"xxxx";
+static NSString *CTPasteboardType = @"xxxx";
 
 static BOOL kCTShouldCache = YES;
 static BOOL kCTServiceIsOnline = NO;

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#ifndef RTNetworking_AXNetworking_h
-#define RTNetworking_AXNetworking_h
+#ifndef CTNetworking_CTNetworking_h
+#define CTNetworking_CTNetworking_h
 
 #import "CTApiProxy.h"
 #import "CTServiceFactory.h"

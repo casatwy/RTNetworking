@@ -166,55 +166,6 @@
     }
 }
 
-- (NSString *)wxAppID
-{
-    return @"wx692cfef0f631b1e9";
-}
-
-- (NSString *)wxSecret
-{
-    return @"c12a1fac5c734c948aeb08878369afc4";
-}
-
-- (BOOL)shouldPlayVideoOnlyInWifi
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"shouldPlayVideoOnlyInWifi"];
-}
-
-- (void)setShouldPlayVideoOnlyInWifi:(BOOL)shouldPlayVideoNotOnlyInWifi
-{
-    [[NSUserDefaults standardUserDefaults] setBool:shouldPlayVideoNotOnlyInWifi forKey:@"shouldPlayVideoOnlyInWifi"];
-}
-
-- (BOOL)isDefaultLayoutSaved
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isDefaulLayoutSaved"];
-}
-
-- (void)setIsDefaultLayoutSaved:(BOOL)isDefaultLayoutSaved
-{
-    [[NSUserDefaults standardUserDefaults] setBool:isDefaultLayoutSaved forKey:@"isDefaulLayoutSaved"];
-}
-
-- (BOOL)isTileLayout
-{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isDefaulLayoutTileLayout"];
-}
-
-- (void)setIsTileLayout:(BOOL)isTileLayout
-{
-    [[NSUserDefaults standardUserDefaults] setBool:isTileLayout forKey:@"isDefaulLayoutTileLayout"];
-}
-
-- (BOOL)isWifi
-{
-    if ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus != AFNetworkReachabilityStatusReachableViaWWAN) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 - (NSString *)ppi
 {
     NSString *ppi = @"";

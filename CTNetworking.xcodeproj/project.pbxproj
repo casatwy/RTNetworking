@@ -274,10 +274,10 @@
 		ABC678381CF7251400B520A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				ABC678471CF7251400B520A6 /* iPhoneTypeDefine.plist */,
 				ABC678391CF7251400B520A6 /* APIProxy */,
 				ABC6783F1CF7251400B520A6 /* BaseAPIManager */,
 				ABC678421CF7251400B520A6 /* CacheComponents */,
-				ABC678471CF7251400B520A6 /* iPhoneTypeDefine.plist */,
 				ABC678481CF7251400B520A6 /* LocationManager */,
 				ABC6784B1CF7251400B520A6 /* LogComponents */,
 				ABC678501CF7251400B520A6 /* URLResponse */,

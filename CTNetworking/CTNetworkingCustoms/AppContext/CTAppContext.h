@@ -28,7 +28,6 @@
 // 运行环境相关
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isOnline;
-@property (nonatomic, assign) BOOL isBackendMode;
 
 // 用户token相关
 @property (nonatomic, copy, readonly) NSString *accessToken;
@@ -39,7 +38,6 @@
 @property (nonatomic, copy) NSDictionary *userInfo;
 @property (nonatomic, copy) NSString *userID;
 @property (nonatomic, readonly) BOOL isLoggedIn;
-@property (nonatomic, assign) BOOL userHasFollowings;
 
 // app信息
 @property (nonatomic, copy, readonly) NSString *sessionId; // 每次启动App时都会新生成
@@ -53,19 +51,6 @@
 // 地理位置
 @property (nonatomic, assign, readonly) CGFloat latitude;
 @property (nonatomic, assign, readonly) CGFloat longitude;
-
-// 微信数据
-@property (nonatomic, copy) NSString *wxAppID;
-@property (nonatomic, copy) NSString *wxSecret;
-@property (nonatomic, assign) BOOL isWxInstalled;
-@property (nonatomic, assign) BOOL isQQInstalled;
-
-// 用户配置
-@property (nonatomic, assign) BOOL shouldPlayVideoOnlyInWifi;
-@property (nonatomic, assign, readonly) BOOL isWifi;
-
-@property (nonatomic, assign) BOOL isDefaultLayoutSaved;
-@property (nonatomic, assign) BOOL isTileLayout;
 
 + (instancetype)sharedInstance;
 

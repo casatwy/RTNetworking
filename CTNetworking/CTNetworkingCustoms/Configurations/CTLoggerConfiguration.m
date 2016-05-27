@@ -14,7 +14,7 @@
 - (void)configWithAppType:(CTAppType)appType
 {
     switch (appType) {
-        case CTAppTypePlayPlus:
+        case CTAppTypexxx:
             self.appKey = @"xxxxxx";
             self.serviceType = @"xxxxx";
             self.sendLogMethod = @"xxxx";
