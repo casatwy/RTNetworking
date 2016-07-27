@@ -1,5 +1,7 @@
 # CTNetworking
 
+[![Join the chat at https://gitter.im/casatwy/RTNetworking](https://badges.gitter.im/casatwy/RTNetworking.svg)](https://gitter.im/casatwy/RTNetworking?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 `CTNetworking` is an iOS discrete HTTP API calling framework based on AFNetworking.[Click for more detail(in Chinese)](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html)
 
 ## Requirements
