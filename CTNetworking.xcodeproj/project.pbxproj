@@ -453,12 +453,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABC677251CF707C100B520A6 /* Build configuration list for PBXNativeTarget "CTNetworking" */;
 			buildPhases = (
-				156A99D3C76E77B1A238B0E7 /* 📦 Check Pods Manifest.lock */,
+				156A99D3C76E77B1A238B0E7 /* [CP] Check Pods Manifest.lock */,
 				ABC6770A1CF707C100B520A6 /* Sources */,
 				ABC6770B1CF707C100B520A6 /* Frameworks */,
 				ABC6770C1CF707C100B520A6 /* Resources */,
-				5638BFA3E4B5D4D72B99C701 /* 📦 Embed Pods Frameworks */,
-				4D80E65ECBC86488DD1BB49C /* 📦 Copy Pods Resources */,
+				5638BFA3E4B5D4D72B99C701 /* [CP] Embed Pods Frameworks */,
+				4D80E65ECBC86488DD1BB49C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -517,14 +517,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		156A99D3C76E77B1A238B0E7 /* 📦 Check Pods Manifest.lock */ = {
+		156A99D3C76E77B1A238B0E7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,14 +532,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4D80E65ECBC86488DD1BB49C /* 📦 Copy Pods Resources */ = {
+		4D80E65ECBC86488DD1BB49C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,14 +547,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CTNetworking/Pods-CTNetworking-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5638BFA3E4B5D4D72B99C701 /* 📦 Embed Pods Frameworks */ = {
+		5638BFA3E4B5D4D72B99C701 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
