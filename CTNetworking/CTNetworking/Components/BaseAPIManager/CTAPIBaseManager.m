@@ -118,7 +118,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     if ([self shouldCallAPIWithParams:apiParams]) {
         if ([self.validator manager:self isCorrectWithParamsData:apiParams]) {
             
-            if ([self shouldLoadFromNative]) {
+            if ([self.child shouldLoadFromNative]) {
                 [self loadDataFromNative];
             }
             
@@ -171,7 +171,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     self.isLoading = NO;
     self.response = response;
     
-    if ([self shouldLoadFromNative]) {
+    if ([self.child shouldLoadFromNative]) {
         if (response.isCache == NO) {
             [[NSUserDefaults standardUserDefaults] setObject:response.responseData forKey:[self.child methodName]];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -191,7 +191,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         }
         
         if ([self beforePerformSuccessWithResponse:response]) {
-            if ([self shouldLoadFromNative]) {
+            if ([self.child shouldLoadFromNative]) {
                 if (response.isCache == YES) {
                     [self.delegate managerCallAPIDidSuccess:self];
                 }
