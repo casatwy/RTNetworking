@@ -53,7 +53,7 @@
 #endif
 }
 
-+ (void)logDebugInfoWithResponse:(NSHTTPURLResponse *)response resposeString:(NSString *)responseString request:(NSURLRequest *)request error:(NSError *)error
++ (void)logDebugInfoWithResponse:(NSHTTPURLResponse *)response responseString:(NSString *)responseString request:(NSURLRequest *)request error:(NSError *)error
 {
 #ifdef DEBUG
     BOOL shouldLogError = error ? YES : NO;

@@ -264,7 +264,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     BOOL result = YES;
     
     self.errorType = CTAPIManagerErrorTypeSuccess;
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformSuccessWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager: beforePerformSuccessWithResponse:)]) {
         result = [self.interceptor manager:self beforePerformSuccessWithResponse:response];
     }
     return result;
@@ -272,7 +272,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (void)afterPerformSuccessWithResponse:(CTURLResponse *)response
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformSuccessWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterPerformSuccessWithResponse:)]) {
         [self.interceptor manager:self afterPerformSuccessWithResponse:response];
     }
 }
@@ -280,7 +280,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 - (BOOL)beforePerformFailWithResponse:(CTURLResponse *)response
 {
     BOOL result = YES;
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(beforePerformFailWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:beforePerformFailWithResponse:)]) {
         result = [self.interceptor manager:self beforePerformFailWithResponse:response];
     }
     return result;
@@ -288,7 +288,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (void)afterPerformFailWithResponse:(CTURLResponse *)response
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterPerformFailWithResponse:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterPerformFailWithResponse:)]) {
         [self.interceptor manager:self afterPerformFailWithResponse:response];
     }
 }
@@ -296,7 +296,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 //只有返回YES才会继续调用API
 - (BOOL)shouldCallAPIWithParams:(NSDictionary *)params
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(shouldCallAPIWithParams:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:shouldCallAPIWithParams:)]) {
         return [self.interceptor manager:self shouldCallAPIWithParams:params];
     } else {
         return YES;
@@ -305,7 +305,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (void)afterCallingAPIWithParams:(NSDictionary *)params
 {
-    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(afterCallingAPIWithParams:)]) {
+    if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterCallingAPIWithParams:)]) {
         [self.interceptor manager:self afterCallingAPIWithParams:params];
     }
 }

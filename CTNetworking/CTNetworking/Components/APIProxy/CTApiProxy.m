@@ -118,7 +118,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         
         if (error) {
             [CTLogger logDebugInfoWithResponse:httpResponse
-                                  resposeString:responseString
+                                  responseString:responseString
                                         request:request
                                           error:error];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
@@ -126,7 +126,7 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         } else {
             // 检查http response是否成立。
             [CTLogger logDebugInfoWithResponse:httpResponse
-                                  resposeString:responseString
+                                  responseString:responseString
                                         request:request
                                           error:NULL];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:CTURLResponseStatusSuccess];
