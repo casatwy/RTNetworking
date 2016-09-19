@@ -8,6 +8,6 @@
 
 #import "CTService.h"
 
-@interface GDMapService : CTService <CTServiceProtocal>
+@interface GDMapService : CTService <CTServiceProtocol>
 
 @end

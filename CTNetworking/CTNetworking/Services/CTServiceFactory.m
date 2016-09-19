@@ -46,7 +46,7 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 }
 
 #pragma mark - public methods
-- (CTService<CTServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier
+- (CTService<CTServiceProtocol> *)serviceWithIdentifier:(NSString *)identifier
 {
     if (self.serviceStorage[identifier] == nil) {
         self.serviceStorage[identifier] = [self newServiceWithIdentifier:identifier];
@@ -55,7 +55,7 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 }
 
 #pragma mark - private methods
-- (CTService<CTServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier
+- (CTService<CTServiceProtocol> *)newServiceWithIdentifier:(NSString *)identifier
 {
     if ([identifier isEqualToString:kCTServiceGDMapV3]) {
         return [[GDMapService alloc] init];
