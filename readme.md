@@ -32,13 +32,13 @@ CTNetworking API URL is constituted by 4 part:
 
 #### Custom a CTService
 
-Inherit `CTService` and follow `CTServiceProtocal`
+Inherit `CTService` and follow `CTServiceProtocol`
 
 ```objective-c
-@interface GDMapService : CTService <CTServiceProtocal>
+@interface GDMapService : CTService <CTServiceProtocol>
 ```
 
-Implement all methods of `CTServiceProtocal`
+Implement all methods of `CTServiceProtocol`
 
 ```objective-c
 ...
