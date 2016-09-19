@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CTNetworkingConfiguration.h"
 
-// 所有CTService的派生类都要符合这个protocal
-@protocol CTServiceProtocal <NSObject>
+// 所有CTService的派生类都要符合这个protocol
+@protocol CTServiceProtocol <NSObject>
 
 @property (nonatomic, readonly) BOOL isOnline;
 
@@ -35,6 +35,6 @@
 @property (nonatomic, strong, readonly) NSString *apiBaseUrl;
 @property (nonatomic, strong, readonly) NSString *apiVersion;
 
-@property (nonatomic, weak) id<CTServiceProtocal> child;
+@property (nonatomic, weak) id<CTServiceProtocol> child;
 
 @end

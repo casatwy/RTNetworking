@@ -15,8 +15,8 @@
 {
     self = [super init];
     if (self) {
-        if ([self conformsToProtocol:@protocol(CTServiceProtocal)]) {
-            self.child = (id<CTServiceProtocal>)self;
+        if ([self conformsToProtocol:@protocol(CTServiceProtocol)]) {
+            self.child = (id<CTServiceProtocol>)self;
         }
     }
     return self;
