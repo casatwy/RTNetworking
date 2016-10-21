@@ -113,7 +113,7 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
     ContentRefomer *reformer = self.topView.contentReformer;    //reformer是属于需求方的，此时的需求方是topView
     reformer.contentParams = self.filter.params;                //如果不需要controller提供辅助数据的话，这一步可以不要。
     id data = [self.manager fetchDataWithReformer:reformer];
-    [self.view configWithData:data];
+    [self.topView configWithData:data];
  
  */
 @protocol CTAPIManagerDataReformer <NSObject>
