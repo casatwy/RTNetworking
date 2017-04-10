@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #s.source       = { :git => "https://github.com/Corotata/RTNetworking.git", :tag => "#{s.version}" }
     s.source       = { :git => "https://github.com/Corotata/RTNetworking.git"}
 
-  s.source_files  = "CTNetworking", "CTNetworking/**/*.{h,m}"
+  s.source_files  = "CTNetworking/CTNetworking/**/*.{h,m}"
   #s.public_header_files = "CTNetworking/CTNetworking/**/*.h"
   s.resource  = "CTNetworking/CTNetworking/**/*.plist"
 
