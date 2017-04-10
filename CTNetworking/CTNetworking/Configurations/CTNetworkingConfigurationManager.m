@@ -7,7 +7,7 @@
 //
 
 #import "CTNetworkingConfigurationManager.h"
-#import <AFNetworking.h>
+#import <AFNetworking/AFNetworking.h>
 
 @implementation CTNetworkingConfigurationManager
 
