@@ -6,9 +6,9 @@
 //  Copyright 2011 Aurora Apps. All rights reserved.
 //
 
-#import "UIDevice+IdentifierAddition.h"
+#import "UIDevice+CTNetworkingMethods.h"
 #import "CTUDIDGenerator.h"
-#import "NSString+AXNetworkingMethods.h"
+#import "NSString+CTNetworkingMethods.h"
 
 #include <sys/socket.h> // Per msqr
 #include <sys/sysctl.h>
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation UIDevice (IdentifierAddition)
+@implementation UIDevice (CTNetworkingMethods)
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -131,7 +131,7 @@
     NSString *macid = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (macid.length == 0) {
         NSString *macaddress = [[UIDevice currentDevice] CT_macaddress];
-        macid = [macaddress AX_md5];
+        macid = [macaddress CT_md5];
         if (!macid){
             macid = @"macaddress_empty";
         }else{

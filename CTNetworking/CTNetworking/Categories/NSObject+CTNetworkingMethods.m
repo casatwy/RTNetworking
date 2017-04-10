@@ -1,14 +1,14 @@
 //
-//  NSObject+AXNetworkingMethods.m
+//  NSObject+CTNetworkingMethods.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 
-@implementation NSObject (AXNetworkingMethods)
+@implementation NSObject (CTNetworkingMethods)
 
 - (id)CT_defaultValue:(id)defaultData
 {

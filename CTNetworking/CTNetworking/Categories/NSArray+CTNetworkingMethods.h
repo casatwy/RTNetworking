@@ -1,5 +1,5 @@
 //
-//  NSArray+AXNetworkingMethods.h
+//  NSArray+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-13.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (AXNetworkingMethods)
+@interface NSArray (CTNetworkingMethods)
 
-- (NSString *)AX_paramsString;
-- (NSString *)AX_jsonString;
+- (NSString *)CT_paramsString;
+- (NSString *)CT_jsonString;
 
 @end

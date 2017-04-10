@@ -7,7 +7,7 @@
 //
 
 #import "CTURLResponse.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
 @interface CTURLResponse ()

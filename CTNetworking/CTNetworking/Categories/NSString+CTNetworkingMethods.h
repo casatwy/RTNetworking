@@ -1,5 +1,5 @@
 //
-//  NSString+AXNetworkingMethods.h
+//  NSString+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (AXNetworkingMethods)
+@interface NSString (CTNetworkingMethods)
 
-- (NSString *)AX_md5;
+- (NSString *)CT_md5;
 
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "CTAppContext.h"
-#import "NSObject+AXNetworkingMethods.h"
-#import "UIDevice+IdentifierAddition.h"
+#import "NSObject+CTNetworkingMethods.h"
+#import "UIDevice+CTNetworkingMethods.h"
 #import "AFNetworkReachabilityManager.h"
 #import "CTLogger.h"
 #import "CTLocationManager.h"

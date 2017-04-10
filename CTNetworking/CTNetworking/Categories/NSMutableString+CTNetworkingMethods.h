@@ -1,5 +1,5 @@
 //
-//  NSMutableString+AXNetworkingMethods.h
+//  NSMutableString+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-17.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableString (AXNetworkingMethods)
+@interface NSMutableString (CTNetworkingMethods)
 
-- (void)appendURLRequest:(NSURLRequest *)request;
+- (void)CT_appendURLRequest:(NSURLRequest *)request;
 
 @end

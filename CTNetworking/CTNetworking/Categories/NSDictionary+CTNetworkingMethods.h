@@ -1,5 +1,5 @@
 //
-//  NSDictionary+AXNetworkingMethods.h
+//  NSDictionary+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (AXNetworkingMethods)
+@interface NSDictionary (CTNetworkingMethods)
 
 - (NSString *)CT_urlParamsStringSignature:(BOOL)isForSignature;
 - (NSString *)CT_jsonString;

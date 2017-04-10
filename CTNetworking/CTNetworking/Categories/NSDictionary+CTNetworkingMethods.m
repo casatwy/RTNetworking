@@ -1,21 +1,21 @@
 //
-//  NSDictionary+AXNetworkingMethods.m
+//  NSDictionary+CTNetworkingMethods.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "NSDictionary+AXNetworkingMethods.h"
-#import "NSArray+AXNetworkingMethods.h"
+#import "NSDictionary+CTNetworkingMethods.h"
+#import "NSArray+CTNetworkingMethods.h"
 
-@implementation NSDictionary (AXNetworkingMethods)
+@implementation NSDictionary (CTNetworkingMethods)
 
 /** 字符串前面是没有问号的，如果用于POST，那就不用加问号，如果用于GET，就要加个问号 */
 - (NSString *)CT_urlParamsStringSignature:(BOOL)isForSignature
 {
     NSArray *sortedArray = [self CT_transformedUrlParamsArraySignature:isForSignature];
-    return [sortedArray AX_paramsString];
+    return [sortedArray CT_paramsString];
 }
 
 /** 字典变json */

@@ -7,7 +7,7 @@
 //
 
 #import "CTCache.h"
-#import "NSDictionary+AXNetworkingMethods.h"
+#import "NSDictionary+CTNetworkingMethods.h"
 #import "CTNetworkingConfiguration.h"
 
 @interface CTCache ()

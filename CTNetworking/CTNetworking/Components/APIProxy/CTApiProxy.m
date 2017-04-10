@@ -118,17 +118,17 @@ static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDi
         
         if (error) {
             [CTLogger logDebugInfoWithResponse:httpResponse
-                                  responseString:responseString
-                                        request:request
-                                          error:error];
+                                responseString:responseString
+                                       request:request
+                                         error:error];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
             fail?fail(CTResponse):nil;
         } else {
             // 检查http response是否成立。
             [CTLogger logDebugInfoWithResponse:httpResponse
-                                  responseString:responseString
-                                        request:request
-                                          error:NULL];
+                                responseString:responseString
+                                       request:request
+                                         error:NULL];
             CTURLResponse *CTResponse = [[CTURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:CTURLResponseStatusSuccess];
             success?success(CTResponse):nil;
         }

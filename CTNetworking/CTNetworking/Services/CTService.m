@@ -7,7 +7,7 @@
 //
 
 #import "CTService.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 
 @implementation CTService
 

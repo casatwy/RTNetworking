@@ -10,12 +10,12 @@
 #import "CTSignatureGenerator.h"
 #import "CTServiceFactory.h"
 #import "CTCommonParamsGenerator.h"
-#import "NSDictionary+AXNetworkingMethods.h"
+#import "NSDictionary+CTNetworkingMethods.h"
 #import "CTNetworkingConfiguration.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 #import <AFNetworking/AFNetworking.h>
 #import "CTService.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
