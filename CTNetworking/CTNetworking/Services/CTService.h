@@ -25,6 +25,16 @@
 @property (nonatomic, readonly) NSString *onlinePrivateKey;
 @property (nonatomic, readonly) NSString *offlinePrivateKey;
 
+@optional
+
+//为某些Service需要拼凑额外字段到URL处
+- (NSDictionary *)extraParmas;
+
+//为某些Service需要拼凑额外的头，如accessToken
+- (NSDictionary *)extraHttpHeadParmas;
+
+- (NSString *)urlGeneratingRuleByMethodName:(NSString *)method;
+
 @end
 
 @interface CTService : NSObject
@@ -34,6 +44,11 @@
 @property (nonatomic, strong, readonly) NSString *apiBaseUrl;
 @property (nonatomic, strong, readonly) NSString *apiVersion;
 
-@property (nonatomic, weak) id<CTServiceProtocol> child;
+@property (nonatomic, weak, readonly) id<CTServiceProtocol> child;
+
+//因为考虑到每家公司的拼凑逻辑都有或多或少不同，所以将默认的方式提取出来，允许子类覆写
+//如有的公司为http://abc.com/v2/api/login或者http://v2.abc.com/api/login
+- (NSString *)urlGeneratingRuleByMethodName:(NSString *)method;
+
 
 @end

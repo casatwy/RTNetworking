@@ -9,6 +9,12 @@
 #import "CTService.h"
 #import "NSObject+CTNetworkingMethods.h"
 
+@interface CTService()
+
+@property (nonatomic, weak, readwrite) id<CTServiceProtocol> child;
+
+@end
+
 @implementation CTService
 
 - (instancetype)init
@@ -21,6 +27,22 @@
     }
     return self;
 }
+
+- (NSString *)urlGeneratingRuleByMethodName:(NSString *)methodName {
+    NSString *urlString = nil;
+    if (self.apiVersion.length != 0) {
+        urlString = [NSString stringWithFormat:@"%@/%@/%@", self.apiBaseUrl, self.apiVersion, methodName];
+    } else {
+        urlString = [NSString stringWithFormat:@"%@/%@", self.apiBaseUrl, methodName];
+    }
+    return urlString;
+}
+
+
+- (NSDictionary<NSString *,NSString *> *)specialApiVersionDictionary {
+    return nil;
+}
+
 
 #pragma mark - getters and setters
 - (NSString *)privateKey
