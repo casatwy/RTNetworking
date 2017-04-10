@@ -7,7 +7,6 @@
 //
 
 #import "CTCommonParamsGenerator.h"
-#import "CTAppContext.h"
 #import "NSDictionary+CTNetworkingMethods.h"
 
 @implementation CTCommonParamsGenerator

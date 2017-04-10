@@ -10,7 +10,6 @@
 #import "NSObject+CTNetworkingMethods.h"
 #import "NSMutableString+CTNetworkingMethods.h"
 #import "CTCommonParamsGenerator.h"
-#import "CTAppContext.h"
 #import "NSArray+CTNetworkingMethods.h"
 #import "CTApiProxy.h"
 #import "CTServiceFactory.h"

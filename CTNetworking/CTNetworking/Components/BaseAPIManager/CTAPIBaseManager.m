@@ -11,20 +11,19 @@
 #import "CTCache.h"
 #import "CTLogger.h"
 #import "CTServiceFactory.h"
-#import "CTAppContext.h"
 #import "CTApiProxy.h"
-
+#import "CTNetworkingConfigurationManager.h"
 #define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                   \
 {                                                                                               \
-    __weak typeof(self) weakSelf = self;                                                        \
-    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) { \
-        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-        [strongSelf successedOnCallingAPI:response];                                            \
-    } fail:^(CTURLResponse *response) {                                                        \
-        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-        [strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
-    }];                                                                                         \
-    [self.requestIdList addObject:@(REQUEST_ID)];                                               \
+__weak typeof(self) weakSelf = self;                                                        \
+REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) { \
+__strong typeof(weakSelf) strongSelf = weakSelf;                                        \
+[strongSelf successedOnCallingAPI:response];                                            \
+} fail:^(CTURLResponse *response) {                                                        \
+__strong typeof(weakSelf) strongSelf = weakSelf;                                        \
+[strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
+}];                                                                                         \
+[self.requestIdList addObject:@(REQUEST_ID)];                                               \
 }
 
 NSString * const kBSUserTokenInvalidNotification = @"kBSUserTokenInvalidNotification";
@@ -130,29 +129,29 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
             // 实际的网络请求
             if ([self isReachable]) {
                 self.isLoading = YES;
-                    switch (self.child.requestType)
-                    {
-                        case CTAPIManagerRequestTypeGet:
-                            AXCallAPI(GET, requestId);
-                            break;
-                        case CTAPIManagerRequestTypePost:
-                            AXCallAPI(POST, requestId);
-                            break;
-                        case CTAPIManagerRequestTypePut:
-                            AXCallAPI(PUT, requestId);
-                            break;
-                        case CTAPIManagerRequestTypeDelete:
-                            AXCallAPI(DELETE, requestId);
+                switch (self.child.requestType)
+                {
+                    case CTAPIManagerRequestTypeGet:
+                        AXCallAPI(GET, requestId);
                         break;
-                        default:
-                            break;
-                    }
-            
+                    case CTAPIManagerRequestTypePost:
+                        AXCallAPI(POST, requestId);
+                        break;
+                    case CTAPIManagerRequestTypePut:
+                        AXCallAPI(PUT, requestId);
+                        break;
+                    case CTAPIManagerRequestTypeDelete:
+                        AXCallAPI(DELETE, requestId);
+                        break;
+                    default:
+                        break;
+                }
+                
                 NSMutableDictionary *params = [apiParams mutableCopy];
                 params[kCTAPIBaseManagerRequestID] = @(requestId);
                 [self afterCallingAPIWithParams:params];
                 return requestId;
-            
+                
             } else {
                 [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeNoNetWork];
                 return requestId;
@@ -249,15 +248,15 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 #pragma mark - method for interceptor
 
 /*
-    拦截器的功能可以由子类通过继承实现，也可以由其它对象实现,两种做法可以共存
-    当两种情况共存的时候，子类重载的方法一定要调用一下super
-    然后它们的调用顺序是BaseManager会先调用子类重载的实现，再调用外部interceptor的实现
-    
-    notes:
-        正常情况下，拦截器是通过代理的方式实现的，因此可以不需要以下这些代码
-        但是为了将来拓展方便，如果在调用拦截器之前manager又希望自己能够先做一些事情，所以这些方法还是需要能够被继承重载的
-        所有重载的方法，都要调用一下super,这样才能保证外部interceptor能够被调到
-        这就是decorate pattern
+ 拦截器的功能可以由子类通过继承实现，也可以由其它对象实现,两种做法可以共存
+ 当两种情况共存的时候，子类重载的方法一定要调用一下super
+ 然后它们的调用顺序是BaseManager会先调用子类重载的实现，再调用外部interceptor的实现
+ 
+ notes:
+ 正常情况下，拦截器是通过代理的方式实现的，因此可以不需要以下这些代码
+ 但是为了将来拓展方便，如果在调用拦截器之前manager又希望自己能够先做一些事情，所以这些方法还是需要能够被继承重载的
+ 所有重载的方法，都要调用一下super,这样才能保证外部interceptor能够被调到
+ 这就是decorate pattern
  */
 - (BOOL)beforePerformSuccessWithResponse:(CTURLResponse *)response
 {
@@ -343,7 +342,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (BOOL)shouldCache
 {
-    return kCTShouldCache;
+    return [CTNetworkingConfigurationManager sharedInstance].shouldCache;
 }
 
 #pragma mark - private methods
@@ -418,7 +417,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (BOOL)isReachable
 {
-    BOOL isReachability = [CTAppContext sharedInstance].isReachable;
+    BOOL isReachability = [CTNetworkingConfigurationManager sharedInstance].isReachable;
     if (!isReachability) {
         self.errorType = CTAPIManagerErrorTypeNoNetWork;
     }

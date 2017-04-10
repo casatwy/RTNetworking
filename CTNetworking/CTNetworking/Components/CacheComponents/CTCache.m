@@ -8,8 +8,7 @@
 
 #import "CTCache.h"
 #import "NSDictionary+CTNetworkingMethods.h"
-#import "CTNetworkingConfiguration.h"
-
+#import "CTNetworkingConfigurationManager.h"
 @interface CTCache ()
 
 @property (nonatomic, strong) NSCache *cache;
@@ -23,7 +22,7 @@
 {
     if (_cache == nil) {
         _cache = [[NSCache alloc] init];
-        _cache.countLimit = kCTCacheCountLimit;
+        _cache.countLimit = [CTNetworkingConfigurationManager sharedInstance].cacheCountLimit;
     }
     return _cache;
 }

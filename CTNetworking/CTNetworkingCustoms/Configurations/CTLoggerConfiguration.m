@@ -11,18 +11,18 @@
 
 @implementation CTLoggerConfiguration
 
-- (void)configWithAppType:(CTAppType)appType
-{
-    switch (appType) {
-        case CTAppTypexxx:
-            self.appKey = @"xxxxxx";
-            self.serviceType = @"xxxxx";
-            self.sendLogMethod = @"xxxx";
-            self.sendActionMethod = @"xxxxxx";
-            self.sendLogKey = @"xxxxx";
-            self.sendActionKey = @"xxxx";
-            break;
-    }
-}
+//- (void)configWithAppType:(CTAppType)appType
+//{
+//    switch (appType) {
+//        case CTAppTypexxx:
+//            self.appKey = @"xxxxxx";
+//            self.serviceType = @"xxxxx";
+//            self.sendLogMethod = @"xxxx";
+//            self.sendActionMethod = @"xxxxxx";
+//            self.sendLogKey = @"xxxxx";
+//            self.sendActionKey = @"xxxx";
+//            break;
+//    }
+//}
 
 @end

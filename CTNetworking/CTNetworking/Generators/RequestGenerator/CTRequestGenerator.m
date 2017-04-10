@@ -11,14 +11,14 @@
 #import "CTServiceFactory.h"
 #import "CTCommonParamsGenerator.h"
 #import "NSDictionary+CTNetworkingMethods.h"
-#import "CTNetworkingConfiguration.h"
+#import "CTNetworkingConfigurationManager.h"
 #import "NSObject+CTNetworkingMethods.h"
 #import <AFNetworking/AFNetworking.h>
 #import "CTService.h"
 #import "NSObject+CTNetworkingMethods.h"
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
-
+#import "CTNetworkingConfigurationManager.h"
 @interface CTRequestGenerator ()
 
 @property (nonatomic, strong) AFHTTPRequestSerializer *httpRequestSerializer;
@@ -51,9 +51,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:urlString parameters:requestParams error:NULL];
     request.requestParams = requestParams;
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     return request;
 }
 
@@ -66,9 +66,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     request.requestParams = requestParams;
     return request;
 }
@@ -82,9 +82,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"PUT" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     request.requestParams = requestParams;
     return request;
 }
@@ -98,9 +98,9 @@
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"DELETE" URLString:urlString parameters:requestParams error:NULL];
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
+//    if ([CTAppContext sharedInstance].accessToken) {
+//        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+//    }
     request.requestParams = requestParams;
     return request;
 }
@@ -110,7 +110,7 @@
 {
     if (_httpRequestSerializer == nil) {
         _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = kCTNetworkingTimeoutSeconds;
+        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
         _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     }
     return _httpRequestSerializer;

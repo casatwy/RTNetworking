@@ -7,14 +7,13 @@
 //
 
 #import "GDMapService.h"
-#import "CTAppContext.h"
-
+#import "CTNetworkingConfigurationManager.h"
 @implementation GDMapService
 
 #pragma mark - CTServiceProtocal
 - (BOOL)isOnline
 {
-    return [CTAppContext sharedInstance].isOnline;
+    return [CTNetworkingConfigurationManager sharedInstance].serviceIsOnline;
 }
 
 - (NSString *)offlineApiBaseUrl

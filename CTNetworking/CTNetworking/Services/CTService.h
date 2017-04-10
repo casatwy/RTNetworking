@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CTNetworkingConfiguration.h"
 
 // 所有CTService的派生类都要符合这个protocol
 @protocol CTServiceProtocol <NSObject>

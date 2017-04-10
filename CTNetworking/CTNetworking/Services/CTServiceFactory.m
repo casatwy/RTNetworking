@@ -14,7 +14,6 @@
 /*************************************************************************/
 
 // service name list
-NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 
 
 @interface CTServiceFactory ()
@@ -57,7 +56,7 @@ NSString * const kCTServiceGDMapV3 = @"kCTServiceGDMapV3";
 #pragma mark - private methods
 - (CTService<CTServiceProtocol> *)newServiceWithIdentifier:(NSString *)identifier
 {
-    if ([identifier isEqualToString:kCTServiceGDMapV3]) {
+    if ([identifier isEqualToString:@"kCTServiceGDMapV3"]) {
         return [[GDMapService alloc] init];
     }
     

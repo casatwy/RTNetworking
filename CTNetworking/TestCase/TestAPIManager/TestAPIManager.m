@@ -7,7 +7,7 @@
 //
 
 #import "TestAPIManager.h"
-
+#import "CTHTTPConst.h"
 NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
 NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
 
