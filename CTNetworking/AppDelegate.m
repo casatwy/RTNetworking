@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  CTNetworking
 //
-//  Created by Corotata on 16/5/26.
-//  Copyright © 2016年 Corotata. All rights reserved.
+//  Created by LongFan on 16/5/26.
+//  Copyright © 2016年 Long Fan. All rights reserved.
 //
 
 #import "AppDelegate.h"
