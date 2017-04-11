@@ -66,8 +66,8 @@
         request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     }
     
-    if ([service.child respondsToSelector:@selector(extraHttpHeadParmas)]) {
-        NSDictionary *dict = [service.child extraHttpHeadParmas];
+    if ([service.child respondsToSelector:@selector(extraHttpHeadParmasWithMethodName:)]) {
+        NSDictionary *dict = [service.child extraHttpHeadParmasWithMethodName:methodName];
         if (dict) {
             [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 [request setValue:obj forHTTPHeaderField:key];
