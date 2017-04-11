@@ -39,11 +39,6 @@
 }
 
 
-- (NSDictionary<NSString *,NSString *> *)specialApiVersionDictionary {
-    return nil;
-}
-
-
 #pragma mark - getters and setters
 - (NSString *)privateKey
 {
