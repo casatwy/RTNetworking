@@ -62,7 +62,8 @@
     NSDictionary *totalRequestParams = [self totalRequestParamsByService:service requestParams:requestParams];
     
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:method URLString:urlString parameters:totalRequestParams error:NULL];
-    if (![method isEqualToString:@"GET"]) {
+    
+    if (![method isEqualToString:@"GET"] && [CTNetworkingConfigurationManager sharedInstance].shouldSetParamsInHTTPBodyButGET) {
         request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     }
     

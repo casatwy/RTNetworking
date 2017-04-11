@@ -22,6 +22,7 @@
         sharedInstance.apiNetworkingTimeoutSeconds = 20.0f;
         sharedInstance.cacheOutdateTimeSeconds = 300;
         sharedInstance.cacheCountLimit = 1000;
+        sharedInstance.shouldSetParamsInHTTPBodyButGET = NO;
         [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     });
     return sharedInstance;
