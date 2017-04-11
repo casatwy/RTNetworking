@@ -39,7 +39,7 @@
 //- (void)successedOnCallingAPI:(CTURLResponse *)response;
 
 //提供拦截器集中处理Service错误问题，比如token失效要抛通知等
-- (void)failedOnCallingAPI:(CTURLResponse *)response;
+- (BOOL)shouldCallBackByFailedOnCallingAPI:(CTURLResponse *)response;
 
 @end
 

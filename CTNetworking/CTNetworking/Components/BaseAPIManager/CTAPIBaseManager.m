@@ -209,9 +209,15 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
     
     self.isLoading = NO;
     self.response = response;
+    BOOL needCallBack = YES;
     
-    if ([service.child respondsToSelector:@selector(failedOnCallingAPI:)]) {
-        [service.child failedOnCallingAPI:response];
+    if ([service.child respondsToSelector:@selector(shouldCallBackByFailedOnCallingAPI:)]) {
+        needCallBack = [service.child shouldCallBackByFailedOnCallingAPI:response];
+    }
+    
+    //由service决定是否结束回调
+    if (!needCallBack) {
+        return;
     }
     
     //继续错误的处理
@@ -229,6 +235,11 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
     }
     [self afterPerformFailWithResponse:response];
 }
+
+
+
+
+
 
 #pragma mark - method for interceptor
 

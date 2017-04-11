@@ -73,7 +73,8 @@
 //}
 
 
-- (void)failedOnCallingAPI:(CTURLResponse *)response {
+- (BOOL)shouldCallBackByFailedOnCallingAPI:(CTURLResponse *)response {
+    BOOL result = YES;
     if ([response.content[@"id"] isEqualToString:@"expired_access_token"]) {
         // token 失效
         [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenInvalidNotification
@@ -82,6 +83,7 @@
                                                                      kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
                                                                      kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
                                                                      }];
+        result = YES;
     } else if ([response.content[@"id"] isEqualToString:@"illegal_access_token"]) {
         // token 无效，重新登录
         [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
@@ -90,6 +92,7 @@
                                                                      kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
                                                                      kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
                                                                      }];
+        result = YES;
     } else if ([response.content[@"id"] isEqualToString:@"no_permission_for_this_api"]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
                                                             object:nil
@@ -97,7 +100,9 @@
                                                                      kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
                                                                      kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
                                                                      }];
+        result = NO;
     }
+    return result;
 }
 
 
