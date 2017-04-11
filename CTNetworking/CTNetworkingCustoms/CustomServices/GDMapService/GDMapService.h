@@ -8,6 +8,12 @@
 
 #import "CTService.h"
 
+NSString * const kBSUserTokenInvalidNotification = @"kBSUserTokenInvalidNotification";
+NSString * const kBSUserTokenIllegalNotification = @"kBSUserTokenIllegalNotification";
+
+NSString * const kBSUserTokenNotificationUserInfoKeyRequestToContinue = @"kBSUserTokenNotificationUserInfoKeyRequestToContinue";
+NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUserTokenNotificationUserInfoKeyManagerToContinue";
+
 @interface GDMapService : CTService <CTServiceProtocol>
 
 @end

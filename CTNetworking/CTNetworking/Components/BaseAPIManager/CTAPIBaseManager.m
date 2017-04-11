@@ -26,11 +26,6 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
 [self.requestIdList addObject:@(REQUEST_ID)];                                               \
 }
 
-NSString * const kBSUserTokenInvalidNotification = @"kBSUserTokenInvalidNotification";
-NSString * const kBSUserTokenIllegalNotification = @"kBSUserTokenIllegalNotification";
-
-NSString * const kBSUserTokenNotificationUserInfoKeyRequestToContinue = @"kBSUserTokenNotificationUserInfoKeyRequestToContinue";
-NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUserTokenNotificationUserInfoKeyManagerToContinue";
 
 
 @interface CTAPIBaseManager ()
@@ -209,40 +204,30 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 
 - (void)failedOnCallingAPI:(CTURLResponse *)response withErrorType:(CTAPIManagerErrorType)errorType
 {
+    NSString *serviceIdentifier = self.child.serviceType;
+    CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
+    
     self.isLoading = NO;
     self.response = response;
-    if ([response.content[@"id"] isEqualToString:@"expired_access_token"]) {
-        // token 失效
-        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenInvalidNotification
-                                                            object:nil
-                                                          userInfo:@{
-                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
-                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
-                                                                     }];
-    } else if ([response.content[@"id"] isEqualToString:@"illegal_access_token"]) {
-        // token 无效，重新登录
-        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
-                                                            object:nil
-                                                          userInfo:@{
-                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
-                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
-                                                                     }];
-    } else if ([response.content[@"id"] isEqualToString:@"no_permission_for_this_api"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
-                                                            object:nil
-                                                          userInfo:@{
-                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
-                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
-                                                                     }];
-    } else {
-        // 其他错误
-        self.errorType = errorType;
-        [self removeRequestIdWithRequestID:response.requestId];
-        if ([self beforePerformFailWithResponse:response]) {
-            [self.delegate managerCallAPIDidFailed:self];
-        }
-        [self afterPerformFailWithResponse:response];
+    
+    if ([service.child respondsToSelector:@selector(failedOnCallingAPI:)]) {
+        [service.child failedOnCallingAPI:response];
     }
+    
+    //继续错误的处理
+    self.errorType = errorType;
+    [self removeRequestIdWithRequestID:response.requestId];
+    
+    if (response.content) {
+        self.fetchedRawData = [response.content copy];
+    } else {
+        self.fetchedRawData = [response.responseData copy];
+    }
+    
+    if ([self beforePerformFailWithResponse:response]) {
+        [self.delegate managerCallAPIDidFailed:self];
+    }
+    [self afterPerformFailWithResponse:response];
 }
 
 #pragma mark - method for interceptor

@@ -8,6 +8,7 @@
 
 #import "GDMapService.h"
 #import "CTNetworkingConfigurationManager.h"
+
 @implementation GDMapService
 
 #pragma mark - CTServiceProtocal
@@ -55,5 +56,50 @@
 {
     return @"";
 }
+
+//为某些Service需要拼凑额外字段到URL处
+- (NSDictionary *)extraParmas {
+//    return @{@"key": @"374910422"};
+    return nil;
+}
+
+//为某些Service需要拼凑额外的HTTPToken，如accessToken
+- (NSDictionary *)extraHttpHeadParmasWithMethodName:(NSString *)method {
+    return @{@"sessionID": [[NSUUID UUID]UUIDString]};
+}
+
+//- (NSString *)urlGeneratingRuleByMethodName:(NSString *)methodName {
+//    return [NSString stringWithFormat:@"%@/%@/%@", self.apiBaseUrl, self.apiVersion, methodName];
+//}
+
+
+- (void)failedOnCallingAPI:(CTURLResponse *)response {
+    if ([response.content[@"id"] isEqualToString:@"expired_access_token"]) {
+        // token 失效
+        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenInvalidNotification
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
+                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
+                                                                     }];
+    } else if ([response.content[@"id"] isEqualToString:@"illegal_access_token"]) {
+        // token 无效，重新登录
+        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
+                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
+                                                                     }];
+    } else if ([response.content[@"id"] isEqualToString:@"no_permission_for_this_api"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kBSUserTokenIllegalNotification
+                                                            object:nil
+                                                          userInfo:@{
+                                                                     kBSUserTokenNotificationUserInfoKeyRequestToContinue:[response.request mutableCopy],
+                                                                     kBSUserTokenNotificationUserInfoKeyManagerToContinue:self
+                                                                     }];
+    }
+}
+
+
 
 @end

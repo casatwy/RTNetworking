@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, CTURLResponseStatus)
 @property (nonatomic, copy, readonly) NSURLRequest *request;
 @property (nonatomic, copy, readonly) NSData *responseData;
 @property (nonatomic, copy) NSDictionary *requestParams;
+@property (nonatomic, strong, readonly) NSError *error;
 
 @property (nonatomic, assign, readonly) BOOL isCache;
 

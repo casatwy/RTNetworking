@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CTURLResponse.h"
 
 // 所有CTService的派生类都要符合这个protocol
 @protocol CTServiceProtocol <NSObject>
@@ -34,6 +35,11 @@
 - (NSDictionary *)extraHttpHeadParmasWithMethodName:(NSString *)method;
 
 - (NSString *)urlGeneratingRuleByMethodName:(NSString *)method;
+
+//- (void)successedOnCallingAPI:(CTURLResponse *)response;
+
+//提供拦截器集中处理Service错误问题，比如token失效要抛通知等
+- (void)failedOnCallingAPI:(CTURLResponse *)response;
 
 @end
 
