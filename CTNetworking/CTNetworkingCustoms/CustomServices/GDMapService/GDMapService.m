@@ -59,8 +59,8 @@
 
 //为某些Service需要拼凑额外字段到URL处
 - (NSDictionary *)extraParmas {
-//    return @{@"key": @"374910422"};
-    return nil;
+    return @{@"key": @"374910422"};
+//    return nil;
 }
 
 //为某些Service需要拼凑额外的HTTPToken，如accessToken

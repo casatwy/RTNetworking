@@ -60,7 +60,8 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
         if ([self conformsToProtocol:@protocol(CTAPIManager)]) {
             self.child = (id <CTAPIManager>)self;
         } else {
-            NSException *exception = [[NSException alloc] init];
+            self.child = (id <CTAPIManager>)self;
+            NSException *exception = [[NSException alloc] initWithName:@"CTAPIBaseManager提示" reason:[NSString stringWithFormat:@"%@没有遵循CTAPIManager协议",self.child] userInfo:nil];
             @throw exception;
         }
     }
