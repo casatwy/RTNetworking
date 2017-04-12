@@ -31,7 +31,7 @@
 @property (nonatomic, weak) id<CTAPICommandDelegate> delegate;
 @property (nonatomic, strong) LGBaseAPICommand *next;
 @property (nonatomic, strong) CTAPIBaseManager *apiManager;
-@property (nonatomic, weak) id<CTAPICommand> child;
+//@property (nonatomic, weak) id<CTAPICommand> child;
 
 
 - (void)excute;

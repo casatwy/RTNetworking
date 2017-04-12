@@ -15,22 +15,22 @@
 
 @implementation LGBaseAPICommand
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _delegate = nil;
-        
-        if ([self conformsToProtocol:@protocol(CTAPICommand)]) {
-            self.child = (id <CTAPICommand>)self;
-        } else {
-            self.child = (id <CTAPICommand>)self;
-            NSException *exception = [[NSException alloc] initWithName:@"LGBaseAPICommand提示" reason:[NSString stringWithFormat:@"%@没有遵循CTAPICommand协议",self.child] userInfo:nil];
-            @throw exception;
-        }
-    }
-    return self;
-}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        _delegate = nil;
+//        
+//        if ([self conformsToProtocol:@protocol(CTAPICommand)]) {
+//            self.child = (id <CTAPICommand>)self;
+//        } else {
+//            self.child = (id <CTAPICommand>)self;
+//            NSException *exception = [[NSException alloc] initWithName:@"LGBaseAPICommand提示" reason:[NSString stringWithFormat:@"%@没有遵循CTAPICommand协议",self.child] userInfo:nil];
+//            @throw exception;
+//        }
+//    }
+//    return self;
+//}
 
 - (void)setApiManager:(CTAPIBaseManager *)apiManager {
     _apiManager = apiManager;
