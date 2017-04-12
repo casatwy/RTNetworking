@@ -7,11 +7,10 @@
 //
 
 #import "CTLogger.h"
-#import "NSObject+AXNetworkingMethods.h"
-#import "NSMutableString+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
+#import "NSMutableString+CTNetworkingMethods.h"
 #import "CTCommonParamsGenerator.h"
-#import "CTAppContext.h"
-#import "NSArray+AXNetworkingMethods.h"
+#import "NSArray+CTNetworkingMethods.h"
 #import "CTApiProxy.h"
 #import "CTServiceFactory.h"
 
@@ -46,7 +45,7 @@
     [logString appendFormat:@"Private Key:\t%@\n", [service.privateKey CT_defaultValue:@"N/A"]];
     [logString appendFormat:@"Params:\n%@", requestParams];
     
-    [logString appendURLRequest:request];
+    [logString CT_appendURLRequest:request];
     
     [logString appendFormat:@"\n\n**************************************************************\n*                         Request End                        *\n**************************************************************\n\n\n\n"];
     NSLog(@"%@", logString);
@@ -72,7 +71,7 @@
     
     [logString appendString:@"\n---------------  Related Request Content  --------------\n"];
     
-    [logString appendURLRequest:request];
+    [logString CT_appendURLRequest:request];
     
     [logString appendFormat:@"\n\n==============================================================\n=                        Response End                        =\n==============================================================\n\n\n\n"];
     
@@ -124,7 +123,7 @@
     actionDict[@"act"] = actionCode;
     [actionDict addEntriesFromDictionary:params];
     [actionDict addEntriesFromDictionary:[CTCommonParamsGenerator commonParamsDictionaryForLog]];
-    NSDictionary *logJsonDict = @{self.configParams.sendActionKey:[@[actionDict] AX_jsonString]};
+    NSDictionary *logJsonDict = @{self.configParams.sendActionKey:[@[actionDict] CT_jsonString]};
     [[CTApiProxy sharedInstance] callPOSTWithParams:logJsonDict serviceIdentifier:self.configParams.serviceType methodName:self.configParams.sendActionMethod success:nil fail:nil];
 }
 

@@ -10,15 +10,13 @@
 #import "CTSignatureGenerator.h"
 #import "CTServiceFactory.h"
 #import "CTCommonParamsGenerator.h"
-#import "NSDictionary+AXNetworkingMethods.h"
-#import "CTNetworkingConfiguration.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSDictionary+CTNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 #import <AFNetworking/AFNetworking.h>
 #import "CTService.h"
-#import "NSObject+AXNetworkingMethods.h"
 #import "CTLogger.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
-
+#import "CTNetworkingConfigurationManager.h"
 @interface CTRequestGenerator ()
 
 @property (nonatomic, strong) AFHTTPRequestSerializer *httpRequestSerializer;
@@ -39,78 +37,72 @@
 
 - (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
 {
-    CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    NSString *urlString;
-    if (service.apiVersion.length != 0) {
-        urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    } else {
-        urlString = [NSString stringWithFormat:@"%@/%@", service.apiBaseUrl, methodName];
-    }
-    
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:urlString parameters:requestParams error:NULL];
-    request.requestParams = requestParams;
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
-    return request;
+    return [self generateRequestWithServiceIdentifier:serviceIdentifier requestParams:requestParams methodName:methodName requestWithMethod:@"GET"];
 }
 
 - (NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
 {
-    CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:urlString parameters:requestParams error:NULL];
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
-    request.requestParams = requestParams;
-    return request;
+    return [self generateRequestWithServiceIdentifier:serviceIdentifier requestParams:requestParams methodName:methodName requestWithMethod:@"POST"];
 }
 
 - (NSURLRequest *)generatePutRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
 {
-    CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
-    
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
-    
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"PUT" URLString:urlString parameters:requestParams error:NULL];
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
-    }
-    request.requestParams = requestParams;
-    return request;
+    return [self generateRequestWithServiceIdentifier:serviceIdentifier requestParams:requestParams methodName:methodName requestWithMethod:@"PUT"];
 }
 
 - (NSURLRequest *)generateDeleteRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
 {
+    return [self generateRequestWithServiceIdentifier:serviceIdentifier requestParams:requestParams methodName:methodName requestWithMethod:@"DELETE"];
+}
+
+- (NSURLRequest *)generateRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName requestWithMethod:(NSString *)method {
     CTService *service = [[CTServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@/%@", service.apiBaseUrl, service.apiVersion, methodName];
+    NSString *urlString = [service urlGeneratingRuleByMethodName:methodName];
     
-    [self.httpRequestSerializer setValue:[[NSUUID UUID] UUIDString] forHTTPHeaderField:@"xxxxxxxx"];
+    NSDictionary *totalRequestParams = [self totalRequestParamsByService:service requestParams:requestParams];
     
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"DELETE" URLString:urlString parameters:requestParams error:NULL];
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
-    if ([CTAppContext sharedInstance].accessToken) {
-        [request setValue:[CTAppContext sharedInstance].accessToken forHTTPHeaderField:@"xxxxxxxx"];
+    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:method URLString:urlString parameters:totalRequestParams error:NULL];
+    
+    if (![method isEqualToString:@"GET"] && [CTNetworkingConfigurationManager sharedInstance].shouldSetParamsInHTTPBodyButGET) {
+        request.HTTPBody = [NSJSONSerialization dataWithJSONObject:requestParams options:0 error:NULL];
     }
-    request.requestParams = requestParams;
+    
+    if ([service.child respondsToSelector:@selector(extraHttpHeadParmasWithMethodName:)]) {
+        NSDictionary *dict = [service.child extraHttpHeadParmasWithMethodName:methodName];
+        if (dict) {
+            [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [request setValue:obj forHTTPHeaderField:key];
+            }];
+        }
+    }
+    
+    request.requestParams = totalRequestParams;
     return request;
 }
+
+
+#pragma mark - private method
+//根据Service拼接额外参数
+- (NSDictionary *)totalRequestParamsByService:(CTService *)service requestParams:(NSDictionary *)requestParams {
+    NSMutableDictionary *totalRequestParams = [NSMutableDictionary dictionaryWithDictionary:requestParams];
+    
+    if ([service.child respondsToSelector:@selector(extraParmas)]) {
+        if ([service.child extraParmas]) {
+            [[service.child extraParmas] enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [totalRequestParams setObject:obj forKey:key];
+            }];
+        }
+    }
+    return [totalRequestParams copy];
+}
+
 
 #pragma mark - getters and setters
 - (AFHTTPRequestSerializer *)httpRequestSerializer
 {
     if (_httpRequestSerializer == nil) {
         _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = kCTNetworkingTimeoutSeconds;
+        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
         _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     }
     return _httpRequestSerializer;

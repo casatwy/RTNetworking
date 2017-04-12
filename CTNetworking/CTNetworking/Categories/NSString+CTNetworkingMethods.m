@@ -1,18 +1,18 @@
 //
-//  NSString+AXNetworkingMethods.m
+//  NSString+CTNetworkingMethods.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "NSString+AXNetworkingMethods.h"
+#import "NSString+CTNetworkingMethods.h"
 #include <CommonCrypto/CommonDigest.h>
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 
-@implementation NSString (AXNetworkingMethods)
+@implementation NSString (CTNetworkingMethods)
 
-- (NSString *)AX_md5
+- (NSString *)CT_md5
 {
 	NSData* inputData = [self dataUsingEncoding:NSUTF8StringEncoding];
 	unsigned char outputData[CC_MD5_DIGEST_LENGTH];

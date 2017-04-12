@@ -8,9 +8,9 @@
 
 #import "CTSignatureGenerator.h"
 #import "CTCommonParamsGenerator.h"
-#import "NSDictionary+AXNetworkingMethods.h"
-#import "NSString+AXNetworkingMethods.h"
-#import "NSArray+AXNetworkingMethods.h"
+#import "NSDictionary+CTNetworkingMethods.h"
+#import "NSString+CTNetworkingMethods.h"
+#import "NSArray+CTNetworkingMethods.h"
 
 @implementation CTSignatureGenerator
 
@@ -18,7 +18,7 @@
 + (NSString *)signGetWithSigParams:(NSDictionary *)allParams methodName:(NSString *)methodName apiVersion:(NSString *)apiVersion privateKey:(NSString *)privateKey publicKey:(NSString *)publicKey
 {
     NSString *sigString = [allParams CT_urlParamsStringSignature:YES];
-    return [[NSString stringWithFormat:@"%@%@", sigString, privateKey] AX_md5];
+    return [[NSString stringWithFormat:@"%@%@", sigString, privateKey] CT_md5];
 }
 
 + (NSString *)signRestfulGetWithAllParams:(NSDictionary *)allParams methodName:(NSString *)methodName apiVersion:(NSString *)apiVersion privateKey:(NSString *)privateKey
@@ -28,7 +28,7 @@
     NSString *part3 = privateKey;
     
     NSString *beforeSign = [NSString stringWithFormat:@"%@%@%@", part1, part2, part3];
-    return [beforeSign AX_md5];
+    return [beforeSign CT_md5];
 }
 
 + (NSString *)signPostWithApiParams:(NSDictionary *)apiParams privateKey:(NSString *)privateKey publicKey:(NSString *)publicKey
@@ -36,7 +36,7 @@
     NSMutableDictionary *sigParams = [NSMutableDictionary dictionaryWithDictionary:apiParams];
     sigParams[@"api_key"] = publicKey;
     NSString *sigString = [sigParams CT_urlParamsStringSignature:YES];
-    return [[NSString stringWithFormat:@"%@%@", sigString, privateKey] AX_md5];
+    return [[NSString stringWithFormat:@"%@%@", sigString, privateKey] CT_md5];
 }
 
 + (NSString *)signRestfulPOSTWithApiParams:(id)apiParams commonParams:(NSDictionary *)commonParams methodName:(NSString *)methodName apiVersion:(NSString *)apiVersion privateKey:(NSString *)privateKey
@@ -47,7 +47,7 @@
     if ([apiParams isKindOfClass:[NSDictionary class]]) {
         part3 = [(NSDictionary *)apiParams CT_jsonString];
     } else if ([apiParams isKindOfClass:[NSArray class]]) {
-        part3 = [(NSArray *)apiParams AX_jsonString];
+        part3 = [(NSArray *)apiParams CT_jsonString];
     } else {
         return @"";
     }
@@ -56,7 +56,7 @@
     
     NSString *beforeSign = [NSString stringWithFormat:@"%@%@%@%@", part1, part2, part3, part4];
     
-    return [beforeSign AX_md5];
+    return [beforeSign CT_md5];
 }
 
 @end

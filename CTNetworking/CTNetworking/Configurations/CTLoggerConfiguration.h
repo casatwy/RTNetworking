@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CTAppContext.h"
 
 @interface CTLoggerConfiguration : NSObject
 
@@ -35,6 +34,6 @@
 /** 发送Action记录时使用的key */
 @property (nonatomic, strong) NSString *sendActionKey;
 
-- (void)configWithAppType:(CTAppType)appType;
+//- (void)configWithAppType:(CTAppType)appType;
 
 @end

@@ -6,9 +6,8 @@
 //  Copyright 2011 Aurora Apps. All rights reserved.
 //
 
-#import "UIDevice+IdentifierAddition.h"
-#import "CTUDIDGenerator.h"
-#import "NSString+AXNetworkingMethods.h"
+#import "UIDevice+CTNetworkingMethods.h"
+#import "NSString+CTNetworkingMethods.h"
 
 #include <sys/socket.h> // Per msqr
 #include <sys/sysctl.h>
@@ -22,7 +21,7 @@
 
 @end
 
-@implementation UIDevice (IdentifierAddition)
+@implementation UIDevice (CTNetworkingMethods)
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -89,27 +88,6 @@
     return (__bridge_transfer NSString *)string;
 }
 
-- (NSString *)CT_uuid
-{
-    NSString *key = @"RTUUID";
-    NSString *uuid = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-    if (uuid.length == 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:[self CT_createUUID] forKey:key];
-        return [[[NSUserDefaults standardUserDefaults] objectForKey:key] copy];
-    } else {
-        return uuid;
-    }
-}
-
-- (NSString *) CT_udid
-{
-    NSString *udid = [[CTUDIDGenerator sharedInstance] UDID];
-    if (udid.length==0) {
-        udid = [self CT_uuid];
-        [[CTUDIDGenerator sharedInstance] saveUDID:udid];
-    }
-    return udid;
-}
 
 - (NSString *)CT_macaddress
 {
@@ -131,7 +109,7 @@
     NSString *macid = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (macid.length == 0) {
         NSString *macaddress = [[UIDevice currentDevice] CT_macaddress];
-        macid = [macaddress AX_md5];
+        macid = [macaddress CT_md5];
         if (!macid){
             macid = @"macaddress_empty";
         }else{
@@ -195,34 +173,5 @@
     return ostype;
 }
 
-#pragma mark - 兼容旧版本
-- (NSString *) uuid
-{
-    return self.CT_uuid;
-}
-- (NSString *) udid
-{
-    return self.CT_udid;
-}
-- (NSString *) macaddress
-{
-    return self.CT_macaddress;
-}
-- (NSString *) macaddressMD5
-{
-    return self.CT_macaddressMD5;
-}
-- (NSString *) machineType
-{
-    return self.CT_machineType;
-}
-- (NSString *) ostype//显示“ios6，ios5”，只显示大版本号
-{
-    return self.CT_ostype;
-}
-- (NSString *) createUUID
-{
-    return [self.CT_createUUID copy];
-}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CTURLResponse.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
 @interface CTURLResponse ()
@@ -19,6 +19,7 @@
 @property (nonatomic, assign, readwrite) NSInteger requestId;
 @property (nonatomic, copy, readwrite) NSData *responseData;
 @property (nonatomic, assign, readwrite) BOOL isCache;
+@property (nonatomic, strong, readwrite) NSError *error;
 
 @end
 
@@ -37,6 +38,7 @@
         self.responseData = responseData;
         self.requestParams = request.requestParams;
         self.isCache = NO;
+        self.error = nil;
     }
     return self;
 }
@@ -52,7 +54,7 @@
         self.responseData = responseData;
         self.requestParams = request.requestParams;
         self.isCache = NO;
-        
+        self.error = error;
         if (responseData) {
             self.content = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:NULL];
         } else {
@@ -85,7 +87,7 @@
         
         // 除了超时以外，所有错误都当成是无网络
         if (error.code == NSURLErrorTimedOut) {
-            result = CTURLResponseStatusErrorNoNetwork;
+            result = CTURLResponseStatusErrorTimeout;
         }
         return result;
     } else {

@@ -1,17 +1,17 @@
 //
-//  NSMutableString+AXNetworkingMethods.m
+//  NSMutableString+CTNetworkingMethods.m
 //  RTNetworking
 //
 //  Created by casa on 14-5-17.
 //  Copyright (c) 2014年 casatwy. All rights reserved.
 //
 
-#import "NSMutableString+AXNetworkingMethods.h"
-#import "NSObject+AXNetworkingMethods.h"
+#import "NSMutableString+CTNetworkingMethods.h"
+#import "NSObject+CTNetworkingMethods.h"
 
-@implementation NSMutableString (AXNetworkingMethods)
+@implementation NSMutableString (CTNetworkingMethods)
 
-- (void)appendURLRequest:(NSURLRequest *)request
+- (void)CT_appendURLRequest:(NSURLRequest *)request
 {
     [self appendFormat:@"\n\nHTTP URL:\n\t%@", request.URL];
     [self appendFormat:@"\n\nHTTP Header:\n%@", request.allHTTPHeaderFields ? request.allHTTPHeaderFields : @"\t\t\t\t\tN/A"];

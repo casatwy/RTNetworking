@@ -1,5 +1,5 @@
 //
-//  NSObject+AXNetworkingMethods.h
+//  NSObject+CTNetworkingMethods.h
 //  RTNetworking
 //
 //  Created by casa on 14-5-6.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (AXNetworkingMethods)
+@interface NSObject (CTNetworkingMethods)
 
 - (id)CT_defaultValue:(id)defaultData;
 - (BOOL)CT_isEmptyObject;
