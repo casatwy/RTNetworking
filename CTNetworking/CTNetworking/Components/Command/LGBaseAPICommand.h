@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "CTAPIBaseManager.h"
-
+@class LGBaseAPICommand;
 
 @protocol CTAPICommandDelegate <NSObject>
 
 @required
-- (void)commandDidSuccess:(CTAPIBaseManager *)apiManager;
-- (void)commandDidFailed:(CTAPIBaseManager *)apiManager;
+- (void)commandDidSuccess:(LGBaseAPICommand *)command;
+- (void)commandDidFailed:(LGBaseAPICommand *)command;
 
 @end
 

@@ -46,7 +46,7 @@
 #pragma mark - CTAPIManagerCallBackDelegate
 - (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager {
     if (manager == self.apiManager && [self.delegate respondsToSelector:@selector(commandDidSuccess:)]) {
-        [self.delegate commandDidSuccess:manager];
+        [self.delegate commandDidSuccess:self];
         if (self.next) {
             [self.next excute];
         }
@@ -55,7 +55,7 @@
 
 - (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager {
     if (manager == self.apiManager && [self.delegate respondsToSelector:@selector(commandDidFailed:)]) {
-        [self.delegate commandDidFailed:manager];
+        [self.delegate commandDidFailed:self];
     }
 }
 
