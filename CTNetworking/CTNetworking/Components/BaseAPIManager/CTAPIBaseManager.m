@@ -13,17 +13,18 @@
 #import "CTServiceFactory.h"
 #import "CTApiProxy.h"
 #import "CTNetworkingConfigurationManager.h"
+
 #define AXCallAPI(REQUEST_METHOD, REQUEST_ID)                                                   \
 {                                                                                               \
-__weak typeof(self) weakSelf = self;                                                        \
-REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) { \
-__strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-[strongSelf successedOnCallingAPI:response];                                            \
-} fail:^(CTURLResponse *response) {                                                        \
-__strong typeof(weakSelf) strongSelf = weakSelf;                                        \
-[strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
-}];                                                                                         \
-[self.requestIdList addObject:@(REQUEST_ID)];                                               \
+    __weak typeof(self) weakSelf = self;                                                        \
+    REQUEST_ID = [[CTApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(CTURLResponse *response) {                                         \
+        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
+        [strongSelf successedOnCallingAPI:response];                                            \
+    } fail:^(CTURLResponse *response) {                                                         \
+        __strong typeof(weakSelf) strongSelf = weakSelf;                                        \
+        [strongSelf failedOnCallingAPI:response withErrorType:CTAPIManagerErrorTypeDefault];    \
+    }];                                                                                         \
+    [self.requestIdList addObject:@(REQUEST_ID)];                                                   \
 }
 
 
@@ -169,7 +170,6 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
     if ([self.child shouldLoadFromNative]) {
         if (response.isCache == NO) {
             [[NSUserDefaults standardUserDefaults] setObject:response.responseData forKey:[self.child methodName]];
-            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }
     
@@ -379,9 +379,8 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
 
 - (void)loadDataFromNative
 {
-    NSString *methodName = self.child.methodName;
-    NSDictionary *result = (NSDictionary *)[[NSUserDefaults standardUserDefaults] objectForKey:methodName];
-    
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:[[NSUserDefaults standardUserDefaults] dataForKey:self.child.methodName] options:0 error:NULL];
+
     if (result) {
         self.isNativeDataEmpty = NO;
         __weak typeof(self) weakSelf = self;
