@@ -21,4 +21,6 @@
 //Extension
 - (NSURLRequest *)generateRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName requestWithMethod:(NSString *)method;
 
+- (void)rest;
+
 @end
