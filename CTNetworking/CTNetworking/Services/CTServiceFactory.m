@@ -41,16 +41,20 @@
     });
     return sharedInstance;
 }
-
+//多线程环境可能会引起崩溃，对dataSource加个同步锁
 #pragma mark - public methods
 - (CTService<CTServiceProtocol> *)serviceWithIdentifier:(NSString *)identifier
 {
-    NSAssert(self.dataSource, @"必须提供dataSource绑定并实现servicesKindsOfServiceFactory方法，否则无法正常使用Service模块");
-    
-    if (self.serviceStorage[identifier] == nil) {
-        self.serviceStorage[identifier] = [self newServiceWithIdentifier:identifier];
+    @synchronized (self.dataSource) {
+
+        NSAssert(self.dataSource, @"必须提供dataSource绑定并实现servicesKindsOfServiceFactory方法，否则无法正常使用Service模块");
+        
+        if (self.serviceStorage[identifier] == nil) {
+            self.serviceStorage[identifier] = [self newServiceWithIdentifier:identifier];
+        }
+        return self.serviceStorage[identifier];
+
     }
-    return self.serviceStorage[identifier];
 }
 
 #pragma mark - private methods

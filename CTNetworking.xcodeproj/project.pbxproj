@@ -43,6 +43,7 @@
 		ABC678851CF7251400B520A6 /* CTService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678661CF7251400B520A6 /* CTService.m */; };
 		ABC678861CF7251400B520A6 /* CTServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678681CF7251400B520A6 /* CTServiceFactory.m */; };
 		ABC678981CF7271000B520A6 /* GDMapService.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC678941CF7271000B520A6 /* GDMapService.m */; };
+		ECE446EF1F45864700BCB7D8 /* CLBasicCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE446EE1F45864700BCB7D8 /* CLBasicCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		ABC678681CF7251400B520A6 /* CTServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTServiceFactory.m; sourceTree = "<group>"; };
 		ABC678931CF7271000B520A6 /* GDMapService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDMapService.h; sourceTree = "<group>"; };
 		ABC678941CF7271000B520A6 /* GDMapService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDMapService.m; sourceTree = "<group>"; };
+		ECE446ED1F45864700BCB7D8 /* CLBasicCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBasicCommand.h; sourceTree = "<group>"; };
+		ECE446EE1F45864700BCB7D8 /* CLBasicCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLBasicCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 		7518BE571E9E320400322FD6 /* Command */ = {
 			isa = PBXGroup;
 			children = (
+				ECE446ED1F45864700BCB7D8 /* CLBasicCommand.h */,
+				ECE446EE1F45864700BCB7D8 /* CLBasicCommand.m */,
 				7518BE581E9E321C00322FD6 /* LGBaseAPICommand.h */,
 				7518BE591E9E321C00322FD6 /* LGBaseAPICommand.m */,
 			);
@@ -479,6 +484,7 @@
 				TargetAttributes = {
 					ABC6770D1CF707C100B520A6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = TST4LEUS93;
 					};
 				};
 			};
@@ -603,7 +609,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -619,6 +625,7 @@
 				ABC678791CF7251400B520A6 /* CTAPIBaseManager.m in Sources */,
 				ABC677191CF707C100B520A6 /* TestViewController.m in Sources */,
 				ABC678741CF7251400B520A6 /* NSString+CTNetworkingMethods.m in Sources */,
+				ECE446EF1F45864700BCB7D8 /* CLBasicCommand.m in Sources */,
 				7518BE5A1E9E321C00322FD6 /* LGBaseAPICommand.m in Sources */,
 				75DEBEDF1E9B5EFC000046DC /* CTHTTPConst.m in Sources */,
 				ABC678721CF7251400B520A6 /* NSMutableString+CTNetworkingMethods.m in Sources */,
@@ -753,10 +760,11 @@
 			baseConfigurationReference = 47AEE7F0CEEB2B4E104FE886 /* Pods-CTNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TST4LEUS93;
 				INFOPLIST_FILE = CTNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking;
+				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -766,10 +774,11 @@
 			baseConfigurationReference = 4ADD3645D6296652217469EC /* Pods-CTNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = TST4LEUS93;
 				INFOPLIST_FILE = CTNetworking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking;
+				PRODUCT_BUNDLE_IDENTIFIER = me.longfan.CTNetworking123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

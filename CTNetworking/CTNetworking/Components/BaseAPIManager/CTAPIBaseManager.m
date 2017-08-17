@@ -99,6 +99,18 @@
     return resultData;
 }
 
+- (id)fetchFailedRequstMsg:(id<CTAPIManagerDataReformer>)reformer {
+    
+    id resultData = nil;
+    if ([reformer respondsToSelector:@selector(manager:failedReform:)]) {
+        
+        resultData = [reformer manager:self failedReform:self.fetchedRawData];
+    } else
+        resultData = [self.fetchedRawData mutableCopy];
+    return resultData;
+}
+
+
 #pragma mark - calling api
 - (NSInteger)loadData
 {

@@ -30,9 +30,26 @@
     static dispatch_once_t onceToken;
     static CTRequestGenerator *sharedInstance = nil;
     dispatch_once(&onceToken, ^{
+       
         sharedInstance = [[CTRequestGenerator alloc] init];
     });
     return sharedInstance;
+}
+
+- (instancetype)init {
+    
+    self = [super init];
+    [self initialRequestGenerator];
+    return self;
+}
+
+//
+- (void)initialRequestGenerator {
+    
+    _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
+    _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
+    _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
+
 }
 
 - (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
@@ -96,15 +113,23 @@
     return [totalRequestParams copy];
 }
 
+#pragma mark test
+
+- (void)rest {
+    
+    //self.httpRequestSerializer = nil;
+}
 
 #pragma mark - getters and setters
-- (AFHTTPRequestSerializer *)httpRequestSerializer
-{
-    if (_httpRequestSerializer == nil) {
-        _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
-        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-    }
-    return _httpRequestSerializer;
-}
+//- (AFHTTPRequestSerializer *)httpRequestSerializer {
+//
+//    if (_httpRequestSerializer == nil) {
+//        
+//        _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
+//        _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
+//        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
+//    }
+// 
+//    return _httpRequestSerializer;
+//}
 @end
