@@ -142,6 +142,9 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
  }
  */
 - (id)manager:(CTAPIBaseManager *)manager reformData:(NSDictionary *)data;
+//用于获取服务器返回的错误信息
+@optional
+-(id)manager:(CTAPIBaseManager *)manager failedReform:(NSDictionary *)data;
 @end
 
 
@@ -301,6 +304,9 @@ typedef NS_ENUM (NSUInteger, CTAPIManagerRequestType){
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
 - (id)fetchDataWithReformer:(id<CTAPIManagerDataReformer>)reformer;
+
+//来去从服务器获得的错误信息
+- (id)fetchFailedRequstMsg:(id<CTAPIManagerDataReformer>)reformer;
 
 //尽量使用loadData这个方法,这个方法会通过param source来获得参数，这使得参数的生成逻辑位于controller中的固定位置
 - (NSInteger)loadData;

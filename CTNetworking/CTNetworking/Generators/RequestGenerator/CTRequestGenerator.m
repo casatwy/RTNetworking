@@ -39,11 +39,12 @@
 - (instancetype)init {
     
     self = [super init];
-    [self initalRequestGenerator];
+    [self initialRequestGenerator];
     return self;
 }
 
-- (void)initalRequestGenerator {
+//
+- (void)initialRequestGenerator {
     
     _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
     _httpRequestSerializer.timeoutInterval = [CTNetworkingConfigurationManager sharedInstance].apiNetworkingTimeoutSeconds;
