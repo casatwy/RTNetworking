@@ -97,10 +97,10 @@
 
 - (void)layoutMultiTestButton {
     
-    self.multithreadTest.x = 100;
-    self.multithreadTest.y = 200;
-    self.multithreadTest.width = 100;
-    self.multithreadTest.height = 30;
+    self.multithreadTest.ct_x = 100;
+    self.multithreadTest.ct_y = 200;
+    self.multithreadTest.ct_width = 100;
+    self.multithreadTest.ct_height = 30;
 }
 #pragma mark - CTAPIManagerParamSource
 - (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager
